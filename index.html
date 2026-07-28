@@ -1,486 +1,715 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kings League - VRFS</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-color: #0b0e14;
-      --card-bg: rgba(22, 27, 34, 0.85);
-      --accent-gold: #d4af37;
-      --accent-gold-hover: #f3e5ab;
-      --text-main: #f0f6fc;
-      --text-sub: #8b949e;
-      --border-color: rgba(212, 175, 55, 0.2);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kings League</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+        body {
+            background-image: url('bg.png'); 
+            background-repeat: repeat;
+            background-position: center;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            direction: rtl;
+        }
 
-    body {
-      background-color: var(--bg-color);
-      background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15), transparent 70%), url('bg.png');
-      background-repeat: repeat;
-      background-position: center;
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        .container {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(18, 18, 18, 0.95);
+            border: 2px solid #e5a93c;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
 
-    header {
-      background: rgba(11, 14, 20, 0.95);
-      border-bottom: 1px solid var(--border-color);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
 
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .logos img {
+            height: auto;
+            object-fit: contain;
+        }
 
-    .logos-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+        .logo-kings { width: 80px; }
+        .logo-vrfs { width: 65px; }
 
-    .logo-img {
-      height: 45px;
-      object-fit: contain;
-    }
+        h1.title {
+            font-size: 22px;
+            color: #f1b335;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-    .region-switch {
-      display: flex;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 4px;
-      border: 1px solid var(--border-color);
-    }
+        .view {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    .region-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-sub);
-      padding: 6px 16px;
-      border-radius: 16px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
+        .view.active { display: flex; }
 
-    .region-btn.active {
-      background: var(--accent-gold);
-      color: #000;
-    }
+        .btn {
+            background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+            color: #ffffff;
+            border: 1px solid #e5a93c;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            width: 100%;
+        }
 
-    main {
-      flex: 1;
-      max-width: 1000px;
-      width: 100%;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+        .btn:hover {
+            background: #e5a93c;
+            color: #000;
+            transform: translateY(-2px);
+        }
 
-    .rules-category {
-      margin-bottom: 40px;
-    }
+        .btn-back {
+            background: #444444;
+            border-color: #666;
+            margin-top: 15px;
+            position: sticky;
+            bottom: 0;
+        }
 
-    .category-title {
-      font-size: 1.5rem;
-      color: var(--accent-gold);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 10px;
-    }
+        .btn-back:hover {
+            background: #666666;
+            color: #fff;
+        }
 
-    .rule-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 15px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      backdrop-filter: blur(5px);
-    }
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed #e5a93c;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
 
-    .rule-number {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--accent-gold);
-      background: rgba(212, 175, 55, 0.1);
-      padding: 5px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      min-width: 45px;
-      text-align: center;
-    }
+        /* تنسيقات القوانين مع ضبط اتجاه النصوص */
+        .rules-wrapper {
+            max-height: 450px;
+            overflow-y: auto;
+            padding-left: 10px;
+            text-align: right;
+            line-height: 1.8;
+            font-size: 14px;
+            direction: rtl;
+        }
 
-    .rule-content h4 {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      color: var(--text-main);
-    }
+        .rules-wrapper.ltr {
+            text-align: left;
+            direction: ltr;
+        }
 
-    .rule-content p {
-      color: var(--text-sub);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
+        .rules-wrapper::-webkit-scrollbar { width: 6px; }
+        .rules-wrapper::-webkit-scrollbar-thumb {
+            background: #e5a93c;
+            border-radius: 10px;
+        }
 
-    .region-view {
-      display: none;
-    }
+        .rule-card {
+            background: rgba(30, 30, 30, 0.85);
+            border-right: 4px solid #e5a93c;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            text-align: right;
+        }
 
-    .region-view.active {
-      display: block;
-    }
+        .rules-wrapper.ltr .rule-card {
+            border-right: none;
+            border-left: 4px solid #e5a93c;
+            text-align: left;
+        }
 
-    /* English LTR styling */
-    [dir="ltr"] .rule-card {
-      text-align: left;
-    }
-  </style>
+        .rule-card h4 {
+            color: #f1b335;
+            font-size: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rule-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rule-card li {
+            position: relative;
+            padding-right: 18px;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .rules-wrapper.ltr .rule-card li {
+            padding-right: 0;
+            padding-left: 18px;
+        }
+
+        .rule-card li::before {
+            content: "•";
+            color: #e5a93c;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+
+        .rules-wrapper.ltr .rule-card li::before {
+            right: auto;
+            left: 0;
+        }
+
+        /* حماية الكلمات الإنجليزية والأرقام من الانقلاب */
+        .eng {
+            direction: ltr;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            unicode-bidi: isolate;
+        }
+
+        .highlight {
+            color: #f1b335;
+            font-weight: bold;
+        }
+        .time-badge {
+            background: #332305;
+            color: #f1b335;
+            border: 1px solid #e5a93c;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            direction: ltr;
+        }
+        .danger-badge {
+            color: #ff5555;
+            font-weight: bold;
+        }
+        .card-yellow {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .card-red {
+            color: #ff4444;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-container">
-      <div class="logos-container">
-        <img src="kings_logo.png" alt="Kings League" class="logo-img">
-        <img src="vrfs_logo.png" alt="VRFS" class="logo-img">
-      </div>
-      <div class="region-switch">
-        <button class="region-btn active" onclick="switchRegion('mest')">MEST (عربي)</button>
-        <button class="region-btn" onclick="switchRegion('eu')">EU (English)</button>
-      </div>
+    <div class="container">
+        <!-- الشعارات والعنوان -->
+        <div class="logos">
+            <img src="kings_logo.png" alt="Kings League Logo" class="logo-kings">
+            <img src="vrfs_logo.png" alt="VRFS Logo" class="logo-vrfs">
+        </div>
+        <h1 class="title">WELCOME IN KINGS LEAGUE</h1>
+
+        <!-- الشاشة الرئيسية -->
+        <div id="main-view" class="view active">
+            <button class="btn" onclick="showView('mest-view')">Kings League MEST</button>
+            <button class="btn" onclick="showView('eu-view')">Kings League EU</button>
+        </div>
+
+        <!-- قائمة MEST (عربي) -->
+        <div id="mest-view" class="view">
+            <button class="btn" onclick="showInfo('mest-schedule-view')">جدول المباريات</button>
+            <button class="btn" onclick="showInfo('mest-standings-view')">ترتيب الدوري</button>
+            <button class="btn" onclick="showView('mest-rules-view')">القوانين</button>
+            <button class="btn" onclick="showInfo('mest-stats-view')">الإحصائيات</button>
+            <button class="btn btn-back" onclick="showView('main-view')">عودة</button>
+        </div>
+
+        <!-- قائمة EU (إنجليزي) -->
+        <div id="eu-view" class="view">
+            <button class="btn" onclick="showInfo('eu-schedule-view')">Match Schedule</button>
+            <button class="btn" onclick="showInfo('eu-standings-view')">League Table / Standings</button>
+            <button class="btn" onclick="showView('eu-rules-view')">Rules</button>
+            <button class="btn" onclick="showInfo('eu-stats-view')">Statistics</button>
+            <button class="btn btn-back" onclick="showView('main-view')">Back</button>
+        </div>
+
+        <!-- أزرار اختيار القوانين MEST -->
+        <div id="mest-rules-view" class="view">
+            <button class="btn" onclick="showView('server-rules-ar')">قوانين السيرفر</button>
+            <button class="btn" onclick="showView('game-rules-ar')">قوانين اللعبة</button>
+            <button class="btn" onclick="showRuleContent('قوانين الحكم', 'mest-rules-view')">قوانين الحكم</button>
+            <button class="btn" onclick="showRuleContent('قوانين التسجيل', 'mest-rules-view')">قوانين التسجيل</button>
+            <button class="btn btn-back" onclick="showView('mest-view')">عودة</button>
+        </div>
+
+        <!-- أزرار اختيار القوانين EU -->
+        <div id="eu-rules-view" class="view">
+            <button class="btn" onclick="showView('server-rules-en')">Server Rules</button>
+            <button class="btn" onclick="showView('game-rules-en')">Game Rules</button>
+            <button class="btn" onclick="showRuleContent('Referee Rules', 'eu-rules-view')">Referee Rules</button>
+            <button class="btn" onclick="showRuleContent('Registration Rules', 'eu-rules-view')">Registration Rules</button>
+            <button class="btn btn-back" onclick="showView('eu-view')">Back</button>
+        </div>
+
+        <!-- ------------------ قوانين السيرفر باللغة العربية (MEST) ------------------ -->
+        <div id="server-rules-ar" class="view">
+            <h3 style="color: #e5a93c; margin-bottom: 10px;">🛡️ قوانين السيرفر العامة</h3>
+            <div class="rules-wrapper">
+
+                <div class="rule-card">
+                    <h4>🤝 الاحترام والتعامل الأخلاقي</h4>
+                    <ul>
+                        <li>يجب التزام الاحترام المتبادل بين جميع الأعضاء، ويمنع منعاً باتاً استخدام الكلمات المسيئة أو الألفاظ البذائة.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🚫 حظر التنمر والإساءة</h4>
+                    <ul>
+                        <li>يُمنع السب، الشتم، أو ممارسة أي شكل من أشكال التنمر والإساءة لأي عضو داخل السيرفر.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>📢 منع الإعلانات والروابط</h4>
+                    <ul>
+                        <li>يحظر نشر الروابط الخارجية أو الترويج للسيرفرات والحسابات الأخرى دون الحصول على إذن مسبق من الإدارة.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚖️ السياسة والدين</h4>
+                    <ul>
+                        <li>يُمنع منعاً باتاً فتح أو خوض النقاشات الدينية، السياسية، أو الطائفية لتجنب الخلافات.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔕 منع الإزعاج والتكرار <span class="eng">(Spam)</span></h4>
+                    <ul>
+                        <li>تجنب إزعاج الأعضاء عبر تكرار الرسائل، أو الإشارة المتكررة <span class="eng">(Mentions)</span> دون حاجة دافعة.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>📌 التزام القنوات المخصصة</h4>
+                    <ul>
+                        <li>يرجى استخدام كل قناة كتابية أو صوتية للموضوع المخصص لها وفقاً لمسميات القنوات.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>👮 التزام تعليمات الإدارة</h4>
+                    <ul>
+                        <li>يجب الامتثال لكافة توجيهات وقرارات المشرفين وإدارة السيرفر في جميع الأوقات.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔒 حماية الخصوصية</h4>
+                    <ul>
+                        <li>يُحظر مشاركة أو نشر البيانات والمعلومات الشخصية لأي عضو دون موافقته الصريحة.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔞 المحتوى غير اللائق</h4>
+                    <ul>
+                        <li>يُمنع مشاركة أي محتوى غير أخلاقي، غير قانوني، أو مخالف لآداب الحوار العامة.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚠️ العقوبات والإجراءات</h4>
+                    <ul>
+                        <li>ارتكاب أي مخالفة للأنظمة قد يعرض صاحبها للتحذير، الكتم <span class="eng">(Mute)</span>، أو الطرد النهائي من السيرفر.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>👤 الملف الشخصي المناسب</h4>
+                    <ul>
+                        <li>يجب اختيار اسم مستخدم وصورة شخصية لائمة ولا تحتوي على أي صور أو عبارات خادشة.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⭐ التفاعل الإيجابي</h4>
+                    <ul>
+                        <li>نرحب بالنشاط والتفاعل المستمر داخل السيرفر شريطة عدم إساءة استخدام قنوات التفاعل أو إزعاج الآخرين.</li>
+                    </ul>
+                </div>
+
+            </div>
+            <button class="btn btn-back" onclick="showView('mest-rules-view')">عودة</button>
+        </div>
+
+        <!-- ------------------ English Server Rules (EU) ------------------ -->
+        <div id="server-rules-en" class="view">
+            <h3 style="color: #e5a93c; margin-bottom: 10px;">🛡️ General Server Rules</h3>
+            <div class="rules-wrapper ltr">
+
+                <div class="rule-card">
+                    <h4>🤝 Mutual Respect</h4>
+                    <ul>
+                        <li>Treat all members with respect. Offensive language, profanity, and abusive behavior are strictly prohibited.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🚫 No Bullying or Harassment</h4>
+                    <ul>
+                        <li>Insults, harassment, toxic behavior, and bullying of any member will not be tolerated under any circumstances.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>📢 No Self-Promotion / Links</h4>
+                    <ul>
+                        <li>Do not post external links, advertisements, or promote other servers/channels without explicit staff permission.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚖️ No Politics or Religion</h4>
+                    <ul>
+                        <li>Discussions regarding politics, religion, or sensitive ideological topics are strictly forbidden to maintain harmony.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔕 No Spamming</h4>
+                    <ul>
+                        <li>Avoid spamming text channels, flooding chat, or repeatedly tagging/mentioning members and staff unnecessarily.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>📌 Use Proper Channels</h4>
+                    <ul>
+                        <li>Keep conversations relevant by posting content and messages in their designated channels.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>👮 Follow Staff Directives</h4>
+                    <ul>
+                        <li>Always listen to and respect the instructions given by server moderators and administrators.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔒 Privacy Protection</h4>
+                    <ul>
+                        <li>Sharing personal information, photos, or private details of any user without their explicit consent is banned.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔞 Appropriate Content</h4>
+                    <ul>
+                        <li>Do not post NSFW, illegal, harmful, or inappropriate content anywhere on the server.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚠️ Disciplinary Action</h4>
+                    <ul>
+                        <li>Violating any rule may result in a formal warning, temporary mute, kick, or permanent ban based on severity.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>👤 Appropriate Profile</h4>
+                    <ul>
+                        <li>Ensure your profile picture, custom status, and nickname are appropriate and non-offensive.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⭐ Healthy Community Engagement</h4>
+                    <ul>
+                        <li>Stay active and enjoy your time, but do not exploit server interactions or disrupt the peace of others.</li>
+                    </ul>
+                </div>
+
+            </div>
+            <button class="btn btn-back" onclick="showView('eu-rules-view')">Back</button>
+        </div>
+
+        <!-- ------------------ قوانين اللعبة باللغة العربية (MEST) ------------------ -->
+        <div id="game-rules-ar" class="view">
+            <h3 style="color: #e5a93c; margin-bottom: 10px;">🎮 قوانين اللعبة</h3>
+            <div class="rules-wrapper">
+
+                <div class="rule-card">
+                    <h4>⚽ بداية المباراة</h4>
+                    <ul>
+                        <li>تبدأ المباراة بوجود <span class="highlight">لاعب واحد وحارس مرمى</span> من كل فريق يقفون خلف خط المرمى.</li>
+                        <li>تُسقط الكرة من الأعلى، ويتسابق اللاعبان للاستحواذ عليها.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>📈 التصاعد التدريجي <span class="time-badge">40:00 - 37:00</span></h4>
+                    <ul>
+                        <li>يبدأ اللعب بمواجهة <span class="highlight">1 ضد 1</span> مع حراس المرمى.</li>
+                        <li>في كل دقيقة، ينضم لاعب إضافي لكل فريق حتى يكتمل العدد إلى <span class="highlight">5 ضد 5</span> عند الدقيقة <span class="time-badge">37:00</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🃏 ركلة الرئيس والبطاقات السرية <span class="time-badge">37:00 - 23:00</span></h4>
+                    <ul>
+                        <li>يمكن تفعيل <span class="highlight">البطاقة السرية</span> (الزر الأخضر) أو <span class="highlight">ركلة جزاء الرئيس</span> (الزر الأزرق).</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔥 الهدف بضعف <span class="eng">(Goal x2)</span> <span class="time-badge">23:00 - 20:00</span></h4>
+                    <ul>
+                        <li>أي هدف يسجل في هذه الفترة يحتسب <span class="highlight">بهدفين</span> حتى نهاية الشوط الأول.</li>
+                        <li><span class="danger-badge">ملاحظة:</span> لا يوجد وقت بدل ضائع.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🎲 قرعة الشوط الثاني <span class="time-badge">20:00 - 17:00</span></h4>
+                    <ul>
+                        <li>يتم تحديد وضع اللعب عبر القرعة: <span class="highlight">(1v1 بدون حراس، 2v2، 3v3، أو 4v4)</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚡ وضع كرة المباراة <span class="eng">(Matchball)</span> <span class="time-badge">4:00 - النهاية</span></h4>
+                    <ul>
+                        <li>تسجيل الفريق المتقدم يعني <span class="highlight">انتهاء المباراة وفوزه فوراً</span>.</li>
+                        <li>إذا كان الفريق متأخراً وسجل هدف التعادل، فإن الهدف التالي يحسم الفوز.</li>
+                        <li>في كل دقيقة، يغادر لاعب من كل فريق حتى يتبقى <span class="highlight">1 ضد 1 مع الحراس</span>.</li>
+                        <li>إذا استمر التعادل عند الدقيقة <span class="time-badge">4:00</span>، تنتقل المباراة إلى <span class="highlight">ركلات الترجيح <span class="eng">(Shootouts)</span></span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🟨 🟥 اللائحة الانضباطية والعقوبات</h4>
+                    <ul>
+                        <li><span class="card-yellow">البطاقة الصفراء:</span> استبعاد مؤقت <span class="highlight">لمدة دقيقتين</span>. في حال مرحلة التخفيض العددي يُستكمل النقص (بداية بـ 4 ضد 5).</li>
+                        <li><span class="card-red">البطاقة الحمراء:</span> طرد نهائي للاعب، ويلعب الفريق بنقص عددي لمدة <span class="highlight">5 دقائق</span> ثم يُسمح بإدخال بديل.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚠️ الأحكام الفنية والتنظيمية</h4>
+                    <ul>
+                        <li>الحد الأقصى للمستدعين: <span class="highlight">8 لاعبين</span> (5 أساسيين، 3 بدلاء).</li>
+                        <li>لمس الكرة مرتين متتاليتين في الضربات الثابتة أو ضربات المرمى <span class="danger-badge">ممنوع قانوناً</span>.</li>
+                        <li>حد الاتصال المسموح <span class="eng">(Ping)</span>: <span class="highlight">160ms</span> كحد أقصى. عند تجاوزه يجب إرسال فيديو 15 ثانية لتحديث الصفحة، وإلا <span class="danger-badge">تُلغى الأهداف والتمريرات الحاسمة</span>.</li>
+                        <li>تُلغى المساهمات فوراً في حال استخدام الهايت او الليق او الشورت قليتش <span class="eng">(Glitch)</span> بأنواعها.</li>
+                        <li>يُمنع التلويح السريع باليد أو النزول الأرضي للمس الكرة؛ تكرارها يوجب <span class="card-yellow">بطاقة صفراء</span>.</li>
+                        <li>التسلل ملغى إذا كان اللاعب <span class="highlight">خلف خط منتصف الملعب</span>.</li>
+                        <li>الركنيات تنفذ <span class="highlight">بالرأس فقط</span>، ويسمح بالقدم إذا كانت الكرة تحت مستوى الخصر.</li>
+                        <li>تصدّي الحارس بقدمه مسموح <span class="highlight">داخل منطقة الجزاء فقط</span>.</li>
+                        <li>الدردشة الصوتية تكون محصورة على <span class="highlight">الفريق فقط <span class="eng">(Team Chat)</span></span>.</li>
+                        <li>التبديلات غير محدودة، ويُمنع استخدام <span class="eng">VR Full Body</span> أو الكاميرا لبدلاء الدكة.</li>
+                        <li>يجب إبلاغ المالك <span class="highlight">(فارس)</span> بموعد المباراة، ويمنع لعبها بدون حكم معتمد. عدم توفر فيديو الإعادة <span class="eng">(Replay)</span> يوجب <span class="danger-badge">إعادة المباراة</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>✨ دليل البطاقات السرية <span class="eng">(Secret Cards)</span></h4>
+                    <ul>
+                        <li><span class="highlight">1. <span class="eng">Shootout</span>:</span> انفراد من المنتصف خلال 5 ثوانٍ. تقدم الحارس يعيد الركلة.</li>
+                        <li><span class="highlight">2. الطرد <span class="eng">(Red Card)</span>:</span> طرد لاعب خصم لمدة 5 دقائق.</li>
+                        <li><span class="highlight">3. ركلة جزاء:</span> تنفيذ ركلة جزاء اعتيادية.</li>
+                        <li><span class="highlight">4. هدف مضاعف <span class="eng">(Double Goal)</span>:</span> احتساب الأهداف بضعف لمدة 4 دقائق.</li>
+                        <li><span class="highlight">5. النجمة <span class="eng">(Star Player)</span>:</span> اختيار لاعب لمضاعفة هدفه التالي (تُفعل بالوقت الكلاسيكي فقط).</li>
+                        <li><span class="highlight">6. الزناد <span class="eng">(Trigger Button)</span>:</span> إلزام الفريق بالضغط على الزناد لمدة 90 ثانية. تفليته يمنح الخصم ركلة <span class="eng">Shootout</span>.</li>
+                        <li><span class="highlight">7. الجوكر <span class="eng">(Joker)</span>:</span> حرية اختيار أي بطاقة من القائمة أعلاه.</li>
+                    </ul>
+                </div>
+
+            </div>
+            <button class="btn btn-back" onclick="showView('mest-rules-view')">عودة</button>
+        </div>
+
+        <!-- ------------------ English Game Rules (EU) ------------------ -->
+        <div id="game-rules-en" class="view">
+            <h3 style="color: #e5a93c; margin-bottom: 10px;">🎮 Game Rules</h3>
+            <div class="rules-wrapper ltr">
+
+                <div class="rule-card">
+                    <h4>⚽ Match Kickoff</h4>
+                    <ul>
+                        <li>Starts with <span class="highlight">1 player & 1 Goalkeeper</span> per team behind their goal line.</li>
+                        <li>The ball is dropped from above, and players sprint to gain possession.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>📈 Scale-Up Phase <span class="time-badge">40:00 - 37:00</span></h4>
+                    <ul>
+                        <li>Begins with a <span class="highlight">1v1 setup</span> + Goalkeepers.</li>
+                        <li>Every minute, 1 player enters per team until reaching full capacity <span class="highlight">5v5</span> at <span class="time-badge">37:00</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🃏 President Penalty & Secret Cards <span class="time-badge">37:00 - 23:00</span></h4>
+                    <ul>
+                        <li>Teams can trigger their <span class="highlight">Secret Card</span> (Green Button) or <span class="highlight">President Penalty</span> (Blue Button).</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🔥 Goal x2 Phase <span class="time-badge">23:00 - 20:00</span></h4>
+                    <ul>
+                        <li>Goals scored during this window count as <span class="highlight">2 Goals</span> until half-time.</li>
+                        <li><span class="danger-badge">Note:</span> No extra injury time.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🎲 Half-Time Draw <span class="time-badge">20:00 - 17:00</span></h4>
+                    <ul>
+                        <li>Random match format drawn: <span class="highlight">(1v1 no GK, 2v2, 3v3, or 4v4)</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚡ Matchball Mode <span class="time-badge">4:00 - End</span></h4>
+                    <ul>
+                        <li>If the leading team scores, <span class="highlight">match ends instantly</span> with their victory.</li>
+                        <li>If trailing team ties, the next goal decides the winner.</li>
+                        <li>Every minute, 1 player leaves per team down to <span class="highlight">1v1 + GK</span>.</li>
+                        <li>If still tied at <span class="time-badge">4:00</span>, proceeds straight to <span class="highlight">Shootouts</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>🟨 🟥 Disciplinary & Penalties</h4>
+                    <ul>
+                        <li><span class="card-yellow">Yellow Card:</span> <span class="highlight">2-minute</span> temporary suspension. Applies to scale-down phases as well.</li>
+                        <li><span class="card-red">Red Card:</span> Permanent ejection. Team plays short for <span class="highlight">5 minutes</span> before substituting.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>⚠️ Technical & League Regulations</h4>
+                    <ul>
+                        <li>Max roster per match: <span class="highlight">8 players</span> (5 Starters, 3 Substitutes).</li>
+                        <li>Double touching the ball on free kicks or goal kicks is <span class="danger-badge">strictly prohibited</span>.</li>
+                        <li>Ping limit: <span class="highlight">119ms Max</span>. Exceeding it requires a 15s connection proof video, or <span class="danger-badge">goals/assists will be voided</span>.</li>
+                        <li>Exploiting glitches (Height, Leg, Short) instantly <span class="danger-badge">nullifies stats</span>.</li>
+                        <li>Rapid hand waving or diving to catch balls causes a foul; repeated attempts yield a <span class="card-yellow">Yellow Card</span>.</li>
+                        <li>Offside rule is inactive if player is behind <span class="highlight">half-field line</span>.</li>
+                        <li>Corner kicks: <span class="highlight">Headers only</span> (feet allowed only if ball is below waist).</li>
+                        <li>Goalkeepers can kick save <span class="highlight">inside the penalty area only</span>.</li>
+                        <li>Voice Chat must be locked to <span class="highlight">Team Chat only</span>.</li>
+                        <li>Substitutions are unlimited. Bench players cannot use Full Body VR or Camera.</li>
+                        <li>Owner <span class="highlight">(Fares)</span> must be notified of match schedules. Certified referee required. Absence of match replay recording results in a <span class="danger-badge">Match Rematch</span>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card">
+                    <h4>✨ Secret Cards Breakdown</h4>
+                    <ul>
+                        <li><span class="highlight">1. Shootout:</span> 1v1 from half-field (5s timer). GK early rush resets kick.</li>
+                        <li><span class="highlight">2. Red Card:</span> Eject 1 opponent player for 5 minutes.</li>
+                        <li><span class="highlight">3. Penalty Kick:</span> Standard penalty kick execution.</li>
+                        <li><span class="highlight">4. Goal x2:</span> Double goal value active for 4 minutes.</li>
+                        <li><span class="highlight">5. Star Player:</span> Selected player doubles their next goal (Classic time only).</li>
+                        <li><span class="highlight">6. Trigger Button:</span> Entire team must hold trigger button for 90s. Releasing gives opponent a Shootout.</li>
+                        <li><span class="highlight">7. Joker:</span> Choose any 1 card from above.</li>
+                    </ul>
+                </div>
+
+            </div>
+            <button class="btn btn-back" onclick="showView('eu-rules-view')">Back</button>
+        </div>
+
+        <!-- باقي الرسائل والإشعارات (MEST) -->
+        <div id="mest-schedule-view" class="view">
+            <div class="info-box">جدول المباريات غير متوفر لأن الدوري لم يبدأ</div>
+            <button class="btn btn-back" onclick="showView('mest-view')">عودة</button>
+        </div>
+        <div id="mest-standings-view" class="view">
+            <div class="info-box">جدول ترتيب الدوري غير متوفر لأن الدوري لم يبدأ بعد</div>
+            <button class="btn btn-back" onclick="showView('mest-view')">عودة</button>
+        </div>
+        <div id="mest-stats-view" class="view">
+            <div class="info-box">خيار الإحصائيات غير متوفر لأن الدوري لم يبدأ</div>
+            <button class="btn btn-back" onclick="showView('mest-view')">عودة</button>
+        </div>
+
+        <!-- باقي الرسائل والإشعارات (EU) -->
+        <div id="eu-schedule-view" class="view">
+            <div class="info-box">Match schedule is not available because the league has not started yet.</div>
+            <button class="btn btn-back" onclick="showView('eu-view')">Back</button>
+        </div>
+        <div id="eu-standings-view" class="view">
+            <div class="info-box">League standings table is not available because the league has not started yet.</div>
+            <button class="btn btn-back" onclick="showView('eu-view')">Back</button>
+        </div>
+        <div id="eu-stats-view" class="view">
+            <div class="info-box">Statistics option is not available because the league has not started yet.</div>
+            <button class="btn btn-back" onclick="showView('eu-view')">Back</button>
+        </div>
+
+        <div id="rule-detail-view" class="view">
+            <h3 id="rule-title" style="color: #e5a93c;"></h3>
+            <div class="info-box" id="rule-content">سيتم إضافة النص هنا لاحقاً...</div>
+            <button class="btn btn-back" id="rule-back-btn">عودة</button>
+        </div>
     </div>
-  </header>
 
-  <main>
-    <!-- MEST Region View (Arabic) -->
-    <div id="mest-view" class="region-view active" dir="rtl">
-      
-      <!-- Game Rules -->
-      <div class="rules-category">
-        <h3 class="category-title"><i class="fas fa-gamepad"></i> قوانين اللعبة والبطولة</h3>
-        
-        <div class="rule-card">
-          <div class="rule-number">01</div>
-          <div class="rule-content">
-            <h4>الانضباط والمواعيد</h4>
-            <p>يجب على جميع الفرق الحضور في الوقت المحدد للمباراة. التأخير لمدة تزيد عن 10 دقائق يؤدي لإلغاء المباراة واعتبار الفريق المتأخر خاسراً بنتيجة 3-0.</p>
-          </div>
-        </div>
+    <script>
+        function showView(viewId) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+        }
 
-        <div class="rule-card">
-          <div class="rule-number">02</div>
-          <div class="rule-content">
-            <h4>اللعب النظيف وغياب الـ Lag</h4>
-            <p>يمنع استخدام أي ثغرات أو برامج غير مصرح بها. يجب أن يتأكد كل لاعب من استقرار الاتصال بالإنترنت لديه قبل بدء اللقاء.</p>
-          </div>
-        </div>
+        function showInfo(infoId) {
+            showView(infoId);
+        }
 
-        <div class="rule-card">
-          <div class="rule-number">03</div>
-          <div class="rule-content">
-            <h4>التشكيلة واختيار اللاعبين</h4>
-            <p>يجب التزام الفرق بتسجيل تشكيلتها الرسمية قبل بدء البطولة، ولا يُسمح بمشاركة أي لاعب غير مسجل في السيرفر الرسمي.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">04</div>
-          <div class="rule-content">
-            <h4>تسجيل النتائج والاعتراضات</h4>
-            <p>يتم رفع صورة النتيجة النهائية بواسطة كابتن الفريق في القناة المخصصة، وفي حال وجود اعتراض يجب تقديم فيديو موثق خلال 15 دقيقة من نهاية المباراة.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Server Rules -->
-      <div class="rules-category">
-        <h3 class="category-title"><i class="fas fa-shield-alt"></i> قوانين السيرفر العامة</h3>
-        
-        <div class="rule-card">
-          <div class="rule-number">01</div>
-          <div class="rule-content">
-            <h4>الاحترام والتعامل الأخلاقي</h4>
-            <p>يجب التزام الاحترام المتبادل بين جميع الأعضاء، ويمنع منعاً باتاً استخدام الكلمات المسيئة أو الألفاظ البذائة.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">02</div>
-          <div class="rule-content">
-            <h4>حظر التنمر والإساءة</h4>
-            <p>يُمنع السب، الشتم، أو ممارسة أي شكل من أشكال التنمر والإساءة لأي عضو داخل السيرفر.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">03</div>
-          <div class="rule-content">
-            <h4>منع الإعلانات والروابط</h4>
-            <p>يحظر نشر الروابط الخارجية أو الترويج للسيرفرات والحسابات الأخرى دون الحصول على إذن مسبق من الإدارة.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">04</div>
-          <div class="rule-content">
-            <h4>السياسة والدين</h4>
-            <p>يُمنع منعاً باتاً فتح أو خوض النقاشات الدينية، السياسية، أو الطائفية لتجنب الخلافات.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">05</div>
-          <div class="rule-content">
-            <h4>منع الإزعاج والتكرار (Spam)</h4>
-            <p>تجنب إزعاج الأعضاء عبر تكرار الرسائل، أو الإشارة المتكررة (Mentions) دون حاجة دافعة.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">06</div>
-          <div class="rule-content">
-            <h4>التزام القنوات المخصصة</h4>
-            <p>يرجى استخدام كل قناة كتابية أو صوتية للموضوع المخصص لها وفقاً لمسميات القنوات.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">07</div>
-          <div class="rule-content">
-            <h4>التزام تعليمات الإدارة</h4>
-            <p>يجب الامتثال لكافة توجيهات وقرارات المشرفين وإدارة السيرفر في جميع الأوقات.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">08</div>
-          <div class="rule-content">
-            <h4>حماية الخصوصية</h4>
-            <p>يُحظر مشاركة أو نشر البيانات والمعلومات الشخصية لأي عضو دون موافقته الصريحة.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">09</div>
-          <div class="rule-content">
-            <h4>المحتوى غير اللائق</h4>
-            <p>يُمنع مشاركة أي محتوى غير أخلاقي، غير قانوني، أو مخالف لآداب الحوار العامة.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">10</div>
-          <div class="rule-content">
-            <h4>العقوبات والإجراءات</h4>
-            <p>ارتكاب أي مخالفة للأنظمة قد يعرض صاحبها للتحذير، الكتم (Mute)، أو الطرد النهائي من السيرفر.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">11</div>
-          <div class="rule-content">
-            <h4>الملف الشخصي المناسب</h4>
-            <p>يجب اختيار اسم مستخدم وصورة شخصية لائمة ولا تحتوي على أي صور أو عبارات خادشة.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">12</div>
-          <div class="rule-content">
-            <h4>التفاعل الإيجابي</h4>
-            <p>نرحب بالنشاط والتفاعل المستمر داخل السيرفر شريطة عدم إساءة استخدام قنوات التفاعل أو إزعاج الآخرين.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- EU Region View (English) -->
-    <div id="eu-view" class="region-view" dir="ltr">
-      
-      <!-- Game Rules -->
-      <div class="rules-category">
-        <h3 class="category-title"><i class="fas fa-gamepad"></i> Game & Tournament Rules</h3>
-        
-        <div class="rule-card">
-          <div class="rule-number">01</div>
-          <div class="rule-content">
-            <h4>Punctuality</h4>
-            <p>Teams must be ready at the scheduled match time. A grace period of 10 minutes is allowed before forfeiting (3-0 loss).</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">02</div>
-          <div class="rule-content">
-            <h4>Fair Play & Connection</h4>
-            <p>Exploits or unauthorized modifications are strictly forbidden. Ensure a stable connection prior to match start.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">03</div>
-          <div class="rule-content">
-            <h4>Roster & Player Eligibility</h4>
-            <p>Teams must register their official roster before the tournament begins. Unregistered players are strictly prohibited from competing.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">04</div>
-          <div class="rule-content">
-            <h4>Match Results & Disputes</h4>
-            <p>Team captains must upload match score screenshots to the designated channel. Disputes require video evidence submitted within 15 minutes post-match.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Server Rules -->
-      <div class="rules-category">
-        <h3 class="category-title"><i class="fas fa-shield-alt"></i> General Server Rules</h3>
-        
-        <div class="rule-card">
-          <div class="rule-number">01</div>
-          <div class="rule-content">
-            <h4>Mutual Respect</h4>
-            <p>Treat all members with respect. Offensive language, profanity, and abusive behavior are strictly prohibited.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">02</div>
-          <div class="rule-content">
-            <h4>No Bullying or Harassment</h4>
-            <p>Insults, harassment, toxic behavior, and bullying of any member will not be tolerated under any circumstances.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">03</div>
-          <div class="rule-content">
-            <h4>No Self-Promotion / Links</h4>
-            <p>Do not post external links, advertisements, or promote other servers/channels without explicit staff permission.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">04</div>
-          <div class="rule-content">
-            <h4>No Politics or Religion</h4>
-            <p>Discussions regarding politics, religion, or sensitive ideological topics are strictly forbidden to maintain harmony.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">05</div>
-          <div class="rule-content">
-            <h4>No Spamming</h4>
-            <p>Avoid spamming text channels, flooding chat, or repeatedly tagging/mentioning members and staff unnecessarily.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">06</div>
-          <div class="rule-content">
-            <h4>Use Proper Channels</h4>
-            <p>Keep conversations relevant by posting content and messages in their designated channels.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">07</div>
-          <div class="rule-content">
-            <h4>Follow Staff Directives</h4>
-            <p>Always listen to and respect the instructions given by server moderators and administrators.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">08</div>
-          <div class="rule-content">
-            <h4>Privacy Protection</h4>
-            <p>Sharing personal information, photos, or private details of any user without their explicit consent is banned.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">09</div>
-          <div class="rule-content">
-            <h4>Appropriate Content</h4>
-            <p>Do not post NSFW, illegal, harmful, or inappropriate content anywhere on the server.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">10</div>
-          <div class="rule-content">
-            <h4>Disciplinary Action</h4>
-            <p>Violating any rule may result in a formal warning, temporary mute, kick, or permanent ban based on severity.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">11</div>
-          <div class="rule-content">
-            <h4>Appropriate Profile</h4>
-            <p>Ensure your profile picture, custom status, and nickname are appropriate and non-offensive.</p>
-          </div>
-        </div>
-
-        <div class="rule-card">
-          <div class="rule-number">12</div>
-          <div class="rule-content">
-            <h4>Healthy Community Engagement</h4>
-            <p>Stay active and enjoy your time, but do not exploit server interactions or disrupt the peace of others.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <script>
-    function switchRegion(region) {
-      const mestView = document.getElementById('mest-view');
-      const euView = document.getElementById('eu-view');
-      const buttons = document.querySelectorAll('.region-btn');
-
-      if (region === 'mest') {
-        mestView.classList.add('active');
-        euView.classList.remove('active');
-        buttons[0].classList.add('active');
-        buttons[1].classList.remove('active');
-      } else {
-        euView.classList.add('active');
-        mestView.classList.remove('active');
-        buttons[1].classList.add('active');
-        buttons[0].classList.remove('active');
-      }
-    }
-  </script>
+        function showRuleContent(title, returnViewId) {
+            document.getElementById('rule-title').innerText = title;
+            document.getElementById('rule-content').innerText = "سيتم إضافة التفاصيل الخاصة بـ (" + title + ") قريباً.";
+            
+            const backBtn = document.getElementById('rule-back-btn');
+            backBtn.innerText = returnViewId.startsWith('eu') ? 'Back' : 'عودة';
+            backBtn.onclick = function() { showView(returnViewId); };
+            
+            showView('rule-detail-view');
+        }
+    </script>
 </body>
 </html>
