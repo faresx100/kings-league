@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kings League VRFS</title>
 
-  <!-- Open Graph Meta Tags (لإظهار صورة ومعاينة الرابط في ديسكورد) -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:site_name" content="Kings League VRFS" />
   <meta property="og:title" content="Kings League VRFS — Official Portal" />
   <meta property="og:description" content="Official website for Kings League VRFS statistics, standings, match schedules, and official regulations." />
@@ -379,6 +379,7 @@
       justify-content: center;
       font-size: 1.4rem;
       color: var(--accent-gold);
+      overflow: hidden;
     }
 
     .vs-badge {
@@ -985,7 +986,68 @@
       document.getElementById('btn-tab-server').innerHTML = `<i class="fas fa-server gold-icon"></i> ${t.btnTabServer}`;
 
       renderRules(lang);
+      
+      // إعادة جلب البيانات فوراً لضمان عدم مسح بيانات الأخبار بعد تغيير اللغة
+      fetchLeagueData();
     }
+
+    // -----------------------------------------
+    // كود جلب البيانات ديناميكياً من GitHub
+    // -----------------------------------------
+    async function fetchLeagueData() {
+      try {
+        const cacheBuster = new Date().getTime();
+        // التعديل المهم: استخدام المسار المباشر data.json بدلاً من KingsLeague/data.json
+        const response = await fetch(`data.json?t=${cacheBuster}`);
+        
+        if (!response.ok) throw new Error('لم يتم العثور على ملف البيانات');
+        
+        const data = await response.json();
+        
+        // 1. تحديث قسم الأخبار (خبر نيوكاسل)
+        if (data.news && data.news.length > 0) {
+          const latestNews = data.news[0];
+          document.getElementById('txt-news1-badge').innerText = latestNews.badge || 'NEW';
+          document.getElementById('txt-news1-h').innerText = latestNews.title || '';
+          document.getElementById('txt-news1-p').innerText = latestNews.content || '';
+        }
+
+        // 2. تحديث قسم المباريات
+        if (data.matches && data.matches.length > 0) {
+          const updateTeam = (teamId, name, logo) => {
+            const nameEl = document.getElementById(teamId);
+            if (nameEl) {
+              nameEl.innerText = name || 'TBA';
+              const iconBox = nameEl.previousElementSibling;
+              if (iconBox && logo) {
+                iconBox.style.background = 'none';
+                iconBox.style.border = 'none';
+                iconBox.innerHTML = `<img src="${logo}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: contain;">`;
+              }
+            }
+          };
+
+          if (data.matches[0]) {
+            updateTeam('txt-m1-t1', data.matches[0].team1_name, data.matches[0].team1_logo);
+            updateTeam('txt-m1-t2', data.matches[0].team2_name, data.matches[0].team2_logo);
+            document.getElementById('txt-m1-status').innerText = data.matches[0].status || 'Scheduled';
+          }
+
+          if (data.matches[1]) {
+            updateTeam('txt-m2-t1', data.matches[1].team1_name, data.matches[1].team1_logo);
+            updateTeam('txt-m2-t2', data.matches[1].team2_name, data.matches[1].team2_logo);
+            document.getElementById('txt-m2-status').innerText = data.matches[1].status || 'Scheduled';
+          }
+        }
+
+        console.log("✅ تم تحديث بيانات الموقع بنجاح!");
+      } catch (error) {
+        console.error("❌ خطأ في جلب البيانات:", error);
+      }
+    }
+
+    // التشغيل الدوري كل 30 ثانية
+    setInterval(fetchLeagueData, 30000);
 
     // Initial load
     setLanguage('en');
