@@ -1,8 +1,31 @@
 {
-    "standings": [],
-    "news": [],
+    "standings": [
+        {
+            "name": "Newcastle United",
+            "abbr": "NCU",
+            "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532094897518285051/12-12-121.png?ex=6a6b9a10&is=6a6a4890&hm=8c2ba554fd5a8ffbf18db2f3fd27b19e970b9dbf0aa0a5563f218fe1c22fe1b4&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        }
+    ],
+    "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "Newcastle United (NCU) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "21:38 - Jul 29"
+        }
+    ],
     "matches": [],
-    "rosters": {},
+    "rosters": {
+        "Newcastle United": [
+            "𝑭𝒂𝒓𝒆𝒔."
+        ]
+    },
     "last_fixtures": [],
     "top_scorers": {},
     "top_assists": {},
