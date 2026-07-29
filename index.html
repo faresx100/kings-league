@@ -400,7 +400,53 @@
       margin-top: 10px;
       font-weight: bold;
     }
-
+   /* STANDINGS TABLE */
+    .standings-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-color);
+      margin-top: 15px;
+    }
+    .standings-table th {
+      background: rgba(229, 169, 60, 0.15);
+      color: var(--accent-gold-bright);
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .standings-table td {
+      padding: 15px 10px;
+      border-bottom: 1px solid rgba(229, 169, 60, 0.1);
+      text-align: center;
+      color: var(--text-main);
+    }
+    .standings-table tr:last-child td {
+      border-bottom: none;
+    }
+    .standings-table tr:hover td {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .team-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+    [dir="rtl"] .team-cell {
+      text-align: right;
+    }
+    .team-cell img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: rgba(0,0,0,0.2);
+    }
     /* STATS BOXES */
     .stats-grid {
       display: grid;
@@ -663,12 +709,14 @@
     <!-- 2. STANDINGS VIEW -->
     <section id="standings-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-trophy gold-icon"></i> <span id="txt-standings-title">League Standings</span></h2>
-      <div style="background: var(--card-bg); border: 1px dashed var(--border-color); padding: 50px; border-radius: 16px; text-align: center; color: var(--text-sub);">
-        <i class="fas fa-table gold-icon" style="font-size: 2.8rem; margin-bottom: 15px; display: block;"></i>
-        <p id="txt-standings-empty">League table is currently unavailable as the league has not officially started.</p>
+      <div id="standings-container" style="overflow-x: auto;">
+        <!-- هذه الرسالة ستختفي تلقائياً إذا كان هناك فرق -->
+        <div style="background: var(--card-bg); border: 1px dashed var(--border-color); padding: 50px; border-radius: 16px; text-align: center; color: var(--text-sub);">
+          <i class="fas fa-table gold-icon" style="font-size: 2.8rem; margin-bottom: 15px; display: block;"></i>
+          <p id="txt-standings-empty">League table is currently unavailable as the league has not officially started.</p>
+        </div>
       </div>
     </section>
-
     <!-- 3. STATS VIEW (6 BOXES) -->
     <section id="stats-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-chart-line gold-icon"></i> <span id="txt-stats-title">League Statistics</span></h2>
@@ -1026,7 +1074,52 @@
               }
             }
           };
-
+        // 3. تحديث جدول الترتيب
+        if (data.standings && data.standings.length > 0) {
+          let tableHTML = `
+            <table class="standings-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th style="text-align: left;">Team</th>
+                  <th>MP</th>
+                  <th>W</th>
+                  <th>L</th>
+                  <th>GF</th>
+                  <th>GA</th>
+                  <th>GD</th>
+                  <th>PTS</th>
+                </tr>
+              </thead>
+              <tbody>
+          `;
+          
+          data.standings.forEach((team, index) => {
+            const gd = team.gf - team.ga; // فارق الأهداف
+            tableHTML += `
+              <tr>
+                <td><strong>${index + 1}</strong></td>
+                <td class="team-cell">
+                  <img src="${team.logo}" alt="${team.abbr}">
+                  <div>
+                    <strong>${team.name}</strong>
+                    <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
+                  </div>
+                </td>
+                <td>${team.mp}</td>
+                <td>${team.w}</td>
+                <td>${team.l}</td>
+                <td>${team.gf}</td>
+                <td>${team.ga}</td>
+                <td style="color: ${gd > 0 ? '#4caf50' : (gd < 0 ? '#ff5555' : 'inherit')};">${gd > 0 ? '+'+gd : gd}</td>
+                <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${team.pts}</td>
+              </tr>
+            `;
+          });
+          
+          tableHTML += `</tbody></table>`;
+          document.getElementById('standings-container').innerHTML = tableHTML;
+        }
           if (data.matches[0]) {
             updateTeam('txt-m1-t1', data.matches[0].team1_name, data.matches[0].team1_logo);
             updateTeam('txt-m1-t2', data.matches[0].team2_name, data.matches[0].team2_logo);
