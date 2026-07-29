@@ -4,7 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kings League VRFS</title>
+
+  <!-- Open Graph Meta Tags (لإظهار صورة ومعاينة الرابط في ديسكورد) -->
+  <meta property="og:site_name" content="Kings League VRFS" />
+  <meta property="og:title" content="Kings League VRFS — Official Portal" />
+  <meta property="og:description" content="Official website for Kings League VRFS statistics, standings, match schedules, and official regulations." />
+  <meta property="og:image" content="kings_logo.png" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --bg-dark: #0a0d14;
@@ -38,7 +48,7 @@
       overflow-x: hidden;
     }
 
-    /* ---------------- HEADER & NAVBAR ---------------- */
+    /* HEADER & NAVBAR */
     header {
       background: rgba(10, 13, 20, 0.95);
       border-bottom: 1px solid var(--border-color);
@@ -124,7 +134,7 @@
       box-shadow: 0 0 12px var(--gold-glow);
     }
 
-    /* ---------------- SIDEBAR NAVIGATION ---------------- */
+    /* SIDEBAR NAVIGATION */
     .sidebar-overlay {
       position: fixed;
       top: 0;
@@ -230,7 +240,7 @@
       transform: translateX(-6px);
     }
 
-    /* ---------------- MAIN CONTENT WRAPPER ---------------- */
+    /* MAIN CONTENT */
     main {
       flex: 1;
       max-width: 1300px;
@@ -267,7 +277,7 @@
       filter: drop-shadow(0 0 6px var(--gold-glow));
     }
 
-    /* ---------------- HOME PAGE (NEWS & MATCHES) ---------------- */
+    /* HOME PAGE */
     .news-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -318,7 +328,6 @@
       font-size: 0.98rem;
     }
 
-    /* MATCH CARDS SECTION */
     .matches-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -391,7 +400,7 @@
       font-weight: bold;
     }
 
-    /* ---------------- STATISTICS PAGE (6 BOXES) ---------------- */
+    /* STATS BOXES */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -447,7 +456,7 @@
       gap: 8px;
     }
 
-    /* ---------------- RULES PAGE ---------------- */
+    /* RULES PAGE */
     .rules-nav-tabs {
       display: flex;
       gap: 15px;
@@ -547,7 +556,6 @@
       font-weight: bold;
     }
 
-    /* ---------------- RESPONSIVE MOBILE ---------------- */
     @media (max-width: 992px) {
       .stats-grid { grid-template-columns: 1fr; }
     }
@@ -560,6 +568,7 @@
 </head>
 <body>
 
+  <!-- SIDEBAR OVERLAY & MENU -->
   <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
   <aside class="sidebar" id="sidebar">
@@ -583,6 +592,7 @@
     </nav>
   </aside>
 
+  <!-- HEADER NAVBAR -->
   <header>
     <div class="header-container">
       <div class="header-left">
@@ -600,8 +610,10 @@
     </div>
   </header>
 
+  <!-- MAIN PAGE VIEWS -->
   <main>
 
+    <!-- 1. HOME VIEW -->
     <section id="home-view" class="page-view active">
       <h2 class="section-title"><i class="fas fa-bullhorn gold-icon"></i> <span id="txt-news-title">Latest News & Matches</span></h2>
       
@@ -647,6 +659,7 @@
       </div>
     </section>
 
+    <!-- 2. STANDINGS VIEW -->
     <section id="standings-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-trophy gold-icon"></i> <span id="txt-standings-title">League Standings</span></h2>
       <div style="background: var(--card-bg); border: 1px dashed var(--border-color); padding: 50px; border-radius: 16px; text-align: center; color: var(--text-sub);">
@@ -655,6 +668,7 @@
       </div>
     </section>
 
+    <!-- 3. STATS VIEW (6 BOXES) -->
     <section id="stats-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-chart-line gold-icon"></i> <span id="txt-stats-title">League Statistics</span></h2>
       
@@ -723,6 +737,7 @@
       </div>
     </section>
 
+    <!-- 4. RULES VIEW -->
     <section id="rules-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-gavel gold-icon"></i> <span id="txt-rules-title">League Regulations</span></h2>
       
@@ -736,13 +751,12 @@
       </div>
 
       <div id="rules-content-game" class="rules-grid-layout"></div>
-
       <div id="rules-content-server" class="rules-grid-layout" style="display: none;"></div>
-
     </section>
 
   </main>
 
+  <!-- JAVASCRIPT SYSTEM -->
   <script>
     let currentLang = 'en';
 
@@ -772,7 +786,6 @@
       document.getElementById('btn-tab-server').classList.toggle('active', type === 'server');
     }
 
-    // Full Rules Data (Including all requested missing technical points + 17:00-4:00 rule)
     const fullRulesData = {
       en: {
         game: [
