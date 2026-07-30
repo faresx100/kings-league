@@ -48,6 +48,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "roidy (<@1308773851928461323>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "22:44 - Jul 30"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "5alid (<@770754721459470346>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:40 - Jul 30"
@@ -87,12 +93,6 @@
             "content": "Al Kuwait (KWT) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "21:56 - Jul 30"
-        },
-        {
-            "title": "NEW TEAM JOINED",
-            "content": "TestTeam (TTM) has officially joined Kings League!",
-            "badge": "NEW TEAM",
-            "timestamp": "21:50 - Jul 30"
         }
     ],
     "matches": [],
@@ -114,7 +114,8 @@
             "xtv8",
             "zx",
             "joao",
-            "5alid"
+            "5alid",
+            "roidy"
         ]
     },
     "last_fixtures": [],
