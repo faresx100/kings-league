@@ -48,6 +48,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "zx (<@1362522257091592254>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "22:06 - Jul 30"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "xtv8 (<@1445423557801803958>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:05 - Jul 30"
@@ -87,12 +93,6 @@
             "content": "Arab United (AU) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "16:21 - Jul 30"
-        },
-        {
-            "title": "NEW TEAM JOINED",
-            "content": "Newcastle United (NCU) has officially joined Kings League!",
-            "badge": "NEW TEAM",
-            "timestamp": "14:36 - Jul 30"
         }
     ],
     "matches": [],
@@ -111,7 +111,8 @@
             "Emperor hadi.",
             "vamp",
             "stx",
-            "xtv8"
+            "xtv8",
+            "zx"
         ]
     },
     "last_fixtures": [],
