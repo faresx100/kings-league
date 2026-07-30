@@ -400,7 +400,8 @@
       margin-top: 10px;
       font-weight: bold;
     }
-   /* STANDINGS TABLE */
+
+    /* STANDINGS TABLE */
     .standings-table {
       width: 100%;
       border-collapse: collapse;
@@ -447,6 +448,7 @@
       object-fit: contain;
       background: rgba(0,0,0,0.2);
     }
+
     /* STATS BOXES */
     .stats-grid {
       display: grid;
@@ -508,6 +510,7 @@
       display: flex;
       gap: 15px;
       margin-bottom: 25px;
+      flex-wrap: wrap;
     }
 
     .rule-tab-btn {
@@ -710,13 +713,13 @@
     <section id="standings-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-trophy gold-icon"></i> <span id="txt-standings-title">League Standings</span></h2>
       <div id="standings-container" style="overflow-x: auto;">
-        <!-- هذه الرسالة ستختفي تلقائياً إذا كان هناك فرق -->
         <div style="background: var(--card-bg); border: 1px dashed var(--border-color); padding: 50px; border-radius: 16px; text-align: center; color: var(--text-sub);">
           <i class="fas fa-table gold-icon" style="font-size: 2.8rem; margin-bottom: 15px; display: block;"></i>
           <p id="txt-standings-empty">League table is currently unavailable as the league has not officially started.</p>
         </div>
       </div>
     </section>
+
     <!-- 3. STATS VIEW (6 BOXES) -->
     <section id="stats-view" class="page-view">
       <h2 class="section-title"><i class="fas fa-chart-line gold-icon"></i> <span id="txt-stats-title">League Statistics</span></h2>
@@ -792,15 +795,19 @@
       
       <div class="rules-nav-tabs">
         <button class="rule-tab-btn active" id="btn-tab-game" onclick="switchRuleTab('game')">
-          <i class="fas fa-gamepad gold-icon"></i> Game Rules
+          <i class="fas fa-gamepad gold-icon"></i> <span id="txt-tab-game">Game Rules</span>
         </button>
         <button class="rule-tab-btn" id="btn-tab-server" onclick="switchRuleTab('server')">
-          <i class="fas fa-server gold-icon"></i> Server Rules
+          <i class="fas fa-server gold-icon"></i> <span id="txt-tab-server">Server Rules</span>
+        </button>
+        <button class="rule-tab-btn" id="btn-tab-signing" onclick="switchRuleTab('signing')">
+          <i class="fas fa-user-pen gold-icon"></i> <span id="txt-tab-signing">Signing Rules</span>
         </button>
       </div>
 
       <div id="rules-content-game" class="rules-grid-layout"></div>
       <div id="rules-content-server" class="rules-grid-layout" style="display: none;"></div>
+      <div id="rules-content-signing" class="rules-grid-layout" style="display: none;"></div>
     </section>
 
   </main>
@@ -830,10 +837,100 @@
     function switchRuleTab(type) {
       document.getElementById('rules-content-game').style.display = type === 'game' ? 'grid' : 'none';
       document.getElementById('rules-content-server').style.display = type === 'server' ? 'grid' : 'none';
+      document.getElementById('rules-content-signing').style.display = type === 'signing' ? 'grid' : 'none';
       
       document.getElementById('btn-tab-game').classList.toggle('active', type === 'game');
       document.getElementById('btn-tab-server').classList.toggle('active', type === 'server');
+      document.getElementById('btn-tab-signing').classList.toggle('active', type === 'signing');
     }
+
+    // TRANSLATIONS DICTIONARY
+    const translations = {
+      en: {
+        "txt-sidebar-title": "Navigation Menu",
+        "txt-nav-home": "News & League Info",
+        "txt-nav-standings": "League Standings",
+        "txt-nav-stats": "Statistics",
+        "txt-nav-rules": "Rules & Regulations",
+        "txt-news-title": "Latest News & Matches",
+        "txt-news1-badge": "Announcement",
+        "txt-news1-h": "Welcome to Kings League VRFS",
+        "txt-news1-p": "The official portal for Kings League VRFS statistics, league standings, and regulations. Get ready for an action-packed season!",
+        "txt-matches-title": "League Fixtures",
+        "txt-m1-header": "Round 1 - Match 1",
+        "txt-m1-t1": "Team A",
+        "txt-m1-t2": "Team B",
+        "txt-m1-status": "To Be Announced",
+        "txt-m2-header": "Round 1 - Match 2",
+        "txt-m2-t1": "Team C",
+        "txt-m2-t2": "Team D",
+        "txt-m2-status": "To Be Announced",
+        "txt-standings-title": "League Standings",
+        "txt-standings-empty": "League table is currently unavailable as the league has not officially started.",
+        "txt-stats-title": "League Statistics",
+        "txt-box-scorers": "<i class='fas fa-futbol gold-icon'></i> Top Scorers",
+        "txt-box-assists": "<i class='fas fa-hands-helping gold-icon'></i> Top Assists",
+        "txt-box-cleansheets": "<i class='fas fa-shield-halved gold-icon'></i> Clean Sheets",
+        "txt-box-totw": "<i class='fas fa-users gold-icon'></i> Team of the Week",
+        "txt-box-motm": "<i class='fas fa-star gold-icon'></i> Man of the Match",
+        "txt-box-pots": "<i class='fas fa-crown gold-icon'></i> Player of the Season",
+        "txt-no-data": "No statistics available",
+        "txt-rules-title": "League Regulations",
+        "txt-tab-game": "Game Rules",
+        "txt-tab-server": "Server Rules",
+        "txt-tab-signing": "Signing Rules",
+        "tbl-team": "Team",
+        "tbl-mp": "MP",
+        "tbl-w": "W",
+        "tbl-l": "L",
+        "tbl-gf": "GF",
+        "tbl-ga": "GA",
+        "tbl-gd": "GD",
+        "tbl-pts": "PTS"
+      },
+      ar: {
+        "txt-sidebar-title": "قائمة التنقل",
+        "txt-nav-home": "الأخبار ومعلومات الدوري",
+        "txt-nav-standings": "جدول الترتيب",
+        "txt-nav-stats": "الإحصائيات",
+        "txt-nav-rules": "القوانين واللوائح",
+        "txt-news-title": "أحدث الأخبار والمباريات",
+        "txt-news1-badge": "إعلان رسمي",
+        "txt-news1-h": "مرحباً بكم في كينجز ليج VRFS",
+        "txt-news1-p": "البوابة الرسمية لإحصائيات، جدول ترتيب، وقوانين كينجز ليج VRFS. استعدوا لموسم مليء بالحماس والمنافسة!",
+        "txt-matches-title": "جدول المباريات",
+        "txt-m1-header": "الجولة 1 - المباراة 1",
+        "txt-m1-t1": "الفريق أ",
+        "txt-m1-t2": "الفريق ب",
+        "txt-m1-status": "سيتم تحديده لاحقاً",
+        "txt-m2-header": "الجولة 1 - المباراة 2",
+        "txt-m2-t1": "الفريق ج",
+        "txt-m2-t2": "الفريق د",
+        "txt-m2-status": "سيتم تحديده لاحقاً",
+        "txt-standings-title": "جدول ترتيب الدوري",
+        "txt-standings-empty": "جدول الترتيب غير متوفر حالياً لأن الدوري لم يبدأ رسمياً بعد.",
+        "txt-stats-title": "إحصائيات الدوري",
+        "txt-box-scorers": "<i class='fas fa-futbol gold-icon'></i> هدافو الدوري",
+        "txt-box-assists": "<i class='fas fa-hands-helping gold-icon'></i> الأكثر صناعة",
+        "txt-box-cleansheets": "<i class='fas fa-shield-halved gold-icon'></i> الشباك النظيفة",
+        "txt-box-totw": "<i class='fas fa-users gold-icon'></i> تشكيلة الأسبوع",
+        "txt-box-motm": "<i class='fas fa-star gold-icon'></i> رجل المباراة",
+        "txt-box-pots": "<i class='fas fa-crown gold-icon'></i> لاعب الموسم",
+        "txt-no-data": "لا توجد إحصائيات متاحة حالياً",
+        "txt-rules-title": "لوائح وقوانين البطولة",
+        "txt-tab-game": "قوانين اللعبة",
+        "txt-tab-server": "قوانين السيرفر",
+        "txt-tab-signing": "قوانين التسجيل",
+        "tbl-team": "الفريق",
+        "tbl-mp": "لعب",
+        "tbl-w": "فاز",
+        "tbl-l": "خسر",
+        "tbl-gf": "له",
+        "tbl-ga": "عليه",
+        "tbl-gd": "الفارق",
+        "tbl-pts": "النقاط"
+      }
+    };
 
     const fullRulesData = {
       en: {
@@ -862,336 +959,100 @@
           { title: "<i class='fas fa-gavel gold-icon'></i> Disciplinary Action", items: ["Violating rules may result in warnings, temporary mutes, kicks, or permanent bans."] },
           { title: "<i class='fas fa-id-badge gold-icon'></i> Appropriate Profile", items: ["Ensure profile picture, status, and nickname are appropriate."] },
           { title: "<i class='fas fa-smile gold-icon'></i> Healthy Engagement", items: ["Stay active and enjoy your time without disrupting others."] }
+        ],
+        signing: [
+          { title: "<i class='fas fa-users-cog gold-icon'></i> Squad & Emergency Loans", items: ["Roster Maximum: <span class='highlight'>9 players</span> maximum per team.", "Emergency Loan (<span class='highlight'>E-Loan</span>) is permitted if the main starting lineup is incomplete.", "Maximum Emergency Loan limit: <span class='highlight'>1 E-Loan player</span> only."] },
+          { title: "<i class='fas fa-user-check gold-icon'></i> Player Freedom & Registration", items: ["Players have full freedom to select their team; <span class='danger-badge'>forcing retention is strictly forbidden</span>.", "Registering a player who is <span class='danger-badge'>not present in the server</span> is forbidden.", "Registration must be executed exclusively via the <span class='highlight'>/sign</span> command (Regular text registration is forbidden)."] },
+          { title: "<i class='fas fa-file-contract gold-icon'></i> Loans & Terminations", items: ["Minimum duration for a standard loan is <span class='highlight'>3 rounds</span>.", "Once registered, a player cannot leave the team unless they play at least <span class='highlight'>2 rounds</span>.", "In case of contract termination, the player cannot rejoin the same team until after <span class='highlight'>2 rounds</span>."] }
         ]
       },
       ar: {
         game: [
-          { title: "<i class='fas fa-play-circle gold-icon'></i> بداية المباراة", items: ["تبدأ المباراة بوجود <span class='highlight'>لاعب واحد وحارس مرمى</span> من كل فريق يقفون خلف خط المرمى.", "تُسقط الكرة من الأعلى، ويتسابق اللاعبان للاستحواذ عليها."] },
-          { title: "<i class='fas fa-chart-line gold-icon'></i> التصاعد التدريجي <span class='time-badge'>40:00 - 37:00</span>", items: ["يبدأ اللعب بمواجهة <span class='highlight'>1 ضد 1</span> مع حراس المرمى.", "في كل دقيقة، ينضم لاعب إضافي لكل فريق حتى يكتمل العدد إلى <span class='highlight'>5 ضد 5</span> عند الدقيقة <span class='time-badge'>37:00</span>."] },
-          { title: "<i class='fas fa-id-card gold-icon'></i> ركلة الرئيس والبطاقات السرية <span class='time-badge'>37:00 - 23:00</span>", items: ["يمكن تفعيل <span class='highlight'>البطاقة السرية</span> (الزر الأخضر) أو <span class='highlight'>ركلة جزاء الرئيس</span> (الزر الأزرق)."] },
-          { title: "<i class='fas fa-fire gold-icon'></i> الهدف بضعف (Goal x2) <span class='time-badge'>23:00 - 20:00</span>", items: ["أي هدف يسجل في هذه الفترة يحتسب <span class='highlight'>بهدفين</span> حتى نهاية الشوط الأول.", "<span class='danger-badge'>ملاحظة:</span> لا يوجد وقت بدل ضائع."] },
-          { title: "<i class='fas fa-dice gold-icon'></i> قرعة الشوط الثاني <span class='time-badge'>20:00 - 17:00</span>", items: ["يتم تحديد وضع اللعب عبر القرعة: <span class='highlight'>(1v1 بدون حراس، 2v2، 3v3، أو 4v4)</span>."] },
-          { title: "<i class='fas fa-clock gold-icon'></i> فترة اللعب الاعتيادية <span class='time-badge'>17:00 - 4:00</span>", items: ["يمكن تفعيل <span class='highlight'>البطاقة السرية</span> (الزر الأخضر) أو <span class='highlight'>ركلة جزاء الرئيس</span> (الزر الأزرق)."] },
-          { title: "<i class='fas fa-bolt gold-icon'></i> وضع كرة المباراة (Matchball) <span class='time-badge'>4:00 - النهاية</span>", items: ["تسجيل الفريق المتقدم يعني <span class='highlight'>انتهاء المباراة وفوزه فوراً</span>.", "إذا كان الفريق متأخراً وسجل هدف التعادل، فإن الهدف التالي يحسم الفوز.", "في كل دقيقة، يغادر لاعب من كل فريق حتى يتبقى <span class='highlight'>1 ضد 1 مع الحراس</span>.", "إذا استمر التعادل عند الدقيقة <span class='time-badge'>4:00</span>، تنتقل المباراة إلى <span class='highlight'>ركلات الترجيح (Shootouts)</span>."] },
-          { title: "<i class='fas fa-exclamation-triangle gold-icon'></i> اللائحة الانضباطية والعقوبات", items: ["<span class='card-yellow'>البطاقة الصفراء:</span> استبعاد مؤقت <span class='highlight'>لمدة دقيقتين</span>.", "<span class='card-red'>البطاقة الحمراء:</span> طرد نهائي للاعب، ويلعب الفريق بنقص عددي لمدة <span class='highlight'>5 دقائق</span> ثم يُسمح بإدخال بديل."] },
-          { title: "<i class='fas fa-cogs gold-icon'></i> الأحكام الفنية والتنظيمية", items: ["الحد الأقصى للمستدعين: <span class='highlight'>8 لاعبين</span> (5 أساسيين، 3 بدلاء).", "<span class='highlight'>التبديلات غير محدودة.</span>", "<span class='danger-badge'>يُمنع على لاعبي دكة الاحتياط استخدام VR الجسد الكامل أو الكاميرا (Full Body VR / Camera).</span>", "<span class='highlight'>يجب إبلاغ المالك (Fares) بمواعيد وجدول المباريات.</span>", "<span class='highlight'>وجود حكم معتمد شرط أساسي لإقامة المباراة.</span>", "<span class='danger-badge'>عدم توفر فيديو الإعادة (Replay) يوجب إعادة المباراة.</span>", "لمس الكرة مرتين متتاليتين في الضربات الثابتة <span class='danger-badge'>ممنوع قانوناً</span>.", "حد الاتصال المسموح (Ping): <span class='highlight'>160ms</span> كحد أقصى. عند تجاوزه يجب إرسال فيديو 15 ثانية لتحديث الصفحة وإلا <span class='danger-badge'>تُلغى الأهداف والمساهمات</span>.", "تُلغى المساهمات فوراً في حال استخدام الهايت او الليق او الشورت قليتش (Glitch).", "يُمنع التلويح السريع باليد أو النزول الأرضي للمس الكرة؛ تكرارها يوجب <span class='card-yellow'>بطاقة صفراء</span>.", "التسلل ملغى إذا كان اللاعب <span class='highlight'>خلف خط منتصف الملعب</span>.", "الركنيات تنفذ <span class='highlight'>بالرأس فقط</span>.", "الدردشة الصوتية تكون محصورة على <span class='highlight'>الفريق فقط (Team Chat)</span>."] },
-          { title: "<i class='fas fa-star gold-icon'></i> دليل البطاقات السرية (Secret Cards)", items: ["<span class='highlight'>1. Shootout:</span> انفراد من المنتصف خلال 5 ثوانٍ.", "<span class='highlight'>2. الطرد (Red Card):</span> طرد لاعب خصم لمدة 5 دقائق.", "<span class='highlight'>3. ركلة جزاء:</span> تنفيذ ركلة جزاء اعتيادية.", "<span class='highlight'>4. هدف مضاعف (Double Goal):</span> احتساب الأهداف بضعف لمدة 4 دقائق.", "<span class='highlight'>5. النجمة (Star Player):</span> اختيار لاعب لمضاعفة هدفه التالي.", "<span class='highlight'>6. الزناد (Trigger Button):</span> إلزام الفريق بالضغط على الزناد لمدة 90 ثانية.", "<span class='highlight'>7. الجوكر (Joker):</span> حرية اختيار أي بطاقة من القائمة أعلاه."] }
+          { title: "<i class='fas fa-play-circle gold-icon'></i> انطلاق المباراة", items: ["تبدأ بـ <span class='highlight'>لاعب واحد وحارس مرمى</span> لكل فريق خلف خط المرمى.", "يتم إسقاط الكرة من الأعلى، ويسرع اللاعبون للاستحواذ عليها."] },
+          { title: "<i class='fas fa-chart-line gold-icon'></i> مرحلة التدرج (Scale-Up) <span class='time-badge'>40:00 - 37:00</span>", items: ["تبدأ بنظام <span class='highlight'>1 ضد 1</span> + الحراس.", "كل دقيقة يدخل لاعب إضافي لكل فريق حتى الاكتمال بنظام <span class='highlight'>5 ضد 5</span> عند الدقيقة <span class='time-badge'>37:00</span>."] },
+          { title: "<i class='fas fa-id-card gold-icon'></i> ركلة ضربة الرئيس والبطاقات السريّة <span class='time-badge'>37:00 - 23:00</span>", items: ["يمكن للفرق تفعيل <span class='highlight'>البطاقة السرية</span> (الزر الأخضر) أو <span class='highlight'>ركلة جزاﺀ الرئيس</span> (الزر الأزرق)."] },
+          { title: "<i class='fas fa-fire gold-icon'></i> مرحلة الهدف المضاعف (x2) <span class='time-badge'>23:00 - 20:00</span>", items: ["الاهداف المسجلة تحسب بـ <span class='highlight'>هدفين</span> حتى نهاية الشوط الأول.", "<span class='danger-badge'>ملاحظة:</span> لا يوجد وقت بدل ضائع."] },
+          { title: "<i class='fas fa-dice gold-icon'></i> قرعة منتصف المباراة <span class='time-badge'>20:00 - 17:00</span>", items: ["سحب عشوائي لنظام اللعب: <span class='highlight'>(1v1 بدون حارس، 2v2، 3v3، أو 4v4)</span>."] },
+          { title: "<i class='fas fa-clock gold-icon'></i> المرحلة العادية <span class='time-badge'>17:00 - 4:00</span>", items: ["يمكن للفرق استخدام <span class='highlight'>البطاقة السرية</span> أو <span class='highlight'>ركلة ضربة الرئيس</span>."] },
+          { title: "<i class='fas fa-bolt gold-icon'></i> نمط كرة المباراة (Matchball) <span class='time-badge'>4:00 - النهاية</span>", items: ["إذا سجل الفريق المتقدم، <span class='highlight'>تنتهي المباراة فوراً</span> بفوزه.", "إذا تعادل الفريق التأخر، الهدف التالي يحسم الفوز.", "كل دقيقة يخرج لاعب من كل فريق حتى نصل إلى <span class='highlight'>1v1 + حارس</span>.", "إذا استمر التعادل عند الدقيقة <span class='time-badge'>4:00</span>، ننتقل فوراً إلى <span class='highlight'>ركلات الترجيح (Shootouts)</span>."] },
+          { title: "<i class='fas fa-exclamation-triangle gold-icon'></i> الانضباط والجزاءات", items: ["<span class='card-yellow'>البطاقة الاصفر:</span> إيقاف مؤقت لمدة <span class='highlight'>دقيقتين</span>.", "<span class='card-red'>البطاقة الحمراء:</span> طرد كامل. يلعب الفريق ناقصاً لمدة <span class='highlight'>5 دقائق</span> قبل إدخال بديل."] },
+          { title: "<i class='fas fa-cogs gold-icon'></i> التعليمات الفنية", items: ["الحد الأقصى للقائمة: <span class='highlight'>8 لاعبين</span> (5 أساسيين، 3 بدلاء).", "<span class='highlight'>التبديلات مفتوحة وغير محدودة.</span>", "<span class='danger-badge'>يمنع استخدام Full Body VR أو الكاميرا للاعبي الاحتياط.</span>", "<span class='highlight'>يجب إبلاغ المالك (فارس) بمواعيد المباريات.</span>", "<span class='highlight'>يلزم وجود حكم معتمد لجميع المباريات.</span>", "<span class='danger-badge'>عدم توثيق تسجيل المباراة بفيديو يؤدي إلى إعادة المباراة.</span>", "اللمس المزدوج في الركلات الحرة أو ضربات المرمى <span class='danger-badge'>ممنوع</span>.", "أقصى بنج مسموح: <span class='highlight'>119ms</span>. التجاوز يتطلب فيديو إثبات 15 ثانية وإلا تُبطل الأهداف والاصنصات.", "استغلال الثغرات (الارتفاع، الساق، القصر) يؤدي لـ <span class='danger-badge'>إلغاء الإحصائيات فوراً</span>.", "التلويح السريع باليد / الغوص يسبب أخطاء، والتكرار يمنح <span class='card-yellow'>بطاقة صفراء</span>.", "التسلل يلغى إذا كان اللاعب خلف <span class='highlight'>خط منتصف الملعب</span>.", "الضربات الركنية: <span class='highlight'>بالرأس فقط</span>.", "المحادثة الصوتية محصورة على <span class='highlight'>دردشة الفريق فقط</span>."] },
+          { title: "<i class='fas fa-star gold-icon'></i> تفاصيل البطاقات السريّة", items: ["<span class='highlight'>1. شوت أوت:</span> 1 ضد 1 من منتصف الملعب (مؤقت 5 ثوانٍ).", "<span class='highlight'>2. بطاقة حمراء:</span> طرد لاعب من المنافس لمدة 5 دقائق.", "<span class='highlight'>3. ركلة جزاء:</span> تنفيذ ركلة جزاء قياسية.", "<span class='highlight'>4. هدف مضاعف:</span> احتساب الهدف بهدفين لمدة 4 دقائق.", "<span class='highlight'>5. اللاعب النجم:</span> اللاعب المحدد يضاعف هدفه القادم.", "<span class='highlight'>6. زر التفعيل:</span> على الفريق الضغط على الزر لـ 90 ثانية.", "<span class='highlight'>7. الجوكر:</span> اختيار أي بطاقة من المذكورة أعلاه."] }
         ],
         server: [
-          { title: "<i class='fas fa-handshake gold-icon'></i> الاحترام والتعامل الأخلاقي", items: ["يجب التزام الاحترام المتبادل بين جميع الأعضاء، ويمنع منعاً باتاً استخدام الكلمات المسيئة أو الألفاظ البذائة."] },
-          { title: "<i class='fas fa-user-slash gold-icon'></i> حظر التنمر والإساءة", items: ["يُمنع السب، الشتم، أو ممارسة أي شكل من أشكال التنمر والإساءة لأي عضو داخل السيرفر."] },
-          { title: "<i class='fas fa-bullhorn gold-icon'></i> منع الإعلانات والروابط", items: ["يحظر نشر الروابط الخارجية أو الترويج للسيرفرات والحسابات الأخرى دون الحصول على إذن مسبق."] },
-          { title: "<i class='fas fa-balance-scale gold-icon'></i> السياسة والدين", items: ["يُمنع منعاً باتاً فتح أو خوض النقاشات الدينية، السياسية، أو الطائفية تجنباً الخلافات."] },
-          { title: "<i class='fas fa-comment-slash gold-icon'></i> منع الإزعاج والتكرار (Spam)", items: ["تجنب إزعاج الأعضاء عبر تكرار الرسائل، أو الإشارة المتكررة (Mentions) دون حاجة."] },
-          { title: "<i class='fas fa-thumbtack gold-icon'></i> التزام القنوات المخصصة", items: ["يرجى استخدام كل قناة كتابية أو صوتية للموضوع المخصص لها."] },
-          { title: "<i class='fas fa-user-shield gold-icon'></i> التزام تعليمات الإدارة", items: ["يجب الامتثال لكافة توجيهات وقرارات المشرفين وإدارة السيرفر في جميع الأوقات."] },
-          { title: "<i class='fas fa-user-lock gold-icon'></i> حماية الخصوصية", items: ["يُحظر مشاركة أو نشر البيانات والمعلومات الشخصية لأي عضو دون موافقته الصريحة."] },
-          { title: "<i class='fas fa-ban gold-icon'></i> المحتوى غير اللائق", items: ["يُمنع مشاركة أي محتوى غير أخلاقي، غير قانوني، أو مخالف لآداب الحوار."] },
-          { title: "<i class='fas fa-gavel gold-icon'></i> العقوبات والإجراءات", items: ["ارتكاب أي مخالفة للأنظمة قد يعرض صاحبها للتحذير، الكتم (Mute)، أو الطرد النهائي."] },
-          { title: "<i class='fas fa-id-badge gold-icon'></i> الملف الشخصي المناسب", items: ["يجب اختيار اسم مستخدم وصورة شخصية لائمة ولا تحتوي على عبارات خادشة."] },
-          { title: "<i class='fas fa-smile gold-icon'></i> التفاعل الإيجابي", items: ["نرحب بالنشاط والتفاعل المستمر داخل السيرفر شريطة عدم إساءة الاستخدام."] }
+          { title: "<i class='fas fa-handshake gold-icon'></i> الاحترام المتبادل", items: ["الالتزام بالاحترام مع الجميع، ويُمنع منعاً باتاً استخدام الألفاظ المسيئة أو البذيئة."] },
+          { title: "<i class='fas fa-user-slash gold-icon'></i> منع التنمر والمضايقات", items: ["يُحظر الإهانة، التنمر، أو السلوك السام تجاه أي عضو."] },
+          { title: "<i class='fas fa-bullhorn gold-icon'></i> منع الإعلانات الخارجية", items: ["يُمنع نشر الروابط الخارجية أو الترويج لسيرفرات أخرى بدون إذن من الإدارة."] },
+          { title: "<i class='fas fa-balance-scale gold-icon'></i> تجنب المواضيع الحساسة", items: ["يُمنع النقاش في السياسة، الدين، أو الأحاديث الحساسة والمثيرة للجدل."] },
+          { title: "<i class='fas fa-comment-slash gold-icon'></i> منع التكرار والسبام", items: ["تجنب إغراق القنوات بالنصوص والتكرار أو المنشن المتكرر للأعضاء والإدارة."] },
+          { title: "<i class='fas fa-thumbtack gold-icon'></i> استخدام القنوات المخصصة", items: ["يرجى كتابة كل موضوع في القناة المناسبة له لضمان تنظيم السيرفر."] },
+          { title: "<i class='fas fa-user-shield gold-icon'></i> اتباع تعليمات الإدارة", items: ["الالتزام بتوجيهات المشرفين والمسؤولين والتعاون معهم."] },
+          { title: "<i class='fas fa-user-lock gold-icon'></i> حماية الخصوصية", items: ["ممنوع نشر المعلومات الشخصية أو التفاصيل الخاصة لأي شخص بدون موافقته."] },
+          { title: "<i class='fas fa-ban gold-icon'></i> المحتوى المناسب", items: ["يُحظر نشر أي محتوى غير أخلاقي، ضار، أو مخالف للقوانين."] },
+          { title: "<i class='fas fa-gavel gold-icon'></i> الإجراءات التأديبية", items: ["مخالفة القوانين تعرض صاحبها للتحذير، الميوت، الطرد، أو الحظر النهائي."] },
+          { title: "<i class='fas fa-id-badge gold-icon'></i> المظهر الشخصي المناسب", items: ["الالتزام بصور شخصية وحالات وأسماء محترمة ومناسبة."] },
+          { title: "<i class='fas fa-smile gold-icon'></i> التفاعل الإيجابي", items: ["شارك واستمتع بوقتك في مجتمع رياضي ممتع وأخوي."] }
+        ],
+        signing: [
+          { title: "<i class='fas fa-users-cog gold-icon'></i> القائمة وإعارة الطوارئ", items: ["الحد الأقصى لعدد اللاعبين بالفريق هو <span class='highlight'>9 لاعبين</span>.", "في حال وجود نقص في التشكيلة الأساسية، يُسمح بطلب <span class='highlight'>إعارة طوارئ (E-Loan)</span>.", "الحد الأقصى لاعارة الطوارئ هو <span class='highlight'>لاعب واحد فقط (E-Loan)</span>."] },
+          { title: "<i class='fas fa-user-check gold-icon'></i> حرية اللاعب وضوابط التسجيل", items: ["يمتلك اللاعب حرية اختيار فريقه، و<span class='danger-badge'>يُمنع منعاً باتاً إجباره على البقاء</span> في فريق معين.", "يُمنع تسجيل أي لاعب <span class='danger-badge'>غير متواجد بالسيرفر الرسمي</span>.", "التسجيل يكون حصراً عن طريق الأمر <span class='highlight'>/sign</span> (يُمنع التسجيل العادي)."] },
+          { title: "<i class='fas fa-file-contract gold-icon'></i> مدة الإعارة وفسخ العقد", items: ["الحد الأدنى للإعارة العادية هو <span class='highlight'>3 جولات</span>.", "عند تسجيل لاعب، يُمنع خروجه من الفريق إلا بعد خوض <span class='highlight'>جولتين على الأقل</span>.", "في حال فسخ عقد لاعب، يُمنع عودته إلى نفس الفريق إلا بعد مرور <span class='highlight'>جولتين</span>."] }
         ]
       }
     };
 
-    const translations = {
-      en: {
-        dir: 'ltr',
-        sidebarTitle: 'Navigation Menu',
-        navHome: 'News & League Info',
-        navStandings: 'League Standings',
-        navStats: 'Statistics',
-        navRules: 'League Rules',
-        newsTitle: 'Latest News & Updates',
-        news1Badge: 'Official Announcement',
-        news1H: 'Welcome to Kings League VRFS',
-        news1P: 'The official portal for Kings League VRFS statistics, league standings, and regulations. Get ready for an action-packed season!',
-        matchesTitle: 'League Fixtures',
-        m1Header: 'Round 1 - Match 1',
-        m1T1: 'Team A',
-        m1T2: 'Team B',
-        m1Status: 'To Be Announced',
-        m2Header: 'Round 1 - Match 2',
-        m2T1: 'Team C',
-        m2T2: 'Team D',
-        m2Status: 'To Be Announced',
-        standingsTitle: 'League Standings',
-        standingsEmpty: 'League table is currently unavailable as the league has not officially started.',
-        statsTitle: 'League Statistics',
-        boxScorers: 'Top Scorers',
-        boxAssists: 'Top Assists',
-        boxCleanSheets: 'Clean Sheets',
-        boxTOTW: 'Team of the Week',
-        boxMOTM: 'Man of the Match',
-        boxPOTS: 'Player of the Season',
-        noData: 'No statistics available',
-        rulesTitle: 'League Regulations',
-        btnTabGame: 'Game Rules',
-        btnTabServer: 'Server Rules'
-      },
-      ar: {
-        dir: 'rtl',
-        sidebarTitle: 'قائمة التنقل',
-        navHome: 'الأخبار ومعلومات الدوري',
-        navStandings: 'ترتيب الدوري',
-        navStats: 'الإحصائيات',
-        navRules: 'القوانين',
-        newsTitle: 'آخر الأخبار والمستجدات',
-        news1Badge: 'إعلان رسمي',
-        news1H: 'أهلاً بكم في كينجز ليج VRFS',
-        news1P: 'المنصة الرسمية لمباريات، إحصائيات، ترتيب وقوانين دوري كينجز ليج VRFS. استعدوا لموسم قوي وحماسي!',
-        matchesTitle: 'جدول المباريات',
-        m1Header: 'الجولة 1 - المباراة الأولى',
-        m1T1: 'الفريق A',
-        m1T2: 'الفريق B',
-        m1Status: 'لم تتحدد بعد',
-        m2Header: 'الجولة 1 - المباراة الثانية',
-        m2T1: 'الفريق C',
-        m2T2: 'الفريق D',
-        m2Status: 'لم تتحدد بعد',
-        standingsTitle: 'ترتيب الدوري',
-        standingsEmpty: 'جدول ترتيب الدوري غير متوفر حالياً لأن الدوري لم يبدأ بعد.',
-        statsTitle: 'إحصائيات الدوري',
-        boxScorers: 'الهدافين',
-        boxAssists: 'صناعة الأهداف',
-        boxCleanSheets: 'شباك نظيفة',
-        boxTOTW: 'تشكيلة الأسبوع',
-        boxMOTM: 'رجل المباراة',
-        boxPOTS: 'لاعب الموسم',
-        noData: 'لا توجد بيانات حالياً',
-        rulesTitle: 'قوانين الدوري',
-        btnTabGame: 'قوانين اللعبة',
-        btnTabServer: 'قوانين السيرفر'
-      }
-    };
-
-    function renderRules(lang) {
-      const gContainer = document.getElementById('rules-content-game');
-      const sContainer = document.getElementById('rules-content-server');
-      
-      gContainer.innerHTML = fullRulesData[lang].game.map(r => `
-        <div class="rule-item-card">
-          <h4>${r.title}</h4>
-          <ul>${r.items.map(i => `<li>${i}</li>`).join('')}</ul>
-        </div>
-      `).join('');
-
-      sContainer.innerHTML = fullRulesData[lang].server.map(r => `
-        <div class="rule-item-card">
-          <h4>${r.title}</h4>
-          <ul>${r.items.map(i => `<li>${i}</li>`).join('')}</ul>
-        </div>
-      `).join('');
+    function renderRules() {
+      ['game', 'server', 'signing'].forEach(type => {
+        const container = document.getElementById(`rules-content-${type}`);
+        if (!container) return;
+        const data = fullRulesData[currentLang][type];
+        
+        container.innerHTML = data.map(card => `
+          <div class="rule-item-card">
+            <h4>${card.title}</h4>
+            <ul>
+              ${card.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+      });
     }
 
-    function setLanguage(lang) {
-      currentLang = lang;
-      const t = translations[lang];
-
-      document.documentElement.setAttribute('dir', t.dir);
-      document.documentElement.setAttribute('lang', lang);
-
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
-
-      document.getElementById('txt-sidebar-title').innerText = t.sidebarTitle;
-      document.getElementById('txt-nav-home').innerText = t.navHome;
-      document.getElementById('txt-nav-standings').innerText = t.navStandings;
-      document.getElementById('txt-nav-stats').innerText = t.navStats;
-      document.getElementById('txt-nav-rules').innerText = t.navRules;
-
-      document.getElementById('txt-news-title').innerText = t.newsTitle;
-      document.getElementById('txt-news1-badge').innerText = t.news1Badge;
-      document.getElementById('txt-news1-h').innerText = t.news1H;
-      document.getElementById('txt-news1-p').innerText = t.news1P;
-
-      document.getElementById('txt-matches-title').innerText = t.matchesTitle;
-      document.getElementById('txt-m1-header').innerText = t.m1Header;
-      document.getElementById('txt-m1-t1').innerText = t.m1T1;
-      document.getElementById('txt-m1-t2').innerText = t.m1T2;
-      document.getElementById('txt-m1-status').innerText = t.m1Status;
-
-      document.getElementById('txt-m2-header').innerText = t.m2Header;
-      document.getElementById('txt-m2-t1').innerText = t.m2T1;
-      document.getElementById('txt-m2-t2').innerText = t.m2T2;
-      document.getElementById('txt-m2-status').innerText = t.m2Status;
-
-      document.getElementById('txt-standings-title').innerText = t.standingsTitle;
-      document.getElementById('txt-standings-empty').innerText = t.standingsEmpty;
-
-      document.getElementById('txt-stats-title').innerText = t.statsTitle;
-      document.getElementById('txt-box-scorers').innerHTML = `<i class="fas fa-futbol gold-icon"></i> ${t.boxScorers}`;
-      document.getElementById('txt-box-assists').innerHTML = `<i class="fas fa-hands-helping gold-icon"></i> ${t.boxAssists}`;
-      document.getElementById('txt-box-cleansheets').innerHTML = `<i class="fas fa-shield-halved gold-icon"></i> ${t.boxCleanSheets}`;
-      document.getElementById('txt-box-totw').innerHTML = `<i class="fas fa-users gold-icon"></i> ${t.boxTOTW}`;
-      document.getElementById('txt-box-motm').innerHTML = `<i class="fas fa-star gold-icon"></i> ${t.boxMOTM}`;
-      document.getElementById('txt-box-pots').innerHTML = `<i class="fas fa-crown gold-icon"></i> ${t.boxPOTS}`;
-
-      document.querySelectorAll('.txt-no-data').forEach(el => el.innerText = t.noData);
-
-      document.getElementById('txt-rules-title').innerText = t.rulesTitle;
-      document.getElementById('btn-tab-game').innerHTML = `<i class="fas fa-gamepad gold-icon"></i> ${t.btnTabGame}`;
-      document.getElementById('btn-tab-server').innerHTML = `<i class="fas fa-server gold-icon"></i> ${t.btnTabServer}`;
-
-      renderRules(lang);
-      
-      // إعادة جلب البيانات فوراً لضمان عدم مسح بيانات الأخبار بعد تغيير اللغة
-      fetchLeagueData();
-    }
-
-    // -----------------------------------------
-    // كود جلب البيانات ديناميكياً من GitHub
-    // -----------------------------------------
-    async function fetchLeagueData() {
-      try {
-        const cacheBuster = new Date().getTime();
-        // التعديل المهم: استخدام المسار المباشر data.json بدلاً من KingsLeague/data.json
-        const response = await fetch(`data.json?t=${cacheBuster}`);
-        
-        if (!response.ok) throw new Error('لم يتم العثور على ملف البيانات');
-        
-        const data = await response.json();
-        
-        // 1. تحديث قسم الأخبار (خبر نيوكاسل)
-        if (data.news && data.news.length > 0) {
-          const latestNews = data.news[0];
-          document.getElementById('txt-news1-badge').innerText = latestNews.badge || 'NEW';
-          document.getElementById('txt-news1-h').innerText = latestNews.title || '';
-          document.getElementById('txt-news1-p').innerText = latestNews.content || '';
-        }
-
-        // 2. تحديث قسم المباريات
-        if (data.matches && data.matches.length > 0) {
-          const updateTeam = (teamId, name, logo) => {
-            const nameEl = document.getElementById(teamId);
-            if (nameEl) {
-              nameEl.innerText = name || 'TBA';
-              const iconBox = nameEl.previousElementSibling;
-              if (iconBox && logo) {
-                iconBox.style.background = 'none';
-                iconBox.style.border = 'none';
-                iconBox.innerHTML = `<img src="${logo}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: contain;">`;
-              }
-            }
-          };
-        // 3. تحديث جدول الترتيب
-        // نحدد مصدر البيانات: نأخذ الترتيب إن وُجد، وإلا نأخذ قائمة الفرق الأساسية لتعرض بأصفار
-        let displayData = (data.standings && data.standings.length > 0) ? data.standings : (data.teams || []);
-
-        if (displayData.length > 0) {
-          let tableHTML = `
-            <table class="standings-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th style="text-align: left;">Team</th>
-                  <th>MP</th>
-                  <th>W</th>
-                  <th>L</th>
-                  <th>GF</th>
-                  <th>GA</th>
-                  <th>GD</th>
-                  <th>PTS</th>
-                </tr>
-              </thead>
-              <tbody>
-          `;
-          
-          displayData.forEach((team, index) => {
-            // حيلة برمجية: إذا لم تكن هناك إحصائيات مسجلة للفريق، سيضع رقم صفر تلقائياً (|| 0)
-            const mp = team.mp || 0;
-            const w = team.w || 0;
-            const l = team.l || 0;
-            const gf = team.gf || 0;
-            const ga = team.ga || 0;
-            const pts = team.pts || 0;
-            const gd = gf - ga; // فارق الأهداف
-            
-            tableHTML += `
-              <tr>
-                <td><strong>${index + 1}</strong></td>
-                <td class="team-cell">
-                  <img src="${team.logo}" alt="${team.abbr}">
-                  <div>
-                    <strong>${team.name}</strong>
-                    <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
-                  </div>
-                </td>
-                <td>${mp}</td>
-                <td>${w}</td>
-                <td>${l}</td>
-                <td>${gf}</td>
-                <td>${ga}</td>
-                <td style="color: ${gd > 0 ? '#4caf50' : (gd < 0 ? '#ff5555' : 'inherit')};">${gd > 0 ? '+'+gd : gd}</td>
-                <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${pts}</td>
-              </tr>
-            `;
-          });
-          tableHTML += `</tbody></table>`;
-          document.getElementById('standings-container').innerHTML = tableHTML;
-        }
-          if (data.matches[0]) {
-            updateTeam('txt-m1-t1', data.matches[0].team1_name, data.matches[0].team1_logo);
-            updateTeam('txt-m1-t2', data.matches[0].team2_name, data.matches[0].team2_logo);
-            document.getElementById('txt-m1-status').innerText = data.matches[0].status || 'Scheduled';
-          }
-
-          if (data.matches[1]) {
-            updateTeam('txt-m2-t1', data.matches[1].team1_name, data.matches[1].team1_logo);
-            updateTeam('txt-m2-t2', data.matches[1].team2_name, data.matches[1].team2_logo);
-            document.getElementById('txt-m2-status').innerText = data.matches[1].status || 'Scheduled';
-          }
-        }
-
-        console.log("✅ تم تحديث بيانات الموقع بنجاح!");
-      } catch (error) {
-        console.error("❌ خطأ في جلب البيانات:", error);
-      }
-    }
-
-    // التشغيل الدوري كل 30 ثانية
-    setInterval(fetchLeagueData, 30000);
-
-    // Initial load
-    setLanguage('en');
-    // دالة لجلب البيانات وعرض جدول الترتيب تلقائياً في الموقع
     function loadStandings() {
       fetch('data.json')
         .then(res => res.json())
         .then(data => {
           const container = document.getElementById('standings-container');
-          
-          // نأخذ الترتيب إن وُجد، وإلا فنأخذ قائمة الفرق لتعرض بأصفار
           let displayData = (data.standings && data.standings.length > 0) ? data.standings : (data.teams || []);
           
           if (displayData.length > 0) {
+            const t = translations[currentLang];
             let tableHTML = `
               <table class="standings-table">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th style="text-align: left;">Team</th>
-                    <th>MP</th>
-                    <th>W</th>
-                    <th>L</th>
-                    <th>GF</th>
-                    <th>GA</th>
-                    <th>GD</th>
-                    <th>PTS</th>
+                    <th style="text-align: ${currentLang === 'ar' ? 'right' : 'left'};">${t['tbl-team']}</th>
+                    <th>${t['tbl-mp']}</th>
+                    <th>${t['tbl-w']}</th>
+                    <th>${t['tbl-l']}</th>
+                    <th>${t['tbl-gf']}</th>
+                    <th>${t['tbl-ga']}</th>
+                    <th>${t['tbl-gd']}</th>
+                    <th>${t['tbl-pts']}</th>
                   </tr>
                 </thead>
                 <tbody>
             `;
             
             displayData.forEach((team, index) => {
-              // تعيين قيم افتراضية 0 في حال لم تكن مسجلة بعد
               const mp = team.mp || 0;
               const w = team.w || 0;
               const l = team.l || 0;
               const gf = team.gf || 0;
               const ga = team.ga || 0;
               const pts = team.pts || 0;
-              const gd = gf - ga; // فارق الأهداف
+              const gd = gf - ga;
               
               tableHTML += `
                 <tr>
@@ -1215,14 +1076,41 @@
             });
             
             tableHTML += `</tbody></table>`;
-            container.innerHTML = tableHTML; // استبدال الرسالة الفارغة بالجدول الجديد
+            container.innerHTML = tableHTML;
           }
         })
-        .catch(err => console.error("Error loading standings:", err));
+        .catch(err => console.log("Standings not loaded yet or data.json empty"));
     }
 
-    // تشغيل الدالة فور تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', loadStandings);
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+
+      const dict = translations[lang];
+      for (let id in dict) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.innerHTML = dict[id];
+        }
+      }
+
+      // تحديث النصوص في عناصر الفئات المساندة
+      document.querySelectorAll('.txt-no-data').forEach(el => {
+        el.innerText = dict['txt-no-data'];
+      });
+
+      renderRules();
+      loadStandings();
+    }
+
+    // التشغيل الأولي عند فتح الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage('en');
+    });
   </script>
 </body>
 </html>
