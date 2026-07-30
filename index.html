@@ -1075,7 +1075,10 @@
             }
           };
         // 3. تحديث جدول الترتيب
-        if (data.standings && data.standings.length > 0) {
+        // نحدد مصدر البيانات: نأخذ الترتيب إن وُجد، وإلا نأخذ قائمة الفرق الأساسية لتعرض بأصفار
+        let displayData = (data.standings && data.standings.length > 0) ? data.standings : (data.teams || []);
+
+        if (displayData.length > 0) {
           let tableHTML = `
             <table class="standings-table">
               <thead>
@@ -1094,8 +1097,16 @@
               <tbody>
           `;
           
-          data.standings.forEach((team, index) => {
-            const gd = team.gf - team.ga; // فارق الأهداف
+          displayData.forEach((team, index) => {
+            // حيلة برمجية: إذا لم تكن هناك إحصائيات مسجلة للفريق، سيضع رقم صفر تلقائياً (|| 0)
+            const mp = team.mp || 0;
+            const w = team.w || 0;
+            const l = team.l || 0;
+            const gf = team.gf || 0;
+            const ga = team.ga || 0;
+            const pts = team.pts || 0;
+            const gd = gf - ga; // فارق الأهداف
+            
             tableHTML += `
               <tr>
                 <td><strong>${index + 1}</strong></td>
@@ -1106,17 +1117,16 @@
                     <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
                   </div>
                 </td>
-                <td>${team.mp}</td>
-                <td>${team.w}</td>
-                <td>${team.l}</td>
-                <td>${team.gf}</td>
-                <td>${team.ga}</td>
+                <td>${mp}</td>
+                <td>${w}</td>
+                <td>${l}</td>
+                <td>${gf}</td>
+                <td>${ga}</td>
                 <td style="color: ${gd > 0 ? '#4caf50' : (gd < 0 ? '#ff5555' : 'inherit')};">${gd > 0 ? '+'+gd : gd}</td>
-                <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${team.pts}</td>
+                <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${pts}</td>
               </tr>
             `;
           });
-          
           tableHTML += `</tbody></table>`;
           document.getElementById('standings-container').innerHTML = tableHTML;
         }
