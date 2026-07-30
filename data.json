@@ -48,6 +48,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "5alid (<@770754721459470346>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "22:40 - Jul 30"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "joao (<@1506353828914663650>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:40 - Jul 30"
@@ -87,12 +93,6 @@
             "content": "TestTeam (TTM) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "21:50 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "7meedi (<@1167695822322929740>) signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "17:05 - Jul 30"
         }
     ],
     "matches": [],
@@ -113,7 +113,8 @@
             "stx",
             "xtv8",
             "zx",
-            "joao"
+            "joao",
+            "5alid"
         ]
     },
     "last_fixtures": [],
