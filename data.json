@@ -47,6 +47,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER RELEASED",
+            "content": "Jst 5alid. (<@770754721459470346>) has been released from KL | M.E.",
+            "badge": "RELEASE",
+            "timestamp": "00:09 - Jul 31"
+        },
+        {
             "title": "PLAYER TRANSFER",
             "content": "roidy (<@1308773851928461323>) signed for Al Kuwait!",
             "badge": "SIGNING",
@@ -87,12 +93,6 @@
             "content": "vamp (<@1480199105639743608>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:04 - Jul 30"
-        },
-        {
-            "title": "NEW TEAM JOINED",
-            "content": "Al Kuwait (KWT) has officially joined Kings League!",
-            "badge": "NEW TEAM",
-            "timestamp": "21:56 - Jul 30"
         }
     ],
     "matches": [],
