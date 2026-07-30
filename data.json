@@ -47,6 +47,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "izx (<@1315722065675948124>) signed for KL | M.E!",
+            "badge": "SIGNING",
+            "timestamp": "00:12 - Jul 31"
+        },
+        {
             "title": "PLAYER RELEASED",
             "content": "Jst 5alid. (<@770754721459470346>) has been released from KL | M.E.",
             "badge": "RELEASE",
@@ -87,12 +93,6 @@
             "content": "stx (<@1253101808726048829>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:05 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "vamp (<@1480199105639743608>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:04 - Jul 30"
         }
     ],
     "matches": [],
@@ -116,6 +116,9 @@
             "joao",
             "5alid",
             "roidy"
+        ],
+        "KL | M.E": [
+            "izx"
         ]
     },
     "last_fixtures": [],
@@ -131,6 +134,7 @@
     },
     "roster_messages": {
         "TestTeam": 1532460466368942253,
-        "Al Kuwait": 1532461956936630403
+        "Al Kuwait": 1532461956936630403,
+        "KL | M.E": 1532495430330355795
     }
 }
