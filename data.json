@@ -10,9 +10,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "Arab United",
+            "abbr": "AU",
+            "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532377275012481175/IMG_7401.png?ex=6a6ca10c&is=6a6b4f8c&hm=150e228871b9aa9cf07fefcc51b3810269354cd67d015e7fbdbb0072b3d7d8b8&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "Arab United (AU) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "16:21 - Jul 30"
+        },
         {
             "title": "NEW TEAM JOINED",
             "content": "Newcastle United (NCU) has officially joined Kings League!",
@@ -24,6 +41,9 @@
     "rosters": {
         "Newcastle United": [
             "𝑭𝒂𝒓𝒆𝒔."
+        ],
+        "Arab United": [
+            "Zyad"
         ]
     },
     "last_fixtures": [],
