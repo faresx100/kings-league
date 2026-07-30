@@ -811,10 +811,10 @@
     </section>
 
   </main>
-
-  <!-- JAVASCRIPT SYSTEM -->
+   <!-- JAVASCRIPT SYSTEM -->
   <script>
     let currentLang = 'en';
+    let globalData = null;
 
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('active');
@@ -844,7 +844,7 @@
       document.getElementById('btn-tab-signing').classList.toggle('active', type === 'signing');
     }
 
-    // TRANSLATIONS DICTIONARY
+    // TRANSLATIONS DICTIONARY (تم إضافة ترجمات الإعلان هنا)
     const translations = {
       en: {
         "txt-sidebar-title": "Navigation Menu",
@@ -976,7 +976,7 @@
           { title: "<i class='fas fa-clock gold-icon'></i> المرحلة العادية <span class='time-badge'>17:00 - 4:00</span>", items: ["يمكن للفرق استخدام <span class='highlight'>البطاقة السرية</span> أو <span class='highlight'>ركلة ضربة الرئيس</span>."] },
           { title: "<i class='fas fa-bolt gold-icon'></i> نمط كرة المباراة (Matchball) <span class='time-badge'>4:00 - النهاية</span>", items: ["إذا سجل الفريق المتقدم، <span class='highlight'>تنتهي المباراة فوراً</span> بفوزه.", "إذا تعادل الفريق التأخر، الهدف التالي يحسم الفوز.", "كل دقيقة يخرج لاعب من كل فريق حتى نصل إلى <span class='highlight'>1v1 + حارس</span>.", "إذا استمر التعادل عند الدقيقة <span class='time-badge'>4:00</span>، ننتقل فوراً إلى <span class='highlight'>ركلات الترجيح (Shootouts)</span>."] },
           { title: "<i class='fas fa-exclamation-triangle gold-icon'></i> الانضباط والجزاءات", items: ["<span class='card-yellow'>البطاقة الاصفر:</span> إيقاف مؤقت لمدة <span class='highlight'>دقيقتين</span>.", "<span class='card-red'>البطاقة الحمراء:</span> طرد كامل. يلعب الفريق ناقصاً لمدة <span class='highlight'>5 دقائق</span> قبل إدخال بديل."] },
-          { title: "<i class='fas fa-cogs gold-icon'></i> التعليمات الفنية", items: ["الحد الأقصى للقائمة: <span class='highlight'>8 لاعبين</span> (5 أساسيين، 3 بدلاء).", "<span class='highlight'>التبديلات مفتوحة وغير محدودة.</span>", "<span class='danger-badge'>يمنع استخدام Full Body VR أو الكاميرا للاعبي الاحتياط.</span>", "<span class='highlight'>يجب إبلاغ المالك (فارس) بمواعيد المباريات.</span>", "<span class='highlight'>يلزم وجود حكم معتمد لجميع المباريات.</span>", "<span class='danger-badge'>عدم توثيق تسجيل المباراة بفيديو يؤدي إلى إعادة المباراة.</span>", "اللمس المزدوج في الركلات الحرة أو ضربات المرمى <span class='danger-badge'>ممنوع</span>.", "أقصى بنج مسموح: <span class='highlight'>119ms</span>. التجاوز يتطلب فيديو إثبات 15 ثانية وإلا تُبطل الأهداف والاصنصات.", "استغلال الثغرات (الارتفاع، الساق، القصر) يؤدي لـ <span class='danger-badge'>إلغاء الإحصائيات فوراً</span>.", "التلويح السريع باليد / الغوص يسبب أخطاء، والتكرار يمنح <span class='card-yellow'>بطاقة صفراء</span>.", "التسلل يلغى إذا كان اللاعب خلف <span class='highlight'>خط منتصف الملعب</span>.", "الضربات الركنية: <span class='highlight'>بالرأس فقط</span>.", "المحادثة الصوتية محصورة على <span class='highlight'>دردشة الفريق فقط</span>."] },
+          { title: "<i class='fas fa-cogs gold-icon'></i> التعليمات الفنية", items: ["الحد الأقصى للقائمة: <span class='highlight'>9 لاعبين</span> (5 أساسيين، 4 بدلاء).", "<span class='highlight'>التبديلات مفتوحة وغير محدودة.</span>", "<span class='danger-badge'>يمنع استخدام Full Body VR أو الكاميرا للاعبي الاحتياط.</span>", "<span class='highlight'>يجب إبلاغ المالك (فارس) بمواعيد المباريات.</span>", "<span class='highlight'>يلزم وجود حكم معتمد لجميع المباريات.</span>", "<span class='danger-badge'>عدم توثيق تسجيل المباراة بفيديو يؤدي إلى إعادة المباراة.</span>", "اللمس المزدوج في الركلات الحرة أو ضربات المرمى <span class='danger-badge'>ممنوع</span>.", "أقصى بنج مسموح: <span class='highlight'>119ms</span>. التجاوز يتطلب فيديو إثبات 15 ثانية وإلا تُبطل الأهداف والاصنصات.", "استغلال الثغرات (الارتفاع، الساق، القصر) يؤدي لـ <span class='danger-badge'>إلغاء الإحصائيات فوراً</span>.", "التلويح السريع باليد / الغوص يسبب أخطاء، والتكرار يمنح <span class='card-yellow'>بطاقة صفراء</span>.", "التسلل يلغى إذا كان اللاعب خلف <span class='highlight'>خط منتصف الملعب</span>.", "الضربات الركنية: <span class='highlight'>بالرأس فقط</span>.", "المحادثة الصوتية محصورة على <span class='highlight'>دردشة الفريق فقط</span>."] },
           { title: "<i class='fas fa-star gold-icon'></i> تفاصيل البطاقات السريّة", items: ["<span class='highlight'>1. شوت أوت:</span> 1 ضد 1 من منتصف الملعب (مؤقت 5 ثوانٍ).", "<span class='highlight'>2. بطاقة حمراء:</span> طرد لاعب من المنافس لمدة 5 دقائق.", "<span class='highlight'>3. ركلة جزاء:</span> تنفيذ ركلة جزاء قياسية.", "<span class='highlight'>4. هدف مضاعف:</span> احتساب الهدف بهدفين لمدة 4 دقائق.", "<span class='highlight'>5. اللاعب النجم:</span> اللاعب المحدد يضاعف هدفه القادم.", "<span class='highlight'>6. زر التفعيل:</span> على الفريق الضغط على الزر لـ 90 ثانية.", "<span class='highlight'>7. الجوكر:</span> اختيار أي بطاقة من المذكورة أعلاه."] }
         ],
         server: [
@@ -1018,68 +1018,95 @@
       });
     }
 
-    function loadStandings() {
-      fetch('data.json')
+    function renderNews() {
+      const badgeEl = document.getElementById('txt-news1-badge');
+      const titleEl = document.getElementById('txt-news1-h');
+      const descEl = document.getElementById('txt-news1-p');
+
+      if (!badgeEl || !titleEl || !descEl) return;
+
+      if (globalData && globalData.news && globalData.news.length > 0) {
+        const latestNews = globalData.news[globalData.news.length - 1];
+        badgeEl.innerText = currentLang === 'ar' ? (latestNews.badge_ar || latestNews.badge_en) : latestNews.badge_en;
+        titleEl.innerText = currentLang === 'ar' ? (latestNews.title_ar || latestNews.title_en) : latestNews.title_en;
+        descEl.innerText = currentLang === 'ar' ? (latestNews.desc_ar || latestNews.desc_en) : latestNews.desc_en;
+      } else {
+        const dict = translations[currentLang];
+        badgeEl.innerText = dict["txt-news1-badge"];
+        titleEl.innerText = dict["txt-news1-h"];
+        descEl.innerText = dict["txt-news1-p"];
+      }
+    }
+
+    function renderStandings() {
+      if (!globalData) return;
+      const container = document.getElementById('standings-container');
+      let displayData = (globalData.standings && globalData.standings.length > 0) ? globalData.standings : (globalData.teams || []);
+      
+      if (displayData.length > 0) {
+        const t = translations[currentLang];
+        let tableHTML = `
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th style="text-align: ${currentLang === 'ar' ? 'right' : 'left'};">${t['tbl-team']}</th>
+                <th>${t['tbl-mp']}</th>
+                <th>${t['tbl-w']}</th>
+                <th>${t['tbl-l']}</th>
+                <th>${t['tbl-gf']}</th>
+                <th>${t['tbl-ga']}</th>
+                <th>${t['tbl-gd']}</th>
+                <th>${t['tbl-pts']}</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+        
+        displayData.forEach((team, index) => {
+          const mp = team.mp || 0;
+          const w = team.w || 0;
+          const l = team.l || 0;
+          const gf = team.gf || 0;
+          const ga = team.ga || 0;
+          const pts = team.pts || 0;
+          const gd = gf - ga;
+          
+          tableHTML += `
+            <tr>
+              <td><strong>${index + 1}</strong></td>
+              <td class="team-cell">
+                <img src="${team.logo}" alt="${team.abbr}">
+                <div>
+                  <strong>${team.name}</strong>
+                  <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
+                </div>
+              </td>
+              <td>${mp}</td>
+              <td>${w}</td>
+              <td>${l}</td>
+              <td>${gf}</td>
+              <td>${ga}</td>
+              <td style="color: ${gd > 0 ? '#4caf50' : (gd < 0 ? '#ff5555' : 'inherit')};">${gd > 0 ? '+'+gd : gd}</td>
+              <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${pts}</td>
+            </tr>
+          `;
+        });
+        
+        tableHTML += `</tbody></table>`;
+        container.innerHTML = tableHTML;
+      }
+    }
+
+    function fetchLeagueData() {
+      fetch('data.json?t=' + Date.now())
         .then(res => res.json())
         .then(data => {
-          const container = document.getElementById('standings-container');
-          let displayData = (data.standings && data.standings.length > 0) ? data.standings : (data.teams || []);
-          
-          if (displayData.length > 0) {
-            const t = translations[currentLang];
-            let tableHTML = `
-              <table class="standings-table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th style="text-align: ${currentLang === 'ar' ? 'right' : 'left'};">${t['tbl-team']}</th>
-                    <th>${t['tbl-mp']}</th>
-                    <th>${t['tbl-w']}</th>
-                    <th>${t['tbl-l']}</th>
-                    <th>${t['tbl-gf']}</th>
-                    <th>${t['tbl-ga']}</th>
-                    <th>${t['tbl-gd']}</th>
-                    <th>${t['tbl-pts']}</th>
-                  </tr>
-                </thead>
-                <tbody>
-            `;
-            
-            displayData.forEach((team, index) => {
-              const mp = team.mp || 0;
-              const w = team.w || 0;
-              const l = team.l || 0;
-              const gf = team.gf || 0;
-              const ga = team.ga || 0;
-              const pts = team.pts || 0;
-              const gd = gf - ga;
-              
-              tableHTML += `
-                <tr>
-                  <td><strong>${index + 1}</strong></td>
-                  <td class="team-cell">
-                    <img src="${team.logo}" alt="${team.abbr}">
-                    <div>
-                      <strong>${team.name}</strong>
-                      <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
-                    </div>
-                  </td>
-                  <td>${mp}</td>
-                  <td>${w}</td>
-                  <td>${l}</td>
-                  <td>${gf}</td>
-                  <td>${ga}</td>
-                  <td style="color: ${gd > 0 ? '#4caf50' : (gd < 0 ? '#ff5555' : 'inherit')};">${gd > 0 ? '+'+gd : gd}</td>
-                  <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${pts}</td>
-                </tr>
-              `;
-            });
-            
-            tableHTML += `</tbody></table>`;
-            container.innerHTML = tableHTML;
-          }
+          globalData = data;
+          renderNews();
+          renderStandings();
         })
-        .catch(err => console.log("Standings not loaded yet or data.json empty"));
+        .catch(err => console.log("Data file not found or empty"));
     }
 
     function setLanguage(lang) {
@@ -1098,18 +1125,18 @@
         }
       }
 
-      // تحديث النصوص في عناصر الفئات المساندة
       document.querySelectorAll('.txt-no-data').forEach(el => {
         el.innerText = dict['txt-no-data'];
       });
 
       renderRules();
-      loadStandings();
+      renderNews();
+      renderStandings();
     }
 
-    // التشغيل الأولي عند فتح الصفحة
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage('en');
+      fetchLeagueData();
     });
   </script>
 </body>
