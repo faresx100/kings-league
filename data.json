@@ -32,9 +32,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "Al Kuwait",
+            "abbr": "KWT",
+            "logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "Al Kuwait (KWT) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "21:56 - Jul 30"
+        },
         {
             "title": "NEW TEAM JOINED",
             "content": "TestTeam (TTM) has officially joined Kings League!",
@@ -71,6 +88,9 @@
         ],
         "TestTeam": [
             "Icealdo"
+        ],
+        "Al Kuwait": [
+            "Emperor hadi."
         ]
     },
     "last_fixtures": [],
@@ -84,5 +104,7 @@
         "LST": "N/A",
         "RST": "N/A"
     },
-    "roster_messages": {}
+    "roster_messages": {
+        "TestTeam": 1532460466368942253
+    }
 }
