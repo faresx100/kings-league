@@ -32,6 +32,12 @@
         },
         {
             "title": "PLAYER TRANSFER",
+            "content": "Ronaldinho (<@1068177765930631220>) signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "17:31 - Jul 30"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "7meedi (<@1167695822322929740>) signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "17:05 - Jul 30"
@@ -54,6 +60,7 @@
         "Newcastle United": [
             "𝑭𝒂𝒓𝒆𝒔.",
             "7meedi",
+            "Ronaldinho",
             "Ronaldinho"
         ],
         "Arab United": [
