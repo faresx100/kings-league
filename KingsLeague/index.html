@@ -811,7 +811,7 @@
     </section>
 
   </main>
-   <!-- JAVASCRIPT SYSTEM -->
+ <!-- JAVASCRIPT SYSTEM -->
   <script>
     let currentLang = 'en';
     let globalData = null;
@@ -844,7 +844,7 @@
       document.getElementById('btn-tab-signing').classList.toggle('active', type === 'signing');
     }
 
-    // TRANSLATIONS DICTIONARY (تم إضافة ترجمات الإعلان هنا)
+    // قاموس الترجمة
     const translations = {
       en: {
         "txt-sidebar-title": "Navigation Menu",
@@ -930,6 +930,14 @@
         "tbl-gd": "الفارق",
         "tbl-pts": "النقاط"
       }
+    };
+
+    // ترجمة تلقائية لمصطلحات الأخبار القادمة من البوت عند اختيار العربية
+    const newsTranslationsAr = {
+      "PLAYER TRANSFER": "انتقال لاعب",
+      "NEW TEAM JOINED": "انضمام فريق جديد",
+      "SIGNING": "تعاقد",
+      "NEW TEAM": "فريق جديد"
     };
 
     const fullRulesData = {
@@ -1018,6 +1026,7 @@
       });
     }
 
+    // دالة الأخبار المحدثة للتعامل مع ملف الـ JSON الخاص بك بدون undefined
     function renderNews() {
       const badgeEl = document.getElementById('txt-news1-badge');
       const titleEl = document.getElementById('txt-news1-h');
@@ -1026,10 +1035,25 @@
       if (!badgeEl || !titleEl || !descEl) return;
 
       if (globalData && globalData.news && globalData.news.length > 0) {
-        const latestNews = globalData.news[globalData.news.length - 1];
-        badgeEl.innerText = currentLang === 'ar' ? (latestNews.badge_ar || latestNews.badge_en) : latestNews.badge_en;
-        titleEl.innerText = currentLang === 'ar' ? (latestNews.title_ar || latestNews.title_en) : latestNews.title_en;
-        descEl.innerText = currentLang === 'ar' ? (latestNews.desc_ar || latestNews.desc_en) : latestNews.desc_en;
+        // نأخذ أول وأحدث خبر في القائمة (index 0)
+        const latestNews = globalData.news[0];
+
+        // تنظيف أرقام منشن الديسكورد من النص مثل <@1167695822322929740>
+        let cleanContent = (latestNews.content || latestNews.desc || '').replace(/<@[0-9]+>/g, '');
+        let cleanTitle = latestNews.title || 'LATEST NEWS';
+        let cleanBadge = latestNews.badge || 'NEWS';
+
+        // الترجمة للعربية في حال كان المستخدم مختار عربي
+        if (currentLang === 'ar') {
+          cleanTitle = newsTranslationsAr[cleanTitle] || cleanTitle;
+          cleanBadge = newsTranslationsAr[cleanBadge] || cleanBadge;
+          cleanContent = cleanContent.replace("signed for", "انتقل رسمياً إلى فريق");
+          cleanContent = cleanContent.replace("has officially joined Kings League!", "انضم رسمياً إلى بطولة كينقز ليق!");
+        }
+
+        badgeEl.innerText = cleanBadge;
+        titleEl.innerText = cleanTitle;
+        descEl.innerText = cleanContent;
       } else {
         const dict = translations[currentLang];
         badgeEl.innerText = dict["txt-news1-badge"];
