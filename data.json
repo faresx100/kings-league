@@ -47,6 +47,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "vamp (<@1480199105639743608>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "22:04 - Jul 30"
+        },
+        {
             "title": "NEW TEAM JOINED",
             "content": "Al Kuwait (KWT) has officially joined Kings League!",
             "badge": "NEW TEAM",
@@ -90,7 +96,8 @@
             "Icealdo"
         ],
         "Al Kuwait": [
-            "Emperor hadi."
+            "Emperor hadi.",
+            "vamp"
         ]
     },
     "last_fixtures": [],
@@ -105,6 +112,7 @@
         "RST": "N/A"
     },
     "roster_messages": {
-        "TestTeam": 1532460466368942253
+        "TestTeam": 1532460466368942253,
+        "Al Kuwait": 1532461956936630403
     }
 }
