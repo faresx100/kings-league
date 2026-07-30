@@ -25,6 +25,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "7meedi (<@1167695822322929740>) signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "17:05 - Jul 30"
+        },
+        {
             "title": "NEW TEAM JOINED",
             "content": "Arab United (AU) has officially joined Kings League!",
             "badge": "NEW TEAM",
@@ -40,7 +46,8 @@
     "matches": [],
     "rosters": {
         "Newcastle United": [
-            "𝑭𝒂𝒓𝒆𝒔."
+            "𝑭𝒂𝒓𝒆𝒔.",
+            "7meedi"
         ],
         "Arab United": [
             "Zyad"
