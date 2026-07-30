@@ -1149,11 +1149,80 @@
       }
     }
 
-    // لتشغيل الدوري كل 30 ثانية
+    // التشغيل الدوري كل 30 ثانية
     setInterval(fetchLeagueData, 30000);
 
     // Initial load
     setLanguage('en');
+    // دالة لجلب البيانات وعرض جدول الترتيب تلقائياً في الموقع
+    function loadStandings() {
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById('standings-container');
+          
+          // نأخذ الترتيب إن وُجد، وإلا فنأخذ قائمة الفرق لتعرض بأصفار
+          let displayData = (data.standings && data.standings.length > 0) ? data.standings : (data.teams || []);
+          
+          if (displayData.length > 0) {
+            let tableHTML = `
+              <table class="standings-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th style="text-align: left;">Team</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>GD</th>
+                    <th>PTS</th>
+                  </tr>
+                </thead>
+                <tbody>
+            `;
+            
+            displayData.forEach((team, index) => {
+              // تعيين قيم افتراضية 0 في حال لم تكن مسجلة بعد
+              const mp = team.mp || 0;
+              const w = team.w || 0;
+              const l = team.l || 0;
+              const gf = team.gf || 0;
+              const ga = team.ga || 0;
+              const pts = team.pts || 0;
+              const gd = gf - ga; // فارق الأهداف
+              
+              tableHTML += `
+                <tr>
+                  <td><strong>${index + 1}</strong></td>
+                  <td class="team-cell">
+                    <img src="${team.logo}" alt="${team.abbr}">
+                    <div>
+                      <strong>${team.name}</strong>
+                      <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
+                    </div>
+                  </td>
+                  <td>${mp}</td>
+                  <td>${w}</td>
+                  <td>${l}</td>
+                  <td>${gf}</td>
+                  <td>${ga}</td>
+                  <td style="color: ${gd > 0 ? '#4caf50' : (gd < 0 ? '#ff5555' : 'inherit')};">${gd > 0 ? '+'+gd : gd}</td>
+                  <td style="color: var(--accent-gold-bright); font-weight: 900; font-size: 1.2rem;">${pts}</td>
+                </tr>
+              `;
+            });
+            
+            tableHTML += `</tbody></table>`;
+            container.innerHTML = tableHTML; // استبدال الرسالة الفارغة بالجدول الجديد
+          }
+        })
+        .catch(err => console.error("Error loading standings:", err));
+    }
+
+    // تشغيل الدالة فور تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', loadStandings);
   </script>
 </body>
 </html>
