@@ -7,9 +7,48 @@ import os
 import asyncio
 from datetime import datetime
 from typing import Literal
+import base64
+import requests
+
+# ================= GitHub Sync Configuration =================
+GITHUB_TOKEN = osdjgUIHDSUHG
+GITHUB_REPO = "faresx100/kings-league"
+
+def update_github_data():
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/data.json"
+    headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github+json"
+    }
+
+    # 1. جلب sha للملف الموجود على GitHub
+    r = requests.get(url, headers=headers)
+    sha = r.json().get("sha") if r.status_code == 200 else None
+
+    # 2. قراءة الملف المحلي وتشفيره
+    with open("data.json", "rb") as f:
+        content = base64.b64encode(f.read()).decode("utf-8")
+
+    payload = {
+        "message": "Auto-update data.json from Discord Bot",
+        "content": content
+    }
+
+    # إضافة sha فقط إذا كان الملف موجوداً سابقاً
+    if sha:
+        payload["sha"] = sha
+
+    # 3. إرسال التحديث وطباعة النتيجة في CMD
+    res = requests.put(url, json=payload, headers=headers)
+
+    if res.status_code in [200, 201]:
+        print("✅ تم تحديث البيانات على GitHub بنجاح!")
+    else:
+        print(f"❌ فشل التحديث على GitHub! رمز الخطأ: {res.status_code}")
+        print(res.json())
 
 # ================= CONFIGURATION =================
-TOKEN = "MTUzMTMzOTQ1NjM3NDkwMjkwNA.GILMqP.bvGlLkxLgzrvT32L-lWz7H26vP3mD95bZmULF4"
+TOKEN = "idsUIHSERUosjkedifjSIEJF"
 GUILD_ID = 1399563718580244692
 
 # Channel IDs
@@ -86,7 +125,7 @@ async def on_ready():
         guild = discord.Object(id=GUILD_ID)
         bot.tree.copy_global_to(guild=guild)
         await bot.tree.sync(guild=guild)
-        print("⚡ All slash commands synced successfully with updated permissions & Role IDs!")
+        print("⚡️ All slash commands synced successfully with updated permissions & Role IDs!")
     except Exception as e:
         print(f"Error syncing commands: {e}")
 
@@ -108,6 +147,9 @@ class AdminApproveView(discord.ui.View):
         if not is_admin(interaction):
             await interaction.response.send_message("❌ Only server Administrators can approve teams!", ephemeral=True)
             return
+
+        # 💡 منع التعليق
+        await interaction.response.defer()
 
         guild = interaction.guild
         applicant = guild.get_member(self.applicant_id)
@@ -137,11 +179,13 @@ class AdminApproveView(discord.ui.View):
         })
         data["rosters"][self.team_name] = [applicant.display_name if applicant else "Manager"]
         add_website_news(data, "NEW TEAM JOINED", f"{self.team_name} ({self.team_abbr}) has officially joined Kings League!", "NEW TEAM")
+        
         save_data(data)
+        update_github_data() # 🚀 رفع البيانات
 
         button.disabled = True
         button.label = "Approved ✅"
-        await interaction.response.edit_message(view=self)
+        await interaction.edit_original_response(view=self)
         await interaction.followup.send(f"🎉 Team **{self.team_name}** approved and added to official standings!")
 
     @discord.ui.button(label="Reject", style=discord.ButtonStyle.red)
@@ -244,6 +288,9 @@ class SignConfirmationView(discord.ui.View):
             await interaction.response.send_message("This offer is not for you!", ephemeral=True)
             return
 
+        # 💡 منع التعليق هنا
+        await interaction.response.defer()
+
         await self.player.add_roles(self.team_role)
 
         data = load_data()
@@ -252,7 +299,9 @@ class SignConfirmationView(discord.ui.View):
         data["rosters"][self.team_name].append(self.in_game_name)
 
         add_website_news(data, "PLAYER TRANSFER", f"{self.in_game_name} ({self.player.mention}) signed for {self.team_name}!", "SIGNING")
+        
         save_data(data)
+        update_github_data() # 🚀 رفع البيانات
 
         current_count = len(data["rosters"][self.team_name])
 
@@ -267,13 +316,13 @@ class SignConfirmationView(discord.ui.View):
         await sign_channel.send(embed=embed)
 
         roster_channel = bot.get_channel(ROSTER_CHANNEL_ID)
-        roster_embed = discord.Embed(title=f"🛡️ {self.team_name} Updated Roster", color=discord.Color.gold())
+        roster_embed = discord.Embed(title=f"🛡 {self.team_name} Updated Roster", color=discord.Color.gold())
         roster_text = "\n".join([f"• {p}" for p in data["rosters"][self.team_name]])
         roster_embed.add_field(name="Players Registered", value=roster_text or "No players", inline=False)
         roster_embed.set_thumbnail(url=self.team_logo)
         await roster_channel.send(embed=roster_embed)
 
-        await interaction.response.send_message(f"✅ Contract accepted! You joined **{self.team_name}**.")
+        await interaction.followup.send(f"✅ Contract accepted! You joined **{self.team_name}**.")
 
     @discord.ui.button(label="Decline Offer", style=discord.ButtonStyle.red)
     async def decline(self, interaction: discord.Interaction, button: discord.ui.Button):
@@ -327,10 +376,13 @@ async def release(interaction: discord.Interaction, player: discord.Member):
     if not is_team_leader(interaction):
         await interaction.response.send_message("❌ Permission Denied: Only Managers or Co-Managers can use this command!", ephemeral=True)
         return
+        
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
 
     team_role = get_team_role(interaction.user)
     if not team_role or team_role not in player.roles:
-        await interaction.response.send_message("❌ Release Error: This player does not belong to your team!", ephemeral=True)
+        await interaction.followup.send("❌ Release Error: This player does not belong to your team!", ephemeral=True)
         return
 
     await player.remove_roles(team_role)
@@ -342,7 +394,9 @@ async def release(interaction: discord.Interaction, player: discord.Member):
         data["rosters"][team_role.name] = [p for p in data["rosters"][team_role.name] if player.display_name not in p]
 
     add_website_news(data, "PLAYER RELEASED", f"{player.display_name} ({player.mention}) has been released from {team_role.name}.", "RELEASE")
+    
     save_data(data)
+    update_github_data() # 🚀 رفع البيانات
 
     rel_channel = bot.get_channel(RELEASE_CHANNEL_ID)
     embed = discord.Embed(
@@ -355,13 +409,13 @@ async def release(interaction: discord.Interaction, player: discord.Member):
     await rel_channel.send(embed=embed)
 
     roster_channel = bot.get_channel(ROSTER_CHANNEL_ID)
-    roster_embed = discord.Embed(title=f"🛡️ {team_role.name} Updated Roster", color=discord.Color.gold())
+    roster_embed = discord.Embed(title=f"🛡 {team_role.name} Updated Roster", color=discord.Color.gold())
     roster_text = "\n".join([f"• {p}" for p in data["rosters"].get(team_role.name, [])])
     roster_embed.add_field(name="Players Registered", value=roster_text or "No players", inline=False)
     roster_embed.set_thumbnail(url=team_logo)
     await roster_channel.send(embed=roster_embed)
 
-    await interaction.response.send_message(f"✅ Released {player.mention} from **{team_role.name}** successfully.", ephemeral=True)
+    await interaction.followup.send(f"✅ Released {player.mention} from **{team_role.name}** successfully.", ephemeral=True)
 
 
 async def emergency_loan_timer(guild: discord.Guild, player: discord.Member, team_role: discord.Role):
@@ -372,7 +426,9 @@ async def emergency_loan_timer(guild: discord.Guild, player: discord.Member, tea
         if team_role.name in data["rosters"]:
             data["rosters"][team_role.name] = [p for p in data["rosters"][team_role.name] if player.display_name not in p]
         add_website_news(data, "E-LOAN EXPIRED", f"Emergency 40-minute loan for {player.display_name} at {team_role.name} has concluded.", "E-LOAN")
+        
         save_data(data)
+        update_github_data() # 🚀 رفع البيانات عند انتهاء الإعارة
 
 @bot.tree.command(name="loan", description="For Managers/Co-Managers: Loan a player (Standard or Emergency 40-min Loan)")
 @app_commands.describe(
@@ -385,9 +441,12 @@ async def loan(interaction: discord.Interaction, loan_type: Literal['Loan', 'E-L
         await interaction.response.send_message("❌ Permission Denied: Only Managers or Co-Managers can use this command!", ephemeral=True)
         return
 
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
+
     team_role = get_team_role(interaction.user)
     if not team_role:
-        await interaction.response.send_message("❌ Team Error: Could not detect your team role!", ephemeral=True)
+        await interaction.followup.send("❌ Team Error: Could not detect your team role!", ephemeral=True)
         return
 
     await player.add_roles(team_role)
@@ -398,7 +457,9 @@ async def loan(interaction: discord.Interaction, loan_type: Literal['Loan', 'E-L
     data["rosters"][team_role.name].append(f"{player.display_name} ({loan_type})")
 
     add_website_news(data, f"{loan_type.upper()} ARRIVAL", f"{player.mention} joined {team_role.name} on a {loan_type}! ({duration_or_notes})", "LOAN")
+    
     save_data(data)
+    update_github_data() # 🚀 رفع البيانات
 
     loan_chan = bot.get_channel(LOANS_CHANNEL_ID)
     embed = discord.Embed(
@@ -411,9 +472,9 @@ async def loan(interaction: discord.Interaction, loan_type: Literal['Loan', 'E-L
 
     if loan_type == "E-Loan":
         asyncio.create_task(emergency_loan_timer(interaction.guild, player, team_role))
-        await interaction.response.send_message(f"✅ Emergency Loan (40 mins countdown) active for {player.mention}!", ephemeral=True)
+        await interaction.followup.send(f"✅ Emergency Loan (40 mins countdown) active for {player.mention}!", ephemeral=True)
     else:
-        await interaction.response.send_message(f"✅ Regular Loan logged for {player.mention}!", ephemeral=True)
+        await interaction.followup.send(f"✅ Regular Loan logged for {player.mention}!", ephemeral=True)
 
 # ==========================================
 # 3. ADMINISTRATOR ONLY COMMANDS
@@ -444,6 +505,9 @@ async def result(
         await interaction.response.send_message("❌ Permission Denied: Only server Administrators can record match results!", ephemeral=True)
         return
 
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
+
     data = load_data()
 
     for t in data["standings"]:
@@ -473,13 +537,15 @@ async def result(
             data["top_assists"][ast] = data["top_assists"].get(ast, 0) + 1
 
     res_chan = bot.get_channel(RESULT_CHANNEL_ID)
-    embed = discord.Embed(title="⚽ MATCH RESULT", description=f"**{team1.mention} {score1} - {score2} {team2.mention}**", color=discord.Color.gold())
+    embed = discord.Embed(title="⚽️ MATCH RESULT", description=f"**{team1.mention} {score1} - {score2} {team2.mention}**", color=discord.Color.gold())
     if team1_scorers or team2_scorers: embed.add_field(name="Scorers", value=f"{team1.name}: {team1_scorers}\n{team2.name}: {team2_scorers}", inline=False)
     if cb_clean_sheets or gk_clean_sheets: embed.add_field(name="Clean Sheets", value=f"CB: {cb_clean_sheets} | GK: {gk_clean_sheets}", inline=False)
     await res_chan.send(embed=embed)
 
     save_data(data)
-    await interaction.response.send_message("✅ Result recorded and website updated!", ephemeral=True)
+    update_github_data() # 🚀 رفع البيانات
+    
+    await interaction.followup.send("✅ Result recorded and website updated!", ephemeral=True)
 
 
 @bot.tree.command(name="fixtures", description="ADMIN ONLY: Generate new match fixtures without repeating last round")
@@ -492,6 +558,9 @@ async def fixtures(interaction: discord.Interaction, team1: discord.Role, team2:
     if not is_admin(interaction):
         await interaction.response.send_message("❌ Permission Denied: Only server Administrators can generate fixtures!", ephemeral=True)
         return
+
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
 
     teams = [team1, team2, team3, team4, team5, team6]
     data = load_data()
@@ -510,24 +579,26 @@ async def fixtures(interaction: discord.Interaction, team1: discord.Role, team2:
     data["last_fixtures"] = [[p1.name, p2.name] for p1, p2 in pairs]
 
     web_matches = []
-    embed = discord.Embed(title="⚽ KINGS LEAGUE FIXTURES", color=discord.Color.gold())
+    embed = discord.Embed(title="⚽️ KINGS LEAGUE FIXTURES", color=discord.Color.gold())
 
     for idx, (t1, t2) in enumerate(pairs, 1):
         t1_info = next((i for i in data["standings"] if i["name"] == t1.name), {"abbr": t1.name[:3].upper(), "logo": KINGS_LEAGUE_LOGO})
         t2_info = next((i for i in data["standings"] if i["name"] == t2.name), {"abbr": t2.name[:3].upper(), "logo": KINGS_LEAGUE_LOGO})
 
-        embed.add_field(name=f"Match {idx}", value=f"🛡️ **{t1.name}** VS 🛡️ **{t2.name}**", inline=False)
+        embed.add_field(name=f"Match {idx}", value=f"🛡 **{t1.name}** VS 🛡 **{t2.name}**", inline=False)
         web_matches.append({
             "header": f"Match {idx}", "t1_name": t1_info["abbr"], "t1_logo": t1_info["logo"],
             "t2_name": t2_info["abbr"], "t2_logo": t2_info["logo"], "status": "UPCOMING"
         })
 
     data["matches"] = web_matches
+    
     save_data(data)
+    update_github_data() # 🚀 رفع البيانات
 
     fix_chan = bot.get_channel(FIXTURES_CHANNEL_ID)
     await fix_chan.send(embed=embed)
-    await interaction.response.send_message("✅ Fixtures generated and sent!", ephemeral=True)
+    await interaction.followup.send("✅ Fixtures generated and sent!", ephemeral=True)
 
 
 @bot.tree.command(name="man_of_the_match", description="ADMIN ONLY: Set Man of the Match and display on the website")
@@ -540,11 +611,17 @@ async def man_of_the_match(interaction: discord.Interaction, player: discord.Mem
         await interaction.response.send_message("❌ Permission Denied: Only server Administrators can set Man of the Match!", ephemeral=True)
         return
 
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
+
     data = load_data()
     data["man_of_the_match"] = {"name": player.display_name, "avatar": player.display_avatar.url, "details": performance_reason}
     add_website_news(data, "MAN OF THE MATCH", f"{player.display_name} awarded Man of the Match! ({performance_reason})", "MOTM")
+    
     save_data(data)
-    await interaction.response.send_message(f"🌟 Set Man of the Match to {player.mention}!", ephemeral=True)
+    update_github_data() # 🚀 رفع البيانات
+    
+    await interaction.followup.send(f"🌟 Set Man of the Match to {player.mention}!", ephemeral=True)
 
 
 @bot.tree.command(name="team_of_the_week", description="ADMIN ONLY: Update Team of the Week (5 lineup positions) on website")
@@ -560,13 +637,19 @@ async def team_of_the_week(interaction: discord.Interaction, gk: discord.Member,
         await interaction.response.send_message("❌ Permission Denied: Only server Administrators can set Team of the Week!", ephemeral=True)
         return
 
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
+
     data = load_data()
     data["team_of_the_week"] = {
         "GK": gk.display_name, "CB": cb.display_name, "CM": cm.display_name, "LST": lst.display_name, "RST": rst.display_name
     }
     add_website_news(data, "TEAM OF THE WEEK", "The official Team of the Week lineup has been updated!", "TOTW")
+    
     save_data(data)
-    await interaction.response.send_message("⭐ Team of the Week updated on website!", ephemeral=True)
+    update_github_data() # 🚀 رفع البيانات
+    
+    await interaction.followup.send("⭐️ Team of the Week updated on website!", ephemeral=True)
 
 
 @bot.tree.command(name="restart", description="ADMIN ONLY: Reset all league data and website records")
@@ -575,12 +658,18 @@ async def restart(interaction: discord.Interaction):
         await interaction.response.send_message("❌ Permission Denied: Only server Administrators can reset league data!", ephemeral=True)
         return
 
+    # 💡 منع التعليق هنا
+    await interaction.response.defer(ephemeral=True)
+
     save_data({
         "standings": [], "news": [], "matches": [], "rosters": {},
         "last_fixtures": [], "top_scorers": {}, "top_assists": {},
         "man_of_the_match": None,
         "team_of_the_week": {"GK": "N/A", "CB": "N/A", "CM": "N/A", "LST": "N/A", "RST": "N/A"}
     })
-    await interaction.response.send_message("🔄 Data completely reset!", ephemeral=True)
+    
+    update_github_data() # 🚀 رفع البيانات
+    
+    await interaction.followup.send("🔄 Data completely reset!", ephemeral=True)
 
 bot.run(TOKEN)
