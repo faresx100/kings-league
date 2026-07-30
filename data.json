@@ -48,9 +48,9 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
-            "content": "izx (<@1315722065675948124>) signed for KL | M.E!",
+            "content": "arx (<@1444118270310482093>) signed for KL | M.E!",
             "badge": "SIGNING",
-            "timestamp": "00:12 - Jul 31"
+            "timestamp": "02:31 - Jul 31"
         },
         {
             "title": "PLAYER RELEASED",
@@ -118,7 +118,7 @@
             "roidy"
         ],
         "KL | M.E": [
-            "izx"
+            "arx"
         ]
     },
     "last_fixtures": [],
@@ -134,7 +134,6 @@
     },
     "roster_messages": {
         "TestTeam": 1532460466368942253,
-        "Al Kuwait": 1532461956936630403,
-        "KL | M.E": 1532495430330355795
+        "Al Kuwait": 1532461956936630403
     }
 }
