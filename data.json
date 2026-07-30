@@ -48,6 +48,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "xtv8 (<@1445423557801803958>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "22:05 - Jul 30"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "stx (<@1253101808726048829>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:05 - Jul 30"
@@ -104,7 +110,8 @@
         "Al Kuwait": [
             "Emperor hadi.",
             "vamp",
-            "stx"
+            "stx",
+            "xtv8"
         ]
     },
     "last_fixtures": [],
