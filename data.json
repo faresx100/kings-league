@@ -21,9 +21,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "TestTeam",
+            "abbr": "TTM",
+            "logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "TestTeam (TTM) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "21:50 - Jul 30"
+        },
         {
             "title": "PLAYER TRANSFER",
             "content": "7meedi (<@1167695822322929740>) signed for Newcastle United!",
@@ -46,13 +63,14 @@
     "matches": [],
     "rosters": {
         "Newcastle United": [
-            "𝑭𝒂𝒓𝒆𝒔.",
-            "7meedi",
-            "Ronaldinho",
-            "Ronaldinho"
+            "Fares",
+            "7meedi"
         ],
         "Arab United": [
             "Zyad"
+        ],
+        "TestTeam": [
+            "Icealdo"
         ]
     },
     "last_fixtures": [],
@@ -65,5 +83,6 @@
         "CM": "N/A",
         "LST": "N/A",
         "RST": "N/A"
-    }
+    },
+    "roster_messages": {}
 }
