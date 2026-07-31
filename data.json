@@ -37,6 +37,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "7meedi (<@1167695822322929740>) signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "16:33 - Jul 31"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Ronaldinho (<@1068177765930631220>) signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "16:32 - Jul 31"
@@ -76,12 +82,6 @@
             "content": "xtv8 (<@1445423557801803958>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:05 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "stx (<@1253101808726048829>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:05 - Jul 30"
         }
     ],
     "matches": [],
@@ -101,7 +101,8 @@
         ],
         "Newcastle United": [
             "𝑭𝒂𝒓𝒆𝒔.",
-            "Ronaldinho"
+            "Ronaldinho",
+            "7meedi"
         ]
     },
     "last_fixtures": [],
