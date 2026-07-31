@@ -1,28 +1,6 @@
 {
     "standings": [
         {
-            "name": "Newcastle United",
-            "abbr": "NCU",
-            "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532351143467028500/12-12-121.png?ex=6a6c88b6&is=6a6b3736&hm=30f09b9bf0ad49d2bfd1de62c034aa6583e993d87b217783a9867fb0d5043b3c&",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
-        },
-        {
-            "name": "Arab United",
-            "abbr": "AU",
-            "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532377275012481175/IMG_7401.png?ex=6a6ca10c&is=6a6b4f8c&hm=150e228871b9aa9cf07fefcc51b3810269354cd67d015e7fbdbb0072b3d7d8b8&",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
-        },
-        {
             "name": "TestTeam",
             "abbr": "TTM",
             "logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
@@ -48,19 +26,7 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
-            "content": "arx (<@1444118270310482093>) signed for KL | M.E!",
-            "badge": "SIGNING",
-            "timestamp": "02:31 - Jul 31"
-        },
-        {
-            "title": "PLAYER RELEASED",
-            "content": "Jst 5alid. (<@770754721459470346>) has been released from KL | M.E.",
-            "badge": "RELEASE",
-            "timestamp": "00:09 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "roidy (<@1308773851928461323>) signed for Al Kuwait!",
+            "content": "roidey (<@1308773851928461323>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:44 - Jul 30"
         },
@@ -97,13 +63,6 @@
     ],
     "matches": [],
     "rosters": {
-        "Newcastle United": [
-            "Fares",
-            "7meedi"
-        ],
-        "Arab United": [
-            "Zyad"
-        ],
         "TestTeam": [
             "Icealdo"
         ],
