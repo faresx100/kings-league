@@ -36,6 +36,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "Ronaldinho (<@1068177765930631220>) signed for KL | M.E!",
+            "badge": "SIGNING",
+            "timestamp": "12:42 - Jul 31"
+        },
+        {
             "title": "NEW TEAM JOINED",
             "content": "Newcastle United (NCU) has officially joined Kings League!",
             "badge": "NEW TEAM",
@@ -95,6 +101,9 @@
         ],
         "Newcastle United": [
             "𝑭𝒂𝒓𝒆𝒔."
+        ],
+        "KL | M.E": [
+            "Ronaldinho"
         ]
     },
     "last_fixtures": [],
@@ -110,6 +119,7 @@
     },
     "roster_messages": {
         "TestTeam": 1532460466368942253,
-        "Al Kuwait": 1532461956936630403
+        "Al Kuwait": 1532461956936630403,
+        "Newcastle United": 1532684502105591851
     }
 }
