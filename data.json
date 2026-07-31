@@ -128,7 +128,32 @@
             "timestamp": "16:53 - Jul 31"
         }
     ],
-    "matches": [],
+    "matches": [
+        {
+            "header": "Match 1",
+            "t1_name": "KWT",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
+            "t2_name": "R7",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
+            "status": "UPCOMING"
+        },
+        {
+            "header": "Match 2",
+            "t1_name": "NOR",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
+            "t2_name": "TTM",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
+            "status": "UPCOMING"
+        },
+        {
+            "header": "Match 3",
+            "t1_name": "AU",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
+            "t2_name": "NCU",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
+            "status": "UPCOMING"
+        }
+    ],
     "rosters": {
         "TestTeam": [
             "Icealdo",
@@ -162,7 +187,20 @@
             "𝐑𝐞𝐠𝐞𝐧𝐭 𝐍𝐨𝐯𝐚𝐗🇮🇶"
         ]
     },
-    "last_fixtures": [],
+    "last_fixtures": [
+        [
+            "Al Kuwait",
+            "R7 FC"
+        ],
+        [
+            "Norway",
+            "TestTeam"
+        ],
+        [
+            "Arab United",
+            "Newcastle United"
+        ]
+    ],
     "top_scorers": {},
     "top_assists": {},
     "man_of_the_match": null,
@@ -178,6 +216,7 @@
         "Al Kuwait": 1532461956936630403,
         "Newcastle United": 1532684502105591851,
         "Arab United": 1532787553999126660,
-        "R7 FC": 1532834508955717653
+        "R7 FC": 1532834508955717653,
+        "Norway": 1532856545220628523
     }
 }
