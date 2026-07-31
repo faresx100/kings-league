@@ -21,9 +21,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "Newcastle United",
+            "abbr": "NCU",
+            "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "Newcastle United (NCU) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "12:40 - Jul 31"
+        },
         {
             "title": "PLAYER TRANSFER",
             "content": "roidey (<@1308773851928461323>) signed for Al Kuwait!",
@@ -76,8 +93,8 @@
             "5alid",
             "roidy"
         ],
-        "KL | M.E": [
-            "arx"
+        "Newcastle United": [
+            "𝑭𝒂𝒓𝒆𝒔."
         ]
     },
     "last_fixtures": [],
