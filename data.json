@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "Qtr. (<@1033568284743848027>) signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "01:13 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "izer (<@1245314781200515144>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "00:50 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "M7GAM (<@860013805375455252>) signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "21:42 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "leu (<@1504555732283166863>) signed for Arab United!",
-            "badge": "SIGNING",
-            "timestamp": "19:43 - Jul 31"
         }
     ],
     "matches": [
@@ -146,7 +146,8 @@
     "rosters": {
         "TestTeam": [
             "Icealdo",
-            "Wesly"
+            "Wesly",
+            "Qtr."
         ],
         "Al Kuwait": [
             "Emperor hadi",
