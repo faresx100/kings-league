@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "frx (<@954785305305706538>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "00:45 - Aug 01"
+        },
+        {
             "title": "PLAYER RELEASED",
             "content": "Nico paz (<@1480199105639743608>) has been released from Al Kuwait.",
             "badge": "RELEASE",
@@ -109,12 +115,6 @@
             "content": "pele (<@1527520564007407667>) signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "19:32 - Jul 31"
-        },
-        {
-            "title": "NEW TEAM JOINED",
-            "content": "Arab United (AU) has officially joined Kings League!",
-            "badge": "NEW TEAM",
-            "timestamp": "19:30 - Jul 31"
         }
     ],
     "matches": [
@@ -150,12 +150,12 @@
         ],
         "Al Kuwait": [
             "Emperor hadi",
-            "Vamp",
             "Stx",
             "Xtv8",
             "Zx",
             "Joao",
-            "Roidey"
+            "Roidey",
+            "frx"
         ],
         "Newcastle United": [
             "Fares",
