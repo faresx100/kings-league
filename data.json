@@ -65,9 +65,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "Norway",
+            "abbr": "NOR",
+            "logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "Norway (NOR) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "00:04 - Aug 01"
+        },
         {
             "title": "NEW TEAM JOINED",
             "content": "R7 FC (R7) has officially joined Kings League!",
@@ -109,12 +126,6 @@
             "content": "Wesly (<@1309451520567148555>) signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "16:53 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Zane (<@1246496452243357820>) signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "16:33 - Jul 31"
         }
     ],
     "matches": [],
@@ -146,6 +157,9 @@
         ],
         "R7 FC": [
             "Mohamed"
+        ],
+        "Norway": [
+            "𝐑𝐞𝐠𝐞𝐧𝐭 𝐍𝐨𝐯𝐚𝐗🇮🇶"
         ]
     },
     "last_fixtures": [],
