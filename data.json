@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "izer (<@1245314781200515144>) signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "00:50 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "frx (<@954785305305706538>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "00:45 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "leu (<@1504555732283166863>) signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "19:43 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "pele (<@1527520564007407667>) signed for Arab United!",
-            "badge": "SIGNING",
-            "timestamp": "19:32 - Jul 31"
         }
     ],
     "matches": [
@@ -155,7 +155,8 @@
             "Zx",
             "Joao",
             "Roidey",
-            "frx"
+            "frx",
+            "izer"
         ],
         "Newcastle United": [
             "Fares",
