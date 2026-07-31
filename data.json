@@ -54,9 +54,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "R7 FC",
+            "abbr": "R7",
+            "logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "R7 FC (R7) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "22:37 - Jul 31"
+        },
         {
             "title": "NEW TEAM JOINED",
             "content": "R7 FC (R7) has officially joined Kings League!",
@@ -98,12 +115,6 @@
             "content": "Zane (<@1246496452243357820>) signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "16:33 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Ronaldinho (<@1068177765930631220>) signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "16:32 - Jul 31"
         }
     ],
     "matches": [],
@@ -152,6 +163,7 @@
         "TestTeam": 1532460466368942253,
         "Al Kuwait": 1532461956936630403,
         "Newcastle United": 1532684502105591851,
-        "Arab United": 1532787553999126660
+        "Arab United": 1532787553999126660,
+        "R7 FC": 1532834508955717653
     }
 }
