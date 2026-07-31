@@ -37,6 +37,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "Wesly (<@1309451520567148555>) signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "16:53 - Jul 31"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Zane (<@1246496452243357820>) signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "16:33 - Jul 31"
@@ -76,32 +82,28 @@
             "content": "zx (<@1362522257091592254>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:06 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "xtv8 (<@1445423557801803958>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:05 - Jul 30"
         }
     ],
     "matches": [],
     "rosters": {
         "TestTeam": [
-            "Icealdo"
+            "Icealdo",
+            "Wesly"
         ],
         "Al Kuwait": [
-            "Emperor hadi.",
-            "vamp",
-            "stx",
-            "xtv8",
-            "zx",
-            "joao",
+            "Emperor hadi",
+            "Vamp",
+            "Stx",
+            "Xtv8",
+            "Zx",
+            "Joao",
             "5alid",
-            "roidy"
+            "Roidey"
         ],
         "Newcastle United": [
-            "𝑭𝒂𝒓𝒆𝒔.",
+            "Fares",
             "Ronaldinho",
+            "7meedi",
             "Zane"
         ]
     },
