@@ -56,17 +56,6 @@
             "ga": 0
         },
         {
-            "name": "R7 FC",
-            "abbr": "R7",
-            "logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
-        },
-        {
             "name": "Norway",
             "abbr": "NOR",
             "logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
@@ -79,6 +68,12 @@
         }
     ],
     "news": [
+        {
+            "title": "PLAYER RELEASED",
+            "content": "Nico paz (<@1480199105639743608>) has been released from Al Kuwait.",
+            "badge": "RELEASE",
+            "timestamp": "00:43 - Aug 01"
+        },
         {
             "title": "NEW TEAM JOINED",
             "content": "Norway (NOR) has officially joined Kings League!",
@@ -120,12 +115,6 @@
             "content": "Arab United (AU) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "19:30 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Wesly (<@1309451520567148555>) signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "16:53 - Jul 31"
         }
     ],
     "matches": [
