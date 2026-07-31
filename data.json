@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "ItzARO signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "02:49 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Qtr. (<@1033568284743848027>) signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "01:13 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "R7 FC (R7) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "22:37 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "M7GAM (<@860013805375455252>) signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "21:42 - Jul 31"
         }
     ],
     "matches": [
@@ -164,7 +164,8 @@
             "Ronaldinho",
             "7meedi",
             "Zane",
-            "M7GAM"
+            "M7GAM",
+            "ItzARO"
         ],
         "Arab United": [
             "Zyad",
