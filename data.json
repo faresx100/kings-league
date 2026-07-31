@@ -47,6 +47,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "pele (<@1527520564007407667>) signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "19:32 - Jul 31"
+        },
+        {
             "title": "NEW TEAM JOINED",
             "content": "Arab United (AU) has officially joined Kings League!",
             "badge": "NEW TEAM",
@@ -87,12 +93,6 @@
             "content": "5alid (<@770754721459470346>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:40 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "joao (<@1506353828914663650>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:40 - Jul 30"
         }
     ],
     "matches": [],
@@ -118,7 +118,8 @@
             "Zane"
         ],
         "Arab United": [
-            "Zyad"
+            "Zyad",
+            "pele"
         ]
     },
     "last_fixtures": [],
@@ -135,6 +136,7 @@
     "roster_messages": {
         "TestTeam": 1532460466368942253,
         "Al Kuwait": 1532461956936630403,
-        "Newcastle United": 1532684502105591851
+        "Newcastle United": 1532684502105591851,
+        "Arab United": 1532787553999126660
     }
 }
