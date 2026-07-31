@@ -48,6 +48,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "leu (<@1504555732283166863>) signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "19:43 - Jul 31"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "pele (<@1527520564007407667>) signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "19:32 - Jul 31"
@@ -87,12 +93,6 @@
             "content": "roidey (<@1308773851928461323>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:44 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "5alid (<@770754721459470346>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:40 - Jul 30"
         }
     ],
     "matches": [],
@@ -119,7 +119,8 @@
         ],
         "Arab United": [
             "Zyad",
-            "pele"
+            "pele",
+            "leu"
         ]
     },
     "last_fixtures": [],
