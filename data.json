@@ -32,9 +32,26 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "Arab United",
+            "abbr": "AU",
+            "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
         }
     ],
     "news": [
+        {
+            "title": "NEW TEAM JOINED",
+            "content": "Arab United (AU) has officially joined Kings League!",
+            "badge": "NEW TEAM",
+            "timestamp": "19:30 - Jul 31"
+        },
         {
             "title": "PLAYER TRANSFER",
             "content": "Wesly (<@1309451520567148555>) signed for TestTeam!",
@@ -76,12 +93,6 @@
             "content": "joao (<@1506353828914663650>) signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "22:40 - Jul 30"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "zx (<@1362522257091592254>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:06 - Jul 30"
         }
     ],
     "matches": [],
@@ -105,6 +116,9 @@
             "Ronaldinho",
             "7meedi",
             "Zane"
+        ],
+        "Arab United": [
+            "Zyad"
         ]
     },
     "last_fixtures": [],
