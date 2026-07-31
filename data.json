@@ -48,6 +48,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "M7GAM (<@860013805375455252>) signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "21:42 - Jul 31"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "leu (<@1504555732283166863>) signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "19:43 - Jul 31"
@@ -87,12 +93,6 @@
             "content": "Newcastle United (NCU) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "12:40 - Jul 31"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "roidey (<@1308773851928461323>) signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "22:44 - Jul 30"
         }
     ],
     "matches": [],
@@ -108,14 +108,14 @@
             "Xtv8",
             "Zx",
             "Joao",
-            "5alid",
             "Roidey"
         ],
         "Newcastle United": [
             "Fares",
             "Ronaldinho",
             "7meedi",
-            "Zane"
+            "Zane",
+            "M7GAM"
         ],
         "Arab United": [
             "Zyad",
