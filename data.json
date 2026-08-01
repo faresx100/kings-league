@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "fire signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "21:17 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "leo signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "18:59 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "Cosmic signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "16:05 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Raymedo signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "14:14 - Aug 01"
         }
     ],
     "matches": [
@@ -178,7 +178,8 @@
             "leu",
             "JACK",
             "cornflix",
-            "leo"
+            "leo",
+            "fire"
         ],
         "R7 FC": [
             "Mohamed"
