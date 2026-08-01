@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "JACK signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "18:53 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "L7N signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "18:52 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "Qtr. signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "01:13 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "izer signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "00:50 - Aug 01"
         }
     ],
     "matches": [
@@ -175,7 +175,8 @@
         "Arab United": [
             "Zyad",
             "pele",
-            "leu"
+            "leu",
+            "JACK"
         ],
         "R7 FC": [
             "Mohamed"
