@@ -806,6 +806,9 @@
       </div>
 
       <div id="rules-content-game" class="rules-grid-layout"></div>
+      <div id="matches-container">
+  <!-- سيتم تعبئة المباريات الثلاث مع الشعارات تلقائياً هنا -->
+</div>
       <div id="rules-content-server" class="rules-grid-layout" style="display: none;"></div>
       <div id="rules-content-signing" class="rules-grid-layout" style="display: none;"></div>
     </section>
@@ -844,7 +847,6 @@
       document.getElementById('btn-tab-signing').classList.toggle('active', type === 'signing');
     }
 
-    // قاموس الترجمة
     const translations = {
       en: {
         "txt-sidebar-title": "Navigation Menu",
@@ -857,14 +859,6 @@
         "txt-news1-h": "Welcome to Kings League VRFS",
         "txt-news1-p": "The official portal for Kings League VRFS statistics, league standings, and regulations. Get ready for an action-packed season!",
         "txt-matches-title": "League Fixtures",
-        "txt-m1-header": "Round 1 - Match 1",
-        "txt-m1-t1": "Team A",
-        "txt-m1-t2": "Team B",
-        "txt-m1-status": "To Be Announced",
-        "txt-m2-header": "Round 1 - Match 2",
-        "txt-m2-t1": "Team C",
-        "txt-m2-t2": "Team D",
-        "txt-m2-status": "To Be Announced",
         "txt-standings-title": "League Standings",
         "txt-standings-empty": "League table is currently unavailable as the league has not officially started.",
         "txt-stats-title": "League Statistics",
@@ -899,14 +893,6 @@
         "txt-news1-h": "مرحباً بكم في كينقز ليق VRFS",
         "txt-news1-p": "البوابة الرسمية لإحصائيات، جدول ترتيب، وقوانين كينقز ليق VRFS. استعدوا لموسم مليء بالحماس والمنافسة!",
         "txt-matches-title": "جدول المباريات",
-        "txt-m1-header": "الجولة 1 - المباراة 1",
-        "txt-m1-t1": "الفريق أ",
-        "txt-m1-t2": "الفريق ب",
-        "txt-m1-status": "سيتم تحديده لاحقاً",
-        "txt-m2-header": "الجولة 1 - المباراة 2",
-        "txt-m2-t1": "الفريق ج",
-        "txt-m2-t2": "الفريق د",
-        "txt-m2-status": "سيتم تحديده لاحقاً",
         "txt-standings-title": "جدول ترتيب الدوري",
         "txt-standings-empty": "جدول الترتيب غير متوفر حالياً لأن الدوري لم يبدأ رسمياً بعد.",
         "txt-stats-title": "إحصائيات الدوري",
@@ -932,18 +918,17 @@
       }
     };
 
-    // ترجمة تلقائية لمصطلحات الأخبار القادمة من البوت عند اختيار العربية
     const newsTranslationsAr = {
       "PLAYER TRANSFER": "انتقال لاعب",
+      "PLAYER RELEASED": "فسخ عقد لاعب",
       "NEW TEAM JOINED": "انضمام فريق جديد",
       "SIGNING": "تعاقد",
+      "RELEASE": "فسخ عقد",
       "NEW TEAM": "فريق جديد",
       "MOTM": "رجل المباراة",
       "TOTW": "تشكيلة الأسبوع",
       "TOP SCORER": "هداف الدوري",
-      "UPCOMING": "قريباً",
-      "RELEASE": "فسخ عقد",
-      "LOAN": "إعارة"
+      "UPCOMING": "قريباً"
     };
 
     const fullRulesData = {
@@ -1032,7 +1017,6 @@
       });
     }
 
-    // دالة الأخبار المحدثة للتعامل مع ملف الـ JSON
     function renderNews() {
       const badgeEl = document.getElementById('txt-news1-badge');
       const titleEl = document.getElementById('txt-news1-h');
@@ -1065,7 +1049,7 @@
       }
     }
 
-    // 🌟 دالة جديدة لعرض المباريات من البوت (أمر /fixtures)
+    // دالة عرض جميع المباريات مع الشعارات تلقائياً
     function renderMatches() {
       if (!globalData || !globalData.matches) return;
 
@@ -1078,48 +1062,30 @@
             statusText = newsTranslationsAr[statusText] || 'قريباً';
           }
           matchesHTML += `
-            <div class="match-card">
-              <div class="match-header">${m.header || ('Match ' + (idx + 1))}</div>
-              <div class="match-teams">
-                <div class="match-team">
-                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 40px; height: 40px; object-fit: contain;">
-                  <span>${m.t1_name}</span>
+            <div class="match-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 15px; margin-bottom: 12px; text-align: center;">
+              <div class="match-header" style="font-size: 0.85rem; color: var(--accent-gold-bright); margin-bottom: 10px; font-weight: bold;">${m.header || ('Match ' + (idx + 1))}</div>
+              <div class="match-teams" style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
+                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 45px; height: 45px; object-fit: contain;">
+                  <span style="font-weight: bold; font-size: 0.95rem;">${m.t1_name}</span>
                 </div>
-                <div class="match-vs">VS</div>
-                <div class="match-team">
-                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 40px; height: 40px; object-fit: contain;">
-                  <span>${m.t2_name}</span>
+                <div class="match-vs" style="font-weight: 900; color: var(--text-sub); font-size: 1.1rem;">VS</div>
+                <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
+                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 45px; height: 45px; object-fit: contain;">
+                  <span style="font-weight: bold; font-size: 0.95rem;">${m.t2_name}</span>
                 </div>
               </div>
-              <div class="match-status">${statusText}</div>
+              <div class="match-status" style="font-size: 0.8rem; padding: 4px 10px; background: rgba(255,255,255,0.05); border-radius: 20px; display: inline-block; color: #aaa;">${statusText}</div>
             </div>
           `;
         });
         matchesContainer.innerHTML = matchesHTML;
-      } else {
-        // إذا كنت تستخدم عناصر ذات ID ثابت للمباراتين الأولى والثانية
-        if (globalData.matches[0]) {
-          const m1 = globalData.matches[0];
-          if (document.getElementById('txt-m1-header')) document.getElementById('txt-m1-header').innerText = m1.header;
-          if (document.getElementById('txt-m1-t1')) document.getElementById('txt-m1-t1').innerText = m1.t1_name;
-          if (document.getElementById('txt-m1-t2')) document.getElementById('txt-m1-t2').innerText = m1.t2_name;
-          if (document.getElementById('txt-m1-status')) document.getElementById('txt-m1-status').innerText = currentLang === 'ar' ? 'قريباً' : m1.status;
-        }
-        if (globalData.matches[1]) {
-          const m2 = globalData.matches[1];
-          if (document.getElementById('txt-m2-header')) document.getElementById('txt-m2-header').innerText = m2.header;
-          if (document.getElementById('txt-m2-t1')) document.getElementById('txt-m2-t1').innerText = m2.t1_name;
-          if (document.getElementById('txt-m2-t2')) document.getElementById('txt-m2-t2').innerText = m2.t2_name;
-          if (document.getElementById('txt-m2-status')) document.getElementById('txt-m2-status').innerText = currentLang === 'ar' ? 'قريباً' : m2.status;
-        }
       }
     }
 
-    // 🌟 دالة جديدة لعرض إحصائيات الهدافين، الأسيست، MOTM، و TOTW
     function renderStats() {
       if (!globalData) return;
 
-      // هدافين الدوري
       const scorersBox = document.getElementById('scorers-content');
       if (scorersBox && globalData.top_scorers) {
         const sortedScorers = Object.entries(globalData.top_scorers).sort((a, b) => b[1] - a[1]);
@@ -1133,7 +1099,6 @@
         }
       }
 
-      // صناع اللعب
       const assistsBox = document.getElementById('assists-content');
       if (assistsBox && globalData.top_assists) {
         const sortedAssists = Object.entries(globalData.top_assists).sort((a, b) => b[1] - a[1]);
@@ -1147,7 +1112,6 @@
         }
       }
 
-      // رجل المباراة (MOTM)
       const motmBox = document.getElementById('motm-content');
       if (motmBox && globalData.man_of_the_match) {
         const m = globalData.man_of_the_match;
@@ -1162,7 +1126,6 @@
         `;
       }
 
-      // تشكيلة الأسبوع (TOTW)
       const totwBox = document.getElementById('totw-content');
       if (totwBox && globalData.team_of_the_week) {
         const totw = globalData.team_of_the_week;
