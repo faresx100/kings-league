@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "E-LOAN ARRIVAL",
+            "content": "Emperor hadi. joined Newcastle United on a E-Loan! (40)",
+            "badge": "LOAN",
+            "timestamp": "22:00 - Aug 01"
+        },
+        {
             "title": "PLAYER TRANSFER",
             "content": "fire signed for Arab United!",
             "badge": "SIGNING",
@@ -109,12 +115,6 @@
             "content": "Cas signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "16:14 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Cosmic signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "16:05 - Aug 01"
         }
     ],
     "matches": [
@@ -170,7 +170,8 @@
             "M7GAM",
             "ItzARO",
             "O.Somah",
-            "L7N"
+            "L7N",
+            "Emperor hadi. (E-Loan)"
         ],
         "Arab United": [
             "Zyad",
