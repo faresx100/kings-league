@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "O.Somah signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "17:53 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Cas signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "16:14 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "frx signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "00:45 - Aug 01"
-        },
-        {
-            "title": "PLAYER RELEASED",
-            "content": "Nico paz has been released from Al Kuwait.",
-            "badge": "RELEASE",
-            "timestamp": "00:43 - Aug 01"
         }
     ],
     "matches": [
@@ -168,7 +168,8 @@
             "7meedi",
             "Zane",
             "M7GAM",
-            "ItzARO"
+            "ItzARO",
+            "O.Somah"
         ],
         "Arab United": [
             "Zyad",
