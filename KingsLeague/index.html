@@ -937,7 +937,13 @@
       "PLAYER TRANSFER": "انتقال لاعب",
       "NEW TEAM JOINED": "انضمام فريق جديد",
       "SIGNING": "تعاقد",
-      "NEW TEAM": "فريق جديد"
+      "NEW TEAM": "فريق جديد",
+      "MOTM": "رجل المباراة",
+      "TOTW": "تشكيلة الأسبوع",
+      "TOP SCORER": "هداف الدوري",
+      "UPCOMING": "قريباً",
+      "RELEASE": "فسخ عقد",
+      "LOAN": "إعارة"
     };
 
     const fullRulesData = {
@@ -1026,7 +1032,7 @@
       });
     }
 
-    // دالة الأخبار المحدثة للتعامل مع ملف الـ JSON الخاص بك بدون undefined
+    // دالة الأخبار المحدثة للتعامل مع ملف الـ JSON
     function renderNews() {
       const badgeEl = document.getElementById('txt-news1-badge');
       const titleEl = document.getElementById('txt-news1-h');
@@ -1035,15 +1041,12 @@
       if (!badgeEl || !titleEl || !descEl) return;
 
       if (globalData && globalData.news && globalData.news.length > 0) {
-        // نأخذ أول وأحدث خبر في القائمة (index 0)
         const latestNews = globalData.news[0];
 
-        // تنظيف أرقام منشن الديسكورد من النص مثل <@1167695822322929740>
         let cleanContent = (latestNews.content || latestNews.desc || '').replace(/<@[0-9]+>/g, '');
         let cleanTitle = latestNews.title || 'LATEST NEWS';
         let cleanBadge = latestNews.badge || 'NEWS';
 
-        // الترجمة للعربية في حال كان المستخدم مختار عربي
         if (currentLang === 'ar') {
           cleanTitle = newsTranslationsAr[cleanTitle] || cleanTitle;
           cleanBadge = newsTranslationsAr[cleanBadge] || cleanBadge;
@@ -1059,6 +1062,119 @@
         badgeEl.innerText = dict["txt-news1-badge"];
         titleEl.innerText = dict["txt-news1-h"];
         descEl.innerText = dict["txt-news1-p"];
+      }
+    }
+
+    // 🌟 دالة جديدة لعرض المباريات من البوت (أمر /fixtures)
+    function renderMatches() {
+      if (!globalData || !globalData.matches) return;
+
+      const matchesContainer = document.getElementById('matches-container');
+      if (matchesContainer) {
+        let matchesHTML = '';
+        globalData.matches.forEach((m, idx) => {
+          let statusText = m.status || 'UPCOMING';
+          if (currentLang === 'ar') {
+            statusText = newsTranslationsAr[statusText] || 'قريباً';
+          }
+          matchesHTML += `
+            <div class="match-card">
+              <div class="match-header">${m.header || ('Match ' + (idx + 1))}</div>
+              <div class="match-teams">
+                <div class="match-team">
+                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 40px; height: 40px; object-fit: contain;">
+                  <span>${m.t1_name}</span>
+                </div>
+                <div class="match-vs">VS</div>
+                <div class="match-team">
+                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 40px; height: 40px; object-fit: contain;">
+                  <span>${m.t2_name}</span>
+                </div>
+              </div>
+              <div class="match-status">${statusText}</div>
+            </div>
+          `;
+        });
+        matchesContainer.innerHTML = matchesHTML;
+      } else {
+        // إذا كنت تستخدم عناصر ذات ID ثابت للمباراتين الأولى والثانية
+        if (globalData.matches[0]) {
+          const m1 = globalData.matches[0];
+          if (document.getElementById('txt-m1-header')) document.getElementById('txt-m1-header').innerText = m1.header;
+          if (document.getElementById('txt-m1-t1')) document.getElementById('txt-m1-t1').innerText = m1.t1_name;
+          if (document.getElementById('txt-m1-t2')) document.getElementById('txt-m1-t2').innerText = m1.t2_name;
+          if (document.getElementById('txt-m1-status')) document.getElementById('txt-m1-status').innerText = currentLang === 'ar' ? 'قريباً' : m1.status;
+        }
+        if (globalData.matches[1]) {
+          const m2 = globalData.matches[1];
+          if (document.getElementById('txt-m2-header')) document.getElementById('txt-m2-header').innerText = m2.header;
+          if (document.getElementById('txt-m2-t1')) document.getElementById('txt-m2-t1').innerText = m2.t1_name;
+          if (document.getElementById('txt-m2-t2')) document.getElementById('txt-m2-t2').innerText = m2.t2_name;
+          if (document.getElementById('txt-m2-status')) document.getElementById('txt-m2-status').innerText = currentLang === 'ar' ? 'قريباً' : m2.status;
+        }
+      }
+    }
+
+    // 🌟 دالة جديدة لعرض إحصائيات الهدافين، الأسيست، MOTM، و TOTW
+    function renderStats() {
+      if (!globalData) return;
+
+      // هدافين الدوري
+      const scorersBox = document.getElementById('scorers-content');
+      if (scorersBox && globalData.top_scorers) {
+        const sortedScorers = Object.entries(globalData.top_scorers).sort((a, b) => b[1] - a[1]);
+        if (sortedScorers.length > 0) {
+          scorersBox.innerHTML = sortedScorers.map(([name, goals], i) => `
+            <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <span><strong>#${i+1}</strong> ${name}</span>
+              <span style="color: var(--accent-gold-bright); font-weight: bold;">${goals} ${currentLang === 'ar' ? 'أهداف' : 'Goals'}</span>
+            </div>
+          `).join('');
+        }
+      }
+
+      // صناع اللعب
+      const assistsBox = document.getElementById('assists-content');
+      if (assistsBox && globalData.top_assists) {
+        const sortedAssists = Object.entries(globalData.top_assists).sort((a, b) => b[1] - a[1]);
+        if (sortedAssists.length > 0) {
+          assistsBox.innerHTML = sortedAssists.map(([name, assists], i) => `
+            <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <span><strong>#${i+1}</strong> ${name}</span>
+              <span style="color: var(--accent-gold-bright); font-weight: bold;">${assists} ${currentLang === 'ar' ? 'صناعة' : 'Assists'}</span>
+            </div>
+          `).join('');
+        }
+      }
+
+      // رجل المباراة (MOTM)
+      const motmBox = document.getElementById('motm-content');
+      if (motmBox && globalData.man_of_the_match) {
+        const m = globalData.man_of_the_match;
+        motmBox.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+            ${m.avatar ? `<img src="${m.avatar}" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid gold;">` : ''}
+            <div>
+              <strong style="font-size: 1.1rem; color: #fff;">${m.name}</strong>
+              <div style="font-size: 0.8rem; color: #aaa;">${m.details || ''}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      // تشكيلة الأسبوع (TOTW)
+      const totwBox = document.getElementById('totw-content');
+      if (totwBox && globalData.team_of_the_week) {
+        const totw = globalData.team_of_the_week;
+        totwBox.innerHTML = `
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.9rem; margin-top: 5px;">
+            <div><strong>GK:</strong> <span style="color: gold;">${totw.GK || 'N/A'}</span></div>
+            <div><strong>CB:</strong> <span style="color: gold;">${totw.CB || 'N/A'}</span></div>
+            <div><strong>CM:</strong> <span style="color: gold;">${totw.CM || 'N/A'}</span></div>
+            <div><strong>LST:</strong> <span style="color: gold;">${totw.LST || 'N/A'}</span></div>
+            <div style="grid-column: span 2;"><strong>RST:</strong> <span style="color: gold;">${totw.RST || 'N/A'}</span></div>
+          </div>
+        `;
       }
     }
 
@@ -1129,6 +1245,8 @@
           globalData = data;
           renderNews();
           renderStandings();
+          renderMatches();
+          renderStats();
         })
         .catch(err => console.log("Data file not found or empty"));
     }
@@ -1156,6 +1274,8 @@
       renderRules();
       renderNews();
       renderStandings();
+      renderMatches();
+      renderStats();
     }
 
     document.addEventListener('DOMContentLoaded', () => {
