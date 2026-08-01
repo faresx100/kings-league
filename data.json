@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "leo signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "18:59 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "cornflix signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "18:58 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "Raymedo signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "14:14 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "ItzARO signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "02:49 - Aug 01"
         }
     ],
     "matches": [
@@ -177,7 +177,8 @@
             "pele",
             "leu",
             "JACK",
-            "cornflix"
+            "cornflix",
+            "leo"
         ],
         "R7 FC": [
             "Mohamed"
