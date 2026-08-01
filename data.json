@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "Cas signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "16:14 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Cosmic signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "16:05 - Aug 01"
@@ -88,33 +94,27 @@
         },
         {
             "title": "PLAYER TRANSFER",
-            "content": "Qtr. (<@1033568284743848027>) signed for TestTeam!",
+            "content": "Qtr. signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "01:13 - Aug 01"
         },
         {
             "title": "PLAYER TRANSFER",
-            "content": "izer (<@1245314781200515144>) signed for Al Kuwait!",
+            "content": "izer signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "00:50 - Aug 01"
         },
         {
             "title": "PLAYER TRANSFER",
-            "content": "frx (<@954785305305706538>) signed for Al Kuwait!",
+            "content": "frx signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "00:45 - Aug 01"
         },
         {
             "title": "PLAYER RELEASED",
-            "content": "Nico paz (<@1480199105639743608>) has been released from Al Kuwait.",
+            "content": "Nico paz has been released from Al Kuwait.",
             "badge": "RELEASE",
             "timestamp": "00:43 - Aug 01"
-        },
-        {
-            "title": "NEW TEAM JOINED",
-            "content": "Norway (NOR) has officially joined Kings League!",
-            "badge": "NEW TEAM",
-            "timestamp": "00:04 - Aug 01"
         }
     ],
     "matches": [
@@ -149,7 +149,8 @@
             "Wesly",
             "Qtr.",
             "Raymedo",
-            "Cosmic"
+            "Cosmic",
+            "Cas"
         ],
         "Al Kuwait": [
             "Emperor hadi",
