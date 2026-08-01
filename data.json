@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "Cosmic signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "16:05 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Raymedo signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "14:14 - Aug 01"
@@ -109,12 +115,6 @@
             "content": "Norway (NOR) has officially joined Kings League!",
             "badge": "NEW TEAM",
             "timestamp": "00:04 - Aug 01"
-        },
-        {
-            "title": "NEW TEAM JOINED",
-            "content": "R7 FC (R7) has officially joined Kings League!",
-            "badge": "NEW TEAM",
-            "timestamp": "22:37 - Jul 31"
         }
     ],
     "matches": [
@@ -148,7 +148,8 @@
             "Icealdo",
             "Wesly",
             "Qtr.",
-            "Raymedo"
+            "Raymedo",
+            "Cosmic"
         ],
         "Al Kuwait": [
             "Emperor hadi",
