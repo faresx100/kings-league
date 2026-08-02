@@ -1,6 +1,17 @@
 {
     "standings": [
         {
+            "name": "Newcastle United",
+            "abbr": "NCU",
+            "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
+            "pts": 3,
+            "mp": 1,
+            "w": 1,
+            "l": 0,
+            "gf": 15,
+            "ga": 1
+        },
+        {
             "name": "TestTeam",
             "abbr": "TTM",
             "logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
@@ -15,28 +26,6 @@
             "name": "Al Kuwait",
             "abbr": "KWT",
             "logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
-        },
-        {
-            "name": "Newcastle United",
-            "abbr": "NCU",
-            "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
-        },
-        {
-            "name": "Arab United",
-            "abbr": "AU",
-            "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
             "pts": 0,
             "mp": 0,
             "w": 0,
@@ -65,10 +54,20 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "Arab United",
+            "abbr": "AU",
+            "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
+            "pts": 0,
+            "mp": 1,
+            "w": 0,
+            "l": 1,
+            "gf": 1,
+            "ga": 15
         }
     ],
     "news": [
-
         {
             "title": "E-LOAN ARRIVAL",
             "content": "Emperor hadi. joined Newcastle United on a E-Loan! (40)",
@@ -227,8 +226,21 @@
             "Newcastle United"
         ]
     ],
-    "top_scorers": {},
-    "top_assists": {},
+    "top_scorers": {
+        "<@1157389796935745636>": 6,
+        "<@1524517651479527504>": 2,
+        "<@1068177765930631220>": 2,
+        "<@1089646058012954694>": 2,
+        "<@898567113210462229>": 1,
+        "<@1436300197377609801>": 1
+    },
+    "top_assists": {
+        "<@1524517651479527504>": 3,
+        "<@1068177765930631220>": 3,
+        "<@1157389796935745636>": 2,
+        "<@1089646058012954694>": 1,
+        "<@898567113210462229>": 1
+    },
     "man_of_the_match": null,
     "team_of_the_week": {
         "GK": "N/A",
@@ -245,6 +257,89 @@
         "R7 FC": 1532834508955717653,
         "Norway": 1532856545220628523
     },
-    "results": [],
-    "leaderboard": []
+    "results": [
+        {
+            "header": "Newcastle United vs Arab United",
+            "t1_name": "NCU",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
+            "t2_name": "AU",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
+            "score1": 15,
+            "score2": 1,
+            "scorers": [
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "ItzARO",
+                "ItzARO",
+                "Ronaldinho",
+                "Ronaldinho",
+                "Fares",
+                "Fares",
+                "O.Somah",
+                "Zyad"
+            ],
+            "assists": [
+                "ItzARO",
+                "ItzARO",
+                "ItzARO",
+                "Ronaldinho",
+                "Ronaldinho",
+                "Ronaldinho",
+                "Hadi",
+                "Hadi",
+                "Fares",
+                "O.Somah"
+            ],
+            "clean_sheets": [],
+            "possession": "Newcastle United 78% - 22% Arab United",
+            "timestamp": "19:27 - Aug 02"
+        }
+    ],
+    "leaderboard": [
+        {
+            "name": "Hadi",
+            "goals": 5,
+            "assists": 2,
+            "clean_sheets": 0,
+            "points": 12
+        },
+        {
+            "name": "ItzARO",
+            "goals": 2,
+            "assists": 3,
+            "clean_sheets": 0,
+            "points": 7
+        },
+        {
+            "name": "Ronaldinho",
+            "goals": 2,
+            "assists": 3,
+            "clean_sheets": 0,
+            "points": 7
+        },
+        {
+            "name": "Fares",
+            "goals": 2,
+            "assists": 1,
+            "clean_sheets": 0,
+            "points": 5
+        },
+        {
+            "name": "O.Somah",
+            "goals": 1,
+            "assists": 1,
+            "clean_sheets": 0,
+            "points": 3
+        },
+        {
+            "name": "Zyad",
+            "goals": 1,
+            "assists": 0,
+            "clean_sheets": 0,
+            "points": 2
+        }
+    ]
 }
