@@ -68,6 +68,7 @@
         }
     ],
     "news": [
+
         {
             "title": "E-LOAN ARRIVAL",
             "content": "Emperor hadi. joined Newcastle United on a E-Loan! (40)",
@@ -115,6 +116,30 @@
             "content": "Cas signed for TestTeam!",
             "badge": "SIGNING",
             "timestamp": "16:14 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Cosmic signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "16:05 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Raymedo signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "14:14 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "ItzARO signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "02:49 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Qtr. signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "01:13 - Aug 01"
         }
     ],
     "matches": [
@@ -170,14 +195,13 @@
             "M7GAM",
             "ItzARO",
             "O.Somah",
-            "L7N",
-            "Emperor hadi. (E-Loan)"
+            "L7N"
         ],
         "Arab United": [
             "Zyad",
             "pele",
             "leu",
-            "JACK",
+            "Jack",
             "cornflix",
             "leo",
             "fire"
@@ -220,5 +244,7 @@
         "Arab United": 1532787553999126660,
         "R7 FC": 1532834508955717653,
         "Norway": 1532856545220628523
-    }
+    },
+    "results": [],
+    "leaderboard": []
 }
