@@ -1194,12 +1194,12 @@
               <div class="match-header" style="font-size: 0.85rem; color: var(--accent-gold-bright); margin-bottom: 10px; font-weight: bold;">${m.header || ('Match ' + (idx + 1))}</div>
               <div class="match-teams" style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
                 <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
-                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 45px; height: 45px; object-fit: contain;">
+                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 45px; height: 45px; object-fit: contain;" onerror="this.onerror=null; this.src='kings_logo.png';">
                   <span style="font-weight: bold; font-size: 0.95rem;">${m.t1_name}</span>
                 </div>
                 ${centerHTML}
                 <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
-                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 45px; height: 45px; object-fit: contain;">
+                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 45px; height: 45px; object-fit: contain;" onerror="this.onerror=null; this.src='kings_logo.png';">
                   <span style="font-weight: bold; font-size: 0.95rem;">${m.t2_name}</span>
                 </div>
               </div>
@@ -1307,7 +1307,7 @@
             <tr>
               <td><strong>${index + 1}</strong></td>
               <td class="team-cell">
-                <img src="${team.logo}" alt="${team.abbr}">
+                <img src="${team.logo}" alt="${team.abbr}" onerror="this.onerror=null; this.src='kings_logo.png';">
                 <div>
                   <strong>${team.name}</strong>
                   <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
@@ -1385,12 +1385,12 @@
               <div style="font-size:0.85rem; color:var(--accent-gold); text-transform:uppercase; font-weight:bold; letter-spacing:1px; margin-bottom:10px;">${r.header || ('Match ' + (idx+1))}</div>
               <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
                 <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
-                  <img src="${r.t1_logo || ''}" alt="${r.t1_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);">
+                  <img src="${r.t1_logo || 'kings_logo.png'}" alt="${r.t1_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);" onerror="this.onerror=null; this.src='kings_logo.png';">
                   <span style="font-weight:bold;">${r.t1_name}</span>
                 </div>
                 <div style="font-size:1.8rem; font-weight:900; color:var(--accent-gold-bright); text-shadow:0 0 8px var(--gold-glow);">${r.score1} - ${r.score2}</div>
                 <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
-                  <img src="${r.t2_logo || ''}" alt="${r.t2_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);">
+                  <img src="${r.t2_logo || 'kings_logo.png'}" alt="${r.t2_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);" onerror="this.onerror=null; this.src='kings_logo.png';">
                   <span style="font-weight:bold;">${r.t2_name}</span>
                 </div>
               </div>
