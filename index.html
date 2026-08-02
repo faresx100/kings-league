@@ -673,9 +673,9 @@
     <section id="home-view" class="page-view active">
       <h2 class="section-title"><i class="fas fa-bullhorn gold-icon"></i> <span id="txt-news-title">Latest News & Matches</span></h2>
       
-      <div id="news-carousel-wrapper" style="position:relative; overflow:hidden; border-radius:16px;">
+      <div id="news-carousel-wrapper" style="position:relative; overflow:hidden; border-radius:16px; touch-action: pan-y; cursor: grab; user-select: none;">
         <div id="news-carousel" style="display:flex; transition: transform 0.5s ease;">
-          <div class="news-card" style="min-width:100%; flex-shrink:0;">
+          <div class="news-card" style="min-width:100%; flex-shrink:0; padding-left:58px; padding-right:58px;">
             <span class="news-badge" id="txt-news1-badge">Announcement</span>
             <h3 id="txt-news1-h">Welcome to Kings League VRFS</h3>
             <p id="txt-news1-p">The official portal for Kings League VRFS statistics, league standings, and regulations. Get ready for an action-packed season!</p>
@@ -942,7 +942,8 @@
       "MOTM": "رجل المباراة",
       "TOTW": "تشكيلة الأسبوع",
       "TOP SCORER": "هداف الدوري",
-      "UPCOMING": "قريباً"
+      "UPCOMING": "قريباً",
+      "FINISHED": "انتهت"
     };
 
     const fullRulesData = {
@@ -1056,7 +1057,7 @@
           }
 
           carouselHTML += `
-            <div class="news-card" style="min-width:100%; flex-shrink:0;">
+            <div class="news-card" style="min-width:100%; flex-shrink:0; padding-left:58px; padding-right:58px;">
               <span class="news-badge">${cleanBadge}</span>
               <h3>${cleanTitle}</h3>
               <p style="color:var(--text-sub); line-height:1.6; font-size:0.98rem;">${cleanContent}</p>
@@ -1081,7 +1082,7 @@
       } else {
         const dict = translations[currentLang];
         carousel.innerHTML = `
-          <div class="news-card" style="min-width:100%; flex-shrink:0;">
+          <div class="news-card" style="min-width:100%; flex-shrink:0; padding-left:58px; padding-right:58px;">
             <span class="news-badge">${dict["txt-news1-badge"]}</span>
             <h3>${dict["txt-news1-h"]}</h3>
             <p style="color:var(--text-sub); line-height:1.6; font-size:0.98rem;">${dict["txt-news1-p"]}</p>
@@ -1126,6 +1127,48 @@
       }, 5000);
     }
 
+    function initNewsSwipe() {
+      const wrapper = document.getElementById('news-carousel-wrapper');
+      if (!wrapper || wrapper.dataset.swipeBound) return;
+      wrapper.dataset.swipeBound = 'true';
+
+      let startX = 0;
+      let isDragging = false;
+
+      wrapper.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('button') || e.target.closest('#news-dots')) return;
+        isDragging = true;
+        startX = e.clientX;
+        wrapper.style.cursor = 'grabbing';
+        try { wrapper.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+
+      wrapper.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+      });
+
+      function endDrag(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        wrapper.style.cursor = 'grab';
+        const deltaX = e.clientX - startX;
+        const threshold = 40;
+        if (Math.abs(deltaX) > threshold) {
+          const rtl = document.documentElement.dir === 'rtl';
+          if (deltaX < 0) {
+            moveNewsCarousel(rtl ? -1 : 1);
+          } else {
+            moveNewsCarousel(rtl ? 1 : -1);
+          }
+        }
+      }
+
+      wrapper.addEventListener('pointerup', endDrag);
+      wrapper.addEventListener('pointercancel', endDrag);
+      wrapper.addEventListener('pointerleave', (e) => { if (isDragging) endDrag(e); });
+    }
+
     function resetNewsAutoSlide() {
       startNewsAutoSlide();
     }
@@ -1138,25 +1181,29 @@
       if (matchesContainer) {
         let matchesHTML = '';
         globalData.matches.forEach((m, idx) => {
+          const isFinished = m.status === 'FINISHED';
           let statusText = m.status || 'UPCOMING';
           if (currentLang === 'ar') {
             statusText = newsTranslationsAr[statusText] || 'قريباً';
           }
+          const centerHTML = isFinished
+            ? `<div style="font-weight: 900; color: var(--accent-gold-bright); font-size: 1.3rem; text-shadow: 0 0 8px var(--gold-glow);">${m.score1} - ${m.score2}</div>`
+            : `<div class="match-vs" style="font-weight: 900; color: var(--text-sub); font-size: 1.1rem;">VS</div>`;
           matchesHTML += `
-            <div class="match-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 15px; margin-bottom: 12px; text-align: center;">
+            <div class="match-card" style="background: rgba(255,255,255,0.03); border: 1px solid ${isFinished ? 'rgba(76,175,80,0.35)' : 'rgba(255,255,255,0.08)'}; border-radius: 12px; padding: 15px; margin-bottom: 12px; text-align: center;">
               <div class="match-header" style="font-size: 0.85rem; color: var(--accent-gold-bright); margin-bottom: 10px; font-weight: bold;">${m.header || ('Match ' + (idx + 1))}</div>
               <div class="match-teams" style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
                 <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
                   <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 45px; height: 45px; object-fit: contain;">
                   <span style="font-weight: bold; font-size: 0.95rem;">${m.t1_name}</span>
                 </div>
-                <div class="match-vs" style="font-weight: 900; color: var(--text-sub); font-size: 1.1rem;">VS</div>
+                ${centerHTML}
                 <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
                   <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 45px; height: 45px; object-fit: contain;">
                   <span style="font-weight: bold; font-size: 0.95rem;">${m.t2_name}</span>
                 </div>
               </div>
-              <div class="match-status" style="font-size: 0.8rem; padding: 4px 10px; background: rgba(255,255,255,0.05); border-radius: 20px; display: inline-block; color: #aaa;">${statusText}</div>
+              <div class="match-status" style="font-size: 0.8rem; padding: 4px 10px; background: ${isFinished ? 'rgba(76,175,80,0.15)' : 'rgba(255,255,255,0.05)'}; border-radius: 20px; display: inline-block; color: ${isFinished ? '#4caf50' : '#aaa'};">${statusText}</div>
             </div>
           `;
         });
@@ -1282,6 +1329,27 @@
       }
     }
 
+    function renderTeamResultBlock(teamName, scorers, assists, cleanSheets) {
+      const hasAny = (scorers && scorers.length) || (assists && assists.length) || (cleanSheets && cleanSheets.length);
+      if (!hasAny) return '';
+      let lines = '';
+      if (scorers && scorers.length) {
+        lines += `<div style="margin-top:6px;"><i class="fas fa-futbol" style="color:#4caf50; width:16px; text-align:center;"></i> <strong style="color:#4caf50;">${currentLang === 'ar' ? 'الهدافون' : 'Scorers'}:</strong> <span style="color:var(--text-sub);">${scorers.join(', ')}</span></div>`;
+      }
+      if (assists && assists.length) {
+        lines += `<div style="margin-top:6px;"><i class="fas fa-hands-helping" style="color:#2196f3; width:16px; text-align:center;"></i> <strong style="color:#2196f3;">${currentLang === 'ar' ? 'الصناعة' : 'Assists'}:</strong> <span style="color:var(--text-sub);">${assists.join(', ')}</span></div>`;
+      }
+      if (cleanSheets && cleanSheets.length) {
+        lines += `<div style="margin-top:6px;"><i class="fas fa-shield-halved" style="color:#9c27b0; width:16px; text-align:center;"></i> <strong style="color:#9c27b0;">${currentLang === 'ar' ? 'كلين شيت' : 'Clean Sheets'}:</strong> <span style="color:var(--text-sub);">${cleanSheets.join(', ')}</span></div>`;
+      }
+      return `
+        <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,0.03); border-radius:10px; border:1px solid var(--border-color);">
+          <div style="color:var(--accent-gold-bright); font-weight:bold; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.5px;">${teamName}</div>
+          ${lines}
+        </div>
+      `;
+    }
+
     function renderResults() {
       if (!globalData || !globalData.results || globalData.results.length === 0) return;
       const container = document.getElementById('results-container');
@@ -1289,38 +1357,31 @@
 
       let html = '';
       globalData.results.forEach((r, idx) => {
-        let scorersHTML = '';
-        if (r.scorers && r.scorers.length > 0) {
-          scorersHTML = `<div style="margin-top:10px; padding:8px 12px; background:rgba(76,175,80,0.1); border-radius:8px; border-left:3px solid #4caf50;">
-            <strong style="color:#4caf50;"><i class="fas fa-futbol"></i> ${currentLang === 'ar' ? 'الهدافون' : 'Scorers'}:</strong>
-            <span style="color:var(--text-sub);">${r.scorers.join(', ')}</span>
-          </div>`;
+        const hasTeamSplit = r.team1_scorers || r.team1_assists || r.team1_clean_sheets ||
+                              r.team2_scorers || r.team2_assists || r.team2_clean_sheets;
+
+        let detailsHTML = '';
+        if (hasTeamSplit) {
+          detailsHTML += renderTeamResultBlock(r.t1_full || r.t1_name, r.team1_scorers, r.team1_assists, r.team1_clean_sheets);
+          detailsHTML += renderTeamResultBlock(r.t2_full || r.t2_name, r.team2_scorers, r.team2_assists, r.team2_clean_sheets);
+        } else {
+          // Legacy fallback for older results saved before team-by-team grouping existed
+          if (r.scorers && r.scorers.length) detailsHTML += `<div style="margin-top:10px;"><strong style="color:#4caf50;">${currentLang === 'ar' ? 'الهدافون' : 'Scorers'}:</strong> <span style="color:var(--text-sub);">${r.scorers.join(', ')}</span></div>`;
+          if (r.assists && r.assists.length) detailsHTML += `<div style="margin-top:6px;"><strong style="color:#2196f3;">${currentLang === 'ar' ? 'الصناعة' : 'Assists'}:</strong> <span style="color:var(--text-sub);">${r.assists.join(', ')}</span></div>`;
+          if (r.clean_sheets && r.clean_sheets.length) detailsHTML += `<div style="margin-top:6px;"><strong style="color:#9c27b0;">${currentLang === 'ar' ? 'كلين شيت' : 'Clean Sheets'}:</strong> <span style="color:var(--text-sub);">${r.clean_sheets.join(', ')}</span></div>`;
         }
-        let assistsHTML = '';
-        if (r.assists && r.assists.length > 0) {
-          assistsHTML = `<div style="margin-top:6px; padding:8px 12px; background:rgba(33,150,243,0.1); border-radius:8px; border-left:3px solid #2196f3;">
-            <strong style="color:#2196f3;"><i class="fas fa-hands-helping"></i> ${currentLang === 'ar' ? 'الصانعون' : 'Assists'}:</strong>
-            <span style="color:var(--text-sub);">${r.assists.join(', ')}</span>
-          </div>`;
-        }
-        let cleanHTML = '';
-        if (r.clean_sheets && r.clean_sheets.length > 0) {
-          cleanHTML = `<div style="margin-top:6px; padding:8px 12px; background:rgba(156,39,176,0.1); border-radius:8px; border-left:3px solid #9c27b0;">
-            <strong style="color:#9c27b0;"><i class="fas fa-shield-halved"></i> ${currentLang === 'ar' ? 'كلين شيت' : 'Clean Sheets'}:</strong>
-            <span style="color:var(--text-sub);">${r.clean_sheets.join(', ')}</span>
-          </div>`;
-        }
+
         let possessionHTML = '';
         if (r.possession) {
-          possessionHTML = `<div style="margin-top:6px; padding:8px 12px; background:rgba(255,152,0,0.1); border-radius:8px; border-left:3px solid #ff9800;">
+          possessionHTML = `<div style="margin-top:12px; padding:8px 12px; background:rgba(255,152,0,0.1); border-radius:8px; border-left:3px solid #ff9800;">
             <strong style="color:#ff9800;"><i class="fas fa-chart-pie"></i> ${currentLang === 'ar' ? 'الاستحواذ' : 'Possession'}:</strong>
             <span style="color:var(--text-sub);">${r.possession}</span>
           </div>`;
         }
 
         html += `
-          <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; margin-bottom: 16px; backdrop-filter: blur(8px);">
-            <div style="text-align:center; margin-bottom:15px;">
+          <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; margin-bottom: 16px; backdrop-filter: blur(8px); cursor:pointer;" onclick="toggleResultDetails(${idx})">
+            <div style="text-align:center;">
               <div style="font-size:0.85rem; color:var(--accent-gold); text-transform:uppercase; font-weight:bold; letter-spacing:1px; margin-bottom:10px;">${r.header || ('Match ' + (idx+1))}</div>
               <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
                 <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
@@ -1333,15 +1394,32 @@
                   <span style="font-weight:bold;">${r.t2_name}</span>
                 </div>
               </div>
+              ${r.timestamp ? `<div style="margin-top:8px; color:var(--text-sub); font-size:0.78rem;">${r.timestamp}</div>` : ''}
+              <div id="result-toggle-${idx}" style="margin-top:10px; color:var(--accent-gold); font-size:0.8rem;">
+                <i class="fas fa-chevron-down"></i> ${currentLang === 'ar' ? 'اضغط لعرض التفاصيل' : 'Click to view details'}
+              </div>
             </div>
-            ${scorersHTML}
-            ${assistsHTML}
-            ${cleanHTML}
-            ${possessionHTML}
+            <div id="result-details-${idx}" style="display:none; text-align:${currentLang === 'ar' ? 'right' : 'left'};" onclick="event.stopPropagation();">
+              ${detailsHTML}
+              ${possessionHTML}
+            </div>
           </div>
         `;
       });
       container.innerHTML = html;
+    }
+
+    function toggleResultDetails(idx) {
+      const el = document.getElementById(`result-details-${idx}`);
+      const toggleLabel = document.getElementById(`result-toggle-${idx}`);
+      if (!el) return;
+      const isOpen = el.style.display !== 'none';
+      el.style.display = isOpen ? 'none' : 'block';
+      if (toggleLabel) {
+        toggleLabel.innerHTML = isOpen
+          ? `<i class="fas fa-chevron-down"></i> ${currentLang === 'ar' ? 'اضغط لعرض التفاصيل' : 'Click to view details'}`
+          : `<i class="fas fa-chevron-up"></i> ${currentLang === 'ar' ? 'اضغط للإخفاء' : 'Click to hide'}`;
+      }
     }
 
     function renderLeaderboard() {
@@ -1422,6 +1500,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage('en');
       fetchLeagueData();
+      initNewsSwipe();
     });
   </script>
 </body>
