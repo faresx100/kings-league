@@ -1,252 +1,264 @@
-
 {
-  "standings": [
-    {
-      "name": "Newcastle United",
-      "abbr": "NCU",
-      "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
-      "pts": 0,
-      "mp": 0,
-      "w": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0
-    },
-    {
-      "name": "TestTeam",
-      "abbr": "TTM",
-      "logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
-      "pts": 0,
-      "mp": 0,
-      "w": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0
-    },
-    {
-      "name": "Al Kuwait",
-      "abbr": "KWT",
-      "logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
-      "pts": 0,
-      "mp": 0,
-      "w": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0
-    },
-    {
-      "name": "R7 FC",
-      "abbr": "R7",
-      "logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
-      "pts": 0,
-      "mp": 0,
-      "w": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0
-    },
-    {
-      "name": "Norway",
-      "abbr": "NOR",
-      "logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
-      "pts": 0,
-      "mp": 0,
-      "w": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0
-    },
-    {
-      "name": "Arab United",
-      "abbr": "AU",
-      "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
-      "pts": 0,
-      "mp": 0,
-      "w": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0
-    }
-  ],
-  "news": [
-    {
-      "title": "E-LOAN ARRIVAL",
-      "content": "Emperor hadi. joined Newcastle United on a E-Loan! (40)",
-      "badge": "LOAN",
-      "timestamp": "22:00 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "fire signed for Arab United!",
-      "badge": "SIGNING",
-      "timestamp": "21:17 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "leo signed for Arab United!",
-      "badge": "SIGNING",
-      "timestamp": "18:59 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "cornflix signed for Arab United!",
-      "badge": "SIGNING",
-      "timestamp": "18:58 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "JACK signed for Arab United!",
-      "badge": "SIGNING",
-      "timestamp": "18:53 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "L7N signed for Newcastle United!",
-      "badge": "SIGNING",
-      "timestamp": "18:52 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "O.Somah signed for Newcastle United!",
-      "badge": "SIGNING",
-      "timestamp": "17:53 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "Cas signed for TestTeam!",
-      "badge": "SIGNING",
-      "timestamp": "16:14 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "Cosmic signed for TestTeam!",
-      "badge": "SIGNING",
-      "timestamp": "16:05 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "Raymedo signed for TestTeam!",
-      "badge": "SIGNING",
-      "timestamp": "14:14 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "ItzARO signed for Newcastle United!",
-      "badge": "SIGNING",
-      "timestamp": "02:49 - Aug 01"
-    },
-    {
-      "title": "PLAYER TRANSFER",
-      "content": "Qtr. signed for TestTeam!",
-      "badge": "SIGNING",
-      "timestamp": "01:13 - Aug 01"
-    }
-  ],
-  "matches": [
-    {
-      "header": "Match 1",
-      "t1_name": "KWT",
-      "t1_logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
-      "t2_name": "R7",
-      "t2_logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
-      "status": "UPCOMING"
-    },
-    {
-      "header": "Match 2",
-      "t1_name": "NOR",
-      "t1_logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
-      "t2_name": "TTM",
-      "t2_logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
-      "status": "UPCOMING"
-    },
-    {
-      "header": "Match 3",
-      "t1_name": "AU",
-      "t1_logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
-      "t2_name": "NCU",
-      "t2_logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
-      "status": "FINISHED",
-      "score1": 1,
-      "score2": 15
-    }
-  ],
-  "rosters": {
-    "TestTeam": [
-      "Icealdo",
-      "Wesly",
-      "Qtr.",
-      "Raymedo",
-      "Cosmic",
-      "Cas"
+    "standings": [
+        {
+            "name": "Newcastle United",
+            "abbr": "NCU",
+            "logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        },
+        {
+            "name": "TestTeam",
+            "abbr": "TTM",
+            "logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        },
+        {
+            "name": "Al Kuwait",
+            "abbr": "KWT",
+            "logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        },
+        {
+            "name": "R7 FC",
+            "abbr": "R7",
+            "logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        },
+        {
+            "name": "Norway",
+            "abbr": "NOR",
+            "logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        },
+        {
+            "name": "Arab United",
+            "abbr": "AU",
+            "logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
+            "pts": 0,
+            "mp": 0,
+            "w": 0,
+            "l": 0,
+            "gf": 0,
+            "ga": 0
+        }
     ],
-    "Al Kuwait": [
-      "Emperor hadi",
-      "Stx",
-      "Xtv8",
-      "Zx",
-      "Joao",
-      "Roidey",
-      "frx",
-      "izer"
+    "news": [
+        {
+            "title": "E-LOAN ARRIVAL",
+            "content": "Emperor hadi. joined Newcastle United on a E-Loan! (40)",
+            "badge": "LOAN",
+            "timestamp": "22:00 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "fire signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "21:17 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "leo signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "18:59 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "cornflix signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "18:58 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "JACK signed for Arab United!",
+            "badge": "SIGNING",
+            "timestamp": "18:53 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "L7N signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "18:52 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "O.Somah signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "17:53 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Cas signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "16:14 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Cosmic signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "16:05 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Raymedo signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "14:14 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "ItzARO signed for Newcastle United!",
+            "badge": "SIGNING",
+            "timestamp": "02:49 - Aug 01"
+        },
+        {
+            "title": "PLAYER TRANSFER",
+            "content": "Qtr. signed for TestTeam!",
+            "badge": "SIGNING",
+            "timestamp": "01:13 - Aug 01"
+        }
     ],
-    "Newcastle United": [
-      "Fares",
-      "Ronaldinho",
-      "7meedi",
-      "Zane",
-      "M7GAM",
-      "ItzARO",
-      "O.Somah",
-      "L7N"
+    "matches": [
+        {
+            "header": "Match 1",
+            "t1_name": "KWT",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1532451359922585600/1532461683644039389/IMG_7404.jpg?ex=6a6cefa9&is=6a6b9e29&hm=1607dbcb80bb8ec022d71da81c179e52f88fd4abf8a62b27c6e26d96891f8e86&",
+            "t2_name": "R7",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1532682978562408569/1532825519454683296/9811256E-70CB-4C4D-B5E3-5FF27C697C6B.png?ex=6a6e4282&is=6a6cf102&hm=8ab2a7743da21281d46d8b20432518291e333774c111013dc0844d1f0dd78263&",
+            "status": "UPCOMING"
+        },
+        {
+            "header": "Match 2",
+            "t1_name": "NOR",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1532846778561597462/1532854339779956786/0d58d7d54966a592f855a892ec1860bf.jpg?ex=6a6e5d59&is=6a6d0bd9&hm=ee7398df4cbff479d3363bce0ef6eb23a08805f4dfdaf9721c30c9603212d8ec&",
+            "t2_name": "TTM",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1532457304807571571/1532457574165774476/IMG_0262.jpg?ex=6a6cebd5&is=6a6b9a55&hm=2176e11128726b5b39d84c36b037cbc0d99c8ed10a44b44011d3743250adcf68&",
+            "status": "UPCOMING"
+        },
+        {
+            "header": "Match 3",
+            "t1_name": "AU",
+            "t1_logo": "https://cdn.discordapp.com/attachments/1532375418609602822/1532787402672701645/IMG_7401.png?ex=6a6e1f02&is=6a6ccd82&hm=67b42f61919ba3060017ac2a5ae14b7a47866b3e8e11b11197205d61c99af905&",
+            "t2_name": "NCU",
+            "t2_logo": "https://cdn.discordapp.com/attachments/1531995781047779338/1532684098563211304/IMG_7408.png?ex=6a6dbecc&is=6a6c6d4c&hm=e62cd6f99a4fb3ccffe593d293ab6728251f5887b1449dd71bedd515061fc673&",
+            "status": "FINISHED",
+            "score1": 1,
+            "score2": 15
+        }
     ],
-    "Arab United": [
-      "Zyad",
-      "pele",
-      "leu",
-      "Jack",
-      "cornflix",
-      "leo",
-      "fire"
+    "rosters": {
+        "TestTeam": [
+            "Icealdo",
+            "Wesly",
+            "Qtr.",
+            "Raymedo",
+            "Cosmic",
+            "Cas"
+        ],
+        "Al Kuwait": [
+            "Emperor hadi",
+            "Stx",
+            "Xtv8",
+            "Zx",
+            "Joao",
+            "Roidey",
+            "frx",
+            "izer"
+        ],
+        "Newcastle United": [
+            "Fares",
+            "Ronaldinho",
+            "7meedi",
+            "Zane",
+            "M7GAM",
+            "ItzARO",
+            "O.Somah",
+            "L7N"
+        ],
+        "Arab United": [
+            "Zyad",
+            "pele",
+            "leu",
+            "Jack",
+            "cornflix",
+            "leo",
+            "fire"
+        ],
+        "R7 FC": [
+            "Mohamed"
+        ],
+        "Norway": [
+            "Regent NovaX"
+        ]
+    },
+    "last_fixtures": [
+        [
+            "Al Kuwait",
+            "R7 FC"
+        ],
+        [
+            "Norway",
+            "TestTeam"
+        ],
+        [
+            "Arab United",
+            "Newcastle United"
+        ]
     ],
-    "R7 FC": [
-      "Mohamed"
-    ],
-    "Norway": [
-      "Regent NovaX"
-    ]
-  },
-  "last_fixtures": [
-    [
-      "Al Kuwait",
-      "R7 FC"
-    ],
-    [
-      "Norway",
-      "TestTeam"
-    ],
-    [
-      "Arab United",
-      "Newcastle United"
-    ]
-  ],
-  "top_scorers": {},
-  "top_assists": {},
-  "man_of_the_match": null,
-  "team_of_the_week": {
-    "GK": "N/A",
-    "CB": "N/A",
-    "CM": "N/A",
-    "LST": "N/A",
-    "RST": "N/A"
-  },
-  "roster_messages": {
-    "TestTeam": 1532460466368942300,
-    "Al Kuwait": 1532461956936630500,
-    "Newcastle United": 1532684502105591800,
-    "Arab United": 1532787553999126800,
-    "R7 FC": 1532834508955717600,
-    "Norway": 1532856545220628500
-  },
-  "results": [],
-  "leaderboard": []
+    "top_scorers": {
+        "Hadi": 5,
+        "ItzARO": 2,
+        "Ronaldinho": 2,
+        "Fares": 2,
+        "O.Somah": 1,
+        "Zyad": 1
+    },
+    "top_assists": {
+        "Hadi": 2,
+        "ItzARO": 3,
+        "Ronaldinho": 3,
+        "Fares": 1,
+        "O.Somah": 1
+    },
+    "man_of_the_match": null,
+    "team_of_the_week": {
+        "GK": "N/A",
+        "CB": "N/A",
+        "CM": "N/A",
+        "LST": "N/A",
+        "RST": "N/A"
+    },
+    "roster_messages": {
+        "TestTeam": 1532460466368942253,
+        "Al Kuwait": 1532461956936630403,
+        "Newcastle United": 1532684502105591851,
+        "Arab United": 1532787553999126660,
+        "R7 FC": 1532834508955717653,
+        "Norway": 1532856545220628523
+    },
+    "results": [],
+    "leadeerboard": []
 }
