@@ -12,31 +12,20 @@
             "ga": 1
         },
         {
-            "name": "TestTeam",
-            "abbr": "TTM",
-            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
-        },
-        {
             "name": "Al Kuwait",
             "abbr": "KWT",
             "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/KWT.png",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
+            "pts": 3,
+            "mp": 1,
+            "w": 1,
             "l": 0,
-            "gf": 0,
+            "gf": 13,
             "ga": 0
         },
         {
-            "name": "R7 FC",
-            "abbr": "R7",
-            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "name": "TestTeam",
+            "abbr": "TTM",
+            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
             "pts": 0,
             "mp": 0,
             "w": 0,
@@ -54,6 +43,17 @@
             "l": 0,
             "gf": 0,
             "ga": 0
+        },
+        {
+            "name": "R7 FC",
+            "abbr": "R7",
+            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "pts": 0,
+            "mp": 1,
+            "w": 0,
+            "l": 1,
+            "gf": 0,
+            "ga": 13
         },
         {
             "name": "Arab United",
@@ -124,7 +124,9 @@
             "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/KWT.png",
             "t2_name": "R7",
             "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
-            "status": "UPCOMING"
+            "status": "FINISHED",
+            "score1": 13,
+            "score2": 0
         },
         {
             "header": "Match 2",
@@ -205,19 +207,29 @@
         ]
     ],
     "top_scorers": {
-        "Hadi": 6,
+        "Hadi": 7,
         "ItzARO": 4,
         "Fares": 2,
         "Ronaldinho": 1,
         "O.Somah": 1,
-        "Zyad": 1
+        "Zyad": 1,
+        "Frx": 3,
+        "Xtv8": 1,
+        "Zx": 5,
+        "Joao": 1,
+        "Izer": 1,
+        "Izx": 1
     },
     "top_assists": {
-        "Hadi": 2,
+        "Hadi": 3,
         "ItzARO": 3,
         "Fares": 1,
         "Ronaldinho": 3,
-        "O.Somah": 1
+        "O.Somah": 1,
+        "Zx": 2,
+        "Joao": 1,
+        "Izer": 1,
+        "Izx": 1
     },
     "man_of_the_match": {
         "name": "Emperor hadi.",
@@ -240,6 +252,144 @@
         "Norway": 1532856545220628523
     },
     "results": [
+        {
+            "header": "Al Kuwait vs R7 FC",
+            "t1_full": "Al Kuwait",
+            "t2_full": "R7 FC",
+            "t1_name": "KWT",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/KWT.png",
+            "t2_name": "R7",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "score1": 13,
+            "score2": 0,
+            "team1_scorers": [
+                "Hadi",
+                "Frx",
+                "Frx",
+                "Frx",
+                "Xtv8",
+                "Zx",
+                "Zx",
+                "Zx",
+                "Zx",
+                "Zx",
+                "Joao",
+                "Izer",
+                "Izx"
+            ],
+            "team2_scorers": [],
+            "team1_assists": [
+                "Izx",
+                "Hadi",
+                "Joao",
+                "Zx",
+                "Zx",
+                "Izer"
+            ],
+            "team2_assists": [],
+            "team1_clean_sheets": [
+                "Izx (CB)",
+                "Joao (CB)",
+                "stx (CB)"
+            ],
+            "team2_clean_sheets": [],
+            "possession": "Al Kuwait 83% - 17% R7",
+            "timestamp": "23:53 - Aug 04",
+            "scorer_pairs": [
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "954785305305706538",
+                    "Frx"
+                ],
+                [
+                    "954785305305706538",
+                    "Frx"
+                ],
+                [
+                    "954785305305706538",
+                    "Frx"
+                ],
+                [
+                    "1445423557801803958",
+                    "Xtv8"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1506353828914663650",
+                    "Joao"
+                ],
+                [
+                    "1245314781200515144",
+                    "Izer"
+                ],
+                [
+                    "1315722065675948124",
+                    "Izx"
+                ]
+            ],
+            "assist_pairs": [
+                [
+                    "1315722065675948124",
+                    "Izx"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1506353828914663650",
+                    "Joao"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1362522257091592254",
+                    "Zx"
+                ],
+                [
+                    "1245314781200515144",
+                    "Izer"
+                ]
+            ],
+            "clean_sheet_pairs": [
+                [
+                    "1315722065675948124",
+                    "Izx"
+                ],
+                [
+                    "1506353828914663650",
+                    "Joao"
+                ],
+                [
+                    "1253101808726048829",
+                    "stx"
+                ]
+            ]
+        },
         {
             "header": "Newcastle United vs Arab United",
             "t1_full": "Newcastle United",
@@ -397,10 +547,10 @@
         {
             "id": "1157389796935745636",
             "name": "Hadi",
-            "goals": 6,
-            "assists": 2,
+            "goals": 7,
+            "assists": 3,
             "clean_sheets": 0,
-            "points": 14
+            "points": 17
         },
         {
             "id": "1524517651479527504",
@@ -441,6 +591,62 @@
             "assists": 0,
             "clean_sheets": 0,
             "points": 2
+        },
+        {
+            "id": "954785305305706538",
+            "name": "Frx",
+            "goals": 3,
+            "assists": 0,
+            "clean_sheets": 0,
+            "points": 6
+        },
+        {
+            "id": "1445423557801803958",
+            "name": "Xtv8",
+            "goals": 1,
+            "assists": 0,
+            "clean_sheets": 0,
+            "points": 2
+        },
+        {
+            "id": "1362522257091592254",
+            "name": "Zx",
+            "goals": 5,
+            "assists": 2,
+            "clean_sheets": 0,
+            "points": 12
+        },
+        {
+            "id": "1506353828914663650",
+            "name": "Joao",
+            "goals": 1,
+            "assists": 1,
+            "clean_sheets": 1,
+            "points": 8
+        },
+        {
+            "id": "1245314781200515144",
+            "name": "Izer",
+            "goals": 1,
+            "assists": 1,
+            "clean_sheets": 0,
+            "points": 3
+        },
+        {
+            "id": "1315722065675948124",
+            "name": "Izx",
+            "goals": 1,
+            "assists": 1,
+            "clean_sheets": 1,
+            "points": 8
+        },
+        {
+            "id": "1253101808726048829",
+            "name": "stx",
+            "goals": 0,
+            "assists": 0,
+            "clean_sheets": 1,
+            "points": 5
         }
     ]
 }
