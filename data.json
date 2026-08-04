@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "MAN OF THE MATCH",
+            "content": "𝓝 awarded Man of the Match! (Scored 5 goals & 2 assists)",
+            "badge": "MOTM",
+            "timestamp": "00:02 - Aug 05"
+        },
+        {
+            "title": "MAN OF THE MATCH",
             "content": "Emperor hadi. awarded Man of the Match! (Scored 6 goals & 2 assists vs Arab United)",
             "badge": "MOTM",
             "timestamp": "23:01 - Aug 04"
@@ -109,12 +115,6 @@
             "content": "L7N signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "18:52 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "O.Somah signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "17:53 - Aug 01"
         }
     ],
     "matches": [
@@ -232,9 +232,9 @@
         "Izx": 1
     },
     "man_of_the_match": {
-        "name": "Emperor hadi.",
-        "avatar": "https://cdn.discordapp.com/avatars/1157389796935745636/5b7038d41d43d8665baaed1f2c55022f.png?size=1024",
-        "details": "Scored 6 goals & 2 assists vs Arab United"
+        "name": "𝓝",
+        "avatar": "https://cdn.discordapp.com/avatars/1362522257091592254/cd25a30a3836dc8f4c37f5de5c6e93ed.png?size=1024",
+        "details": "Scored 5 goals & 2 assists"
     },
     "team_of_the_week": {
         "GK": "N/A",
