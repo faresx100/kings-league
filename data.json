@@ -26,11 +26,11 @@
             "name": "TestTeam",
             "abbr": "TTM",
             "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
+            "pts": 3,
+            "mp": 1,
+            "w": 1,
             "l": 0,
-            "gf": 0,
+            "gf": 3,
             "ga": 0
         },
         {
@@ -38,11 +38,11 @@
             "abbr": "NOR",
             "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NOR.png",
             "pts": 0,
-            "mp": 0,
+            "mp": 1,
             "w": 0,
-            "l": 0,
+            "l": 1,
             "gf": 0,
-            "ga": 0
+            "ga": 3
         },
         {
             "name": "R7 FC",
@@ -134,7 +134,9 @@
             "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NOR.png",
             "t2_name": "TTM",
             "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
-            "status": "UPCOMING"
+            "status": "FINISHED",
+            "score1": 0,
+            "score2": 3
         },
         {
             "header": "Match 3",
@@ -252,6 +254,28 @@
         "Norway": 1532856545220628523
     },
     "results": [
+        {
+            "header": "TestTeam vs Norway",
+            "t1_full": "TestTeam",
+            "t2_full": "Norway",
+            "t1_name": "TTM",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
+            "t2_name": "NOR",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NOR.png",
+            "score1": 3,
+            "score2": 0,
+            "team1_scorers": [],
+            "team2_scorers": [],
+            "team1_assists": [],
+            "team2_assists": [],
+            "team1_clean_sheets": [],
+            "team2_clean_sheets": [],
+            "possession": "",
+            "timestamp": "00:03 - Aug 05",
+            "scorer_pairs": [],
+            "assist_pairs": [],
+            "clean_sheet_pairs": []
+        },
         {
             "header": "Al Kuwait vs R7 FC",
             "t1_full": "Al Kuwait",
