@@ -34,9 +34,9 @@
             "ga": 0
         },
         {
-            "name": "Norway",
-            "abbr": "NOR",
-            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NOR.png",
+            "name": "Arab United (B)",
+            "abbr": "AUB",
+            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
             "pts": 0,
             "mp": 1,
             "w": 0,
@@ -130,8 +130,8 @@
         },
         {
             "header": "Match 2",
-            "t1_name": "NOR",
-            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NOR.png",
+            "t1_name": "AUB",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
             "t2_name": "TTM",
             "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
             "status": "FINISHED",
@@ -190,8 +190,8 @@
         "R7 FC": [
             "Mohamed"
         ],
-        "Norway": [
-            "Regent NovaX"
+        "Arab United (B)": [
+            "Manuel Neuer"
         ]
     },
     "last_fixtures": [
@@ -200,7 +200,7 @@
             "R7 FC"
         ],
         [
-            "Norway",
+            "Arab United (B)",
             "TestTeam"
         ],
         [
@@ -251,17 +251,17 @@
         "Newcastle United": 1532684502105591851,
         "Arab United": 1532787553999126660,
         "R7 FC": 1532834508955717653,
-        "Norway": 1532856545220628523
+        "Arab United (B)": 1532856545220628523
     },
     "results": [
         {
-            "header": "TestTeam vs Norway",
+            "header": "TestTeam vs Arab United (B)",
             "t1_full": "TestTeam",
-            "t2_full": "Norway",
+            "t2_full": "Arab United (B)",
             "t1_name": "TTM",
             "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
-            "t2_name": "NOR",
-            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NOR.png",
+            "t2_name": "AUB",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
             "score1": 3,
             "score2": 0,
             "team1_scorers": [],
