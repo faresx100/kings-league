@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "MAN OF THE MATCH",
+            "content": "Emperor hadi. awarded Man of the Match! (Scored 6 goals & 2 assists vs Arab United)",
+            "badge": "MOTM",
+            "timestamp": "23:01 - Aug 04"
+        },
+        {
             "title": "E-LOAN ARRIVAL",
             "content": "Emperor hadi. joined Newcastle United on a E-Loan! (40)",
             "badge": "LOAN",
@@ -109,36 +115,6 @@
             "content": "O.Somah signed for Newcastle United!",
             "badge": "SIGNING",
             "timestamp": "17:53 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Cas signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "16:14 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Cosmic signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "16:05 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Raymedo signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "14:14 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "ItzARO signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "02:49 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "Qtr. signed for TestTeam!",
-            "badge": "SIGNING",
-            "timestamp": "01:13 - Aug 01"
         }
     ],
     "matches": [
@@ -243,7 +219,11 @@
         "Ronaldinho": 3,
         "O.Somah": 1
     },
-    "man_of_the_match": null,
+    "man_of_the_match": {
+        "name": "Emperor hadi.",
+        "avatar": "https://cdn.discordapp.com/avatars/1157389796935745636/5b7038d41d43d8665baaed1f2c55022f.png?size=1024",
+        "details": "Scored 6 goals & 2 assists vs Arab United"
+    },
     "team_of_the_week": {
         "GK": "N/A",
         "CB": "N/A",
