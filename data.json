@@ -4,12 +4,12 @@
             "name": "Newcastle United",
             "abbr": "NCU",
             "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NCU.png",
-            "pts": 0,
-            "mp": 0,
-            "w": 0,
+            "pts": 3,
+            "mp": 1,
+            "w": 1,
             "l": 0,
-            "gf": 0,
-            "ga": 0
+            "gf": 15,
+            "ga": 1
         },
         {
             "name": "TestTeam",
@@ -60,11 +60,11 @@
             "abbr": "AU",
             "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AU.png",
             "pts": 0,
-            "mp": 0,
+            "mp": 1,
             "w": 0,
-            "l": 0,
-            "gf": 0,
-            "ga": 0
+            "l": 1,
+            "gf": 1,
+            "ga": 15
         }
     ],
     "news": [
@@ -164,7 +164,9 @@
             "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AU.png",
             "t2_name": "NCU",
             "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NCU.png",
-            "status": "UPCOMING"
+            "status": "FINISHED",
+            "score1": 1,
+            "score2": 15
         }
     ],
     "rosters": {
@@ -226,8 +228,21 @@
             "Newcastle United"
         ]
     ],
-    "top_scorers": {},
-    "top_assists": {},
+    "top_scorers": {
+        "Hadi": 6,
+        "ItzARO": 4,
+        "Fares": 2,
+        "Ronaldinho": 1,
+        "O.Somah": 1,
+        "Zyad": 1
+    },
+    "top_assists": {
+        "Hadi": 2,
+        "ItzARO": 3,
+        "Fares": 1,
+        "Ronaldinho": 3,
+        "O.Somah": 1
+    },
     "man_of_the_match": null,
     "team_of_the_week": {
         "GK": "N/A",
@@ -244,6 +259,208 @@
         "R7 FC": 1532834508955717653,
         "Norway": 1532856545220628523
     },
-    "results": [],
-    "leaderboard": []
+    "results": [
+        {
+            "header": "Newcastle United vs Arab United",
+            "t1_full": "Newcastle United",
+            "t2_full": "Arab United",
+            "t1_name": "NCU",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NCU.png",
+            "t2_name": "AU",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AU.png",
+            "score1": 15,
+            "score2": 1,
+            "team1_scorers": [
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "Hadi",
+                "ItzARO",
+                "ItzARO",
+                "ItzARO",
+                "ItzARO",
+                "Fares",
+                "Fares",
+                "Ronaldinho",
+                "O.Somah"
+            ],
+            "team2_scorers": [
+                "Zyad"
+            ],
+            "team1_assists": [
+                "ItzARO",
+                "ItzARO",
+                "ItzARO",
+                "Hadi",
+                "Hadi",
+                "Ronaldinho",
+                "Ronaldinho",
+                "Ronaldinho",
+                "Fares",
+                "O.Somah"
+            ],
+            "team2_assists": [],
+            "team1_clean_sheets": [],
+            "team2_clean_sheets": [],
+            "possession": "Newcastle United 79% - 21% Arab United",
+            "timestamp": "22:58 - Aug 04",
+            "scorer_pairs": [
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1089646058012954694",
+                    "Fares"
+                ],
+                [
+                    "1089646058012954694",
+                    "Fares"
+                ],
+                [
+                    "1068177765930631220",
+                    "Ronaldinho"
+                ],
+                [
+                    "898567113210462229",
+                    "O.Somah"
+                ],
+                [
+                    "1436300197377609801",
+                    "Zyad"
+                ]
+            ],
+            "assist_pairs": [
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1524517651479527504",
+                    "ItzARO"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1157389796935745636",
+                    "Hadi"
+                ],
+                [
+                    "1068177765930631220",
+                    "Ronaldinho"
+                ],
+                [
+                    "1068177765930631220",
+                    "Ronaldinho"
+                ],
+                [
+                    "1068177765930631220",
+                    "Ronaldinho"
+                ],
+                [
+                    "1089646058012954694",
+                    "Fares"
+                ],
+                [
+                    "898567113210462229",
+                    "O.Somah"
+                ]
+            ],
+            "clean_sheet_pairs": []
+        }
+    ],
+    "leaderboard": [
+        {
+            "id": "1157389796935745636",
+            "name": "Hadi",
+            "goals": 6,
+            "assists": 2,
+            "clean_sheets": 0,
+            "points": 14
+        },
+        {
+            "id": "1524517651479527504",
+            "name": "ItzARO",
+            "goals": 4,
+            "assists": 3,
+            "clean_sheets": 0,
+            "points": 11
+        },
+        {
+            "id": "1089646058012954694",
+            "name": "Fares",
+            "goals": 2,
+            "assists": 1,
+            "clean_sheets": 0,
+            "points": 5
+        },
+        {
+            "id": "1068177765930631220",
+            "name": "Ronaldinho",
+            "goals": 1,
+            "assists": 3,
+            "clean_sheets": 0,
+            "points": 5
+        },
+        {
+            "id": "898567113210462229",
+            "name": "O.Somah",
+            "goals": 1,
+            "assists": 1,
+            "clean_sheets": 0,
+            "points": 3
+        },
+        {
+            "id": "1436300197377609801",
+            "name": "Zyad",
+            "goals": 1,
+            "assists": 0,
+            "clean_sheets": 0,
+            "points": 2
+        }
+    ]
 }
