@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "TEAM OF THE WEEK",
+            "content": "The official Team of the Week lineup has been updated!",
+            "badge": "TOTW",
+            "timestamp": "00:11 - Aug 05"
+        },
+        {
             "title": "MAN OF THE MATCH",
             "content": "𝓝 awarded Man of the Match! (Scored 5 goals & 2 assists)",
             "badge": "MOTM",
@@ -109,12 +115,6 @@
             "content": "JACK signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "18:53 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "L7N signed for Newcastle United!",
-            "badge": "SIGNING",
-            "timestamp": "18:52 - Aug 01"
         }
     ],
     "matches": [
@@ -239,11 +239,11 @@
         "details": "Scored 5 goals & 2 assists"
     },
     "team_of_the_week": {
-        "GK": "N/A",
-        "CB": "N/A",
-        "CM": "N/A",
-        "LST": "N/A",
-        "RST": "N/A"
+        "GK": "Joao",
+        "CB": "𝒊𝒁ˣ",
+        "CM": "D I N H O",
+        "LST": "Emperor hadi.",
+        "RST": "𝓝"
     },
     "roster_messages": {
         "TestTeam": 1532460466368942253,
