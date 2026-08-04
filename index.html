@@ -1194,12 +1194,12 @@
               <div class="match-header" style="font-size: 0.85rem; color: var(--accent-gold-bright); margin-bottom: 10px; font-weight: bold;">${m.header || ('Match ' + (idx + 1))}</div>
               <div class="match-teams" style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
                 <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
-                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 45px; height: 45px; object-fit: contain;" onerror="this.onerror=null; this.src='kings_logo.png';">
+                  <img src="${m.t1_logo}" alt="${m.t1_name}" style="width: 45px; height: 45px; object-fit: contain;">
                   <span style="font-weight: bold; font-size: 0.95rem;">${m.t1_name}</span>
                 </div>
                 ${centerHTML}
                 <div class="match-team" style="display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40%;">
-                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 45px; height: 45px; object-fit: contain;" onerror="this.onerror=null; this.src='kings_logo.png';">
+                  <img src="${m.t2_logo}" alt="${m.t2_name}" style="width: 45px; height: 45px; object-fit: contain;">
                   <span style="font-weight: bold; font-size: 0.95rem;">${m.t2_name}</span>
                 </div>
               </div>
@@ -1219,9 +1219,13 @@
         const sortedScorers = Object.entries(globalData.top_scorers).sort((a, b) => b[1] - a[1]);
         if (sortedScorers.length > 0) {
           scorersBox.innerHTML = sortedScorers.map(([name, goals], i) => `
-            <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <span><strong>#${i+1}</strong> ${name}</span>
-              <span style="color: var(--accent-gold-bright); font-weight: bold;">${goals} ${currentLang === 'ar' ? 'أهداف' : 'Goals'}</span>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 10px 2px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <div style="flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; ${i === 0 ? 'background: var(--accent-gold-bright); color: #1a1400;' : 'background: rgba(229,169,60,0.12); border: 1px solid rgba(229,169,60,0.3); color: var(--accent-gold-bright);'}">${i+1}</div>
+              <div style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;">${name}</div>
+              <div style="flex-shrink: 0; white-space: nowrap; text-align: end;">
+                <span style="font-weight: 900; color: var(--accent-gold-bright); font-size: 1rem;">${goals}</span>
+                <span style="color: var(--text-sub); font-size: 0.75rem; margin-inline-start: 5px;">${currentLang === 'ar' ? 'هدف' : 'Goals'}</span>
+              </div>
             </div>
           `).join('');
         }
@@ -1232,9 +1236,13 @@
         const sortedAssists = Object.entries(globalData.top_assists).sort((a, b) => b[1] - a[1]);
         if (sortedAssists.length > 0) {
           assistsBox.innerHTML = sortedAssists.map(([name, assists], i) => `
-            <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <span><strong>#${i+1}</strong> ${name}</span>
-              <span style="color: var(--accent-gold-bright); font-weight: bold;">${assists} ${currentLang === 'ar' ? 'صناعة' : 'Assists'}</span>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 10px 2px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+              <div style="flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; ${i === 0 ? 'background: var(--accent-gold-bright); color: #1a1400;' : 'background: rgba(229,169,60,0.12); border: 1px solid rgba(229,169,60,0.3); color: var(--accent-gold-bright);'}">${i+1}</div>
+              <div style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600;">${name}</div>
+              <div style="flex-shrink: 0; white-space: nowrap; text-align: end;">
+                <span style="font-weight: 900; color: var(--accent-gold-bright); font-size: 1rem;">${assists}</span>
+                <span style="color: var(--text-sub); font-size: 0.75rem; margin-inline-start: 5px;">${currentLang === 'ar' ? 'صناعة' : 'Assists'}</span>
+              </div>
             </div>
           `).join('');
         }
@@ -1307,7 +1315,7 @@
             <tr>
               <td><strong>${index + 1}</strong></td>
               <td class="team-cell">
-                <img src="${team.logo}" alt="${team.abbr}" onerror="this.onerror=null; this.src='kings_logo.png';">
+                <img src="${team.logo}" alt="${team.abbr}">
                 <div>
                   <strong>${team.name}</strong>
                   <div style="color: var(--text-sub); font-size: 0.75rem;">${team.abbr}</div>
@@ -1385,12 +1393,12 @@
               <div style="font-size:0.85rem; color:var(--accent-gold); text-transform:uppercase; font-weight:bold; letter-spacing:1px; margin-bottom:10px;">${r.header || ('Match ' + (idx+1))}</div>
               <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
                 <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
-                  <img src="${r.t1_logo || 'kings_logo.png'}" alt="${r.t1_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);" onerror="this.onerror=null; this.src='kings_logo.png';">
+                  <img src="${r.t1_logo || ''}" alt="${r.t1_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);">
                   <span style="font-weight:bold;">${r.t1_name}</span>
                 </div>
                 <div style="font-size:1.8rem; font-weight:900; color:var(--accent-gold-bright); text-shadow:0 0 8px var(--gold-glow);">${r.score1} - ${r.score2}</div>
                 <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
-                  <img src="${r.t2_logo || 'kings_logo.png'}" alt="${r.t2_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);" onerror="this.onerror=null; this.src='kings_logo.png';">
+                  <img src="${r.t2_logo || ''}" alt="${r.t2_name}" style="width:50px; height:50px; border-radius:50%; object-fit:contain; background:rgba(0,0,0,0.2);">
                   <span style="font-weight:bold;">${r.t2_name}</span>
                 </div>
               </div>
