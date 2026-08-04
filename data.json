@@ -120,33 +120,27 @@
     "matches": [
         {
             "header": "Match 1",
-            "t1_name": "KWT",
-            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/KWT.png",
-            "t2_name": "R7",
-            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
-            "status": "FINISHED",
-            "score1": 13,
-            "score2": 0
+            "t1_name": "R7",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "t2_name": "AUB",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
+            "status": "UPCOMING"
         },
         {
             "header": "Match 2",
-            "t1_name": "AUB",
-            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
+            "t1_name": "AU",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AU.png",
             "t2_name": "TTM",
             "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
-            "status": "FINISHED",
-            "score1": 0,
-            "score2": 3
+            "status": "UPCOMING"
         },
         {
             "header": "Match 3",
-            "t1_name": "AU",
-            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AU.png",
-            "t2_name": "NCU",
-            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NCU.png",
-            "status": "FINISHED",
-            "score1": 1,
-            "score2": 15
+            "t1_name": "NCU",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/NCU.png",
+            "t2_name": "KWT",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/KWT.png",
+            "status": "UPCOMING"
         }
     ],
     "rosters": {
@@ -196,16 +190,16 @@
     },
     "last_fixtures": [
         [
-            "Al Kuwait",
-            "R7 FC"
-        ],
-        [
-            "Arab United (B)",
-            "TestTeam"
+            "R7 FC",
+            "Arab United (B)"
         ],
         [
             "Arab United",
-            "Newcastle United"
+            "TestTeam"
+        ],
+        [
+            "Newcastle United",
+            "Al Kuwait"
         ]
     ],
     "top_scorers": {
