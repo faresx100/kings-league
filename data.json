@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "izx signed for Al Kuwait!",
+            "badge": "SIGNING",
+            "timestamp": "15:02 - Aug 05"
+        },
+        {
             "title": "TEAM OF THE WEEK",
             "content": "The official Team of the Week lineup has been updated!",
             "badge": "TOTW",
@@ -109,12 +115,6 @@
             "content": "cornflix signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "18:58 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "JACK signed for Arab United!",
-            "badge": "SIGNING",
-            "timestamp": "18:53 - Aug 01"
         }
     ],
     "matches": [
@@ -160,7 +160,8 @@
             "Joao",
             "Roidey",
             "frx",
-            "izer"
+            "izer",
+            "izx"
         ],
         "Newcastle United": [
             "Fares",
