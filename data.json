@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "E-LOAN ARRIVAL",
+            "content": "Vamp. joined Al Kuwait on a E-Loan! (loan)",
+            "badge": "LOAN",
+            "timestamp": "21:02 - Aug 08"
+        },
+        {
             "title": "PLAYER TRANSFER",
             "content": "izx signed for Al Kuwait!",
             "badge": "SIGNING",
@@ -109,12 +115,6 @@
             "content": "leo signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "18:59 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "cornflix signed for Arab United!",
-            "badge": "SIGNING",
-            "timestamp": "18:58 - Aug 01"
         }
     ],
     "matches": [
@@ -161,7 +161,8 @@
             "Roidey",
             "frx",
             "izer",
-            "izx"
+            "izx",
+            "Vamp. (E-Loan)"
         ],
         "Newcastle United": [
             "Fares",
