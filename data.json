@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER RELEASED",
+            "content": "Regent Roidey. has been released from Al Kuwait.",
+            "badge": "RELEASE",
+            "timestamp": "22:42 - Aug 08"
+        },
+        {
             "title": "E-LOAN ARRIVAL",
             "content": "Vamp. joined Al Kuwait on a E-Loan! (loan)",
             "badge": "LOAN",
@@ -109,12 +115,6 @@
             "content": "fire signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "21:17 - Aug 01"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "leo signed for Arab United!",
-            "badge": "SIGNING",
-            "timestamp": "18:59 - Aug 01"
         }
     ],
     "matches": [
