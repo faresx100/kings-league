@@ -45,9 +45,9 @@
             "ga": 3
         },
         {
-            "name": "R7 FC",
-            "abbr": "R7",
-            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "name": "Crystal Palace",
+            "abbr": "CRY",
+            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/CRY.png",
             "pts": 0,
             "mp": 1,
             "w": 0,
@@ -120,8 +120,8 @@
     "matches": [
         {
             "header": "Match 1",
-            "t1_name": "R7",
-            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "t1_name": "CRY",
+            "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/CRY.png",
             "t2_name": "AUB",
             "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
             "status": "UPCOMING"
@@ -183,8 +183,8 @@
             "leo",
             "fire"
         ],
-        "R7 FC": [
-            "Mohamed"
+        "CRY FC": [
+            "Litro"
         ],
         "Arab United (B)": [
             "Manuel Neuer"
@@ -192,7 +192,7 @@
     },
     "last_fixtures": [
         [
-            "R7 FC",
+            "CRY FC",
             "Arab United (B)"
         ],
         [
@@ -246,7 +246,7 @@
         "Al Kuwait": 1532461956936630403,
         "Newcastle United": 1532684502105591851,
         "Arab United": 1532787553999126660,
-        "R7 FC": 1532834508955717653,
+        "CRY FC": 1532834508955717653,
         "Arab United (B)": 1532856545220628523
     },
     "results": [
@@ -273,13 +273,13 @@
             "clean_sheet_pairs": []
         },
         {
-            "header": "Al Kuwait vs R7 FC",
+            "header": "Al Kuwait vs CRY FC",
             "t1_full": "Al Kuwait",
-            "t2_full": "R7 FC",
+            "t2_full": "CRY FC",
             "t1_name": "KWT",
             "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/KWT.png",
-            "t2_name": "R7",
-            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/R7.png",
+            "t2_name": "CRY",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/CRY.png",
             "score1": 13,
             "score2": 0,
             "team1_scorers": [
@@ -313,7 +313,7 @@
                 "stx (CB)"
             ],
             "team2_clean_sheets": [],
-            "possession": "Al Kuwait 83% - 17% R7",
+            "possession": "Al Kuwait 83% - 17% CRY",
             "timestamp": "23:53 - Aug 04",
             "scorer_pairs": [
                 [
