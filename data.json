@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "PLAYER TRANSFER",
+            "content": "Baraa plays vrfs signed for Arab United (B)!",
+            "badge": "SIGNING",
+            "timestamp": "21:20 - Aug 10"
+        },
+        {
             "title": "E-LOAN ARRIVAL",
             "content": "T.Arnold joined TestTeam on a E-Loan! (n)",
             "badge": "LOAN",
@@ -109,12 +115,6 @@
             "content": "izx signed for Al Kuwait!",
             "badge": "SIGNING",
             "timestamp": "15:02 - Aug 05"
-        },
-        {
-            "title": "TEAM OF THE WEEK",
-            "content": "The official Team of the Week lineup has been updated!",
-            "badge": "TOTW",
-            "timestamp": "00:11 - Aug 05"
         }
     ],
     "matches": [
@@ -190,7 +190,8 @@
             "Litro"
         ],
         "Arab United (B)": [
-            "Manuel Neuer"
+            "Manuel Neuer",
+            "Baraa plays vrfs"
         ],
         "Crystal Palace": [
             "79 wesly (100000000000000x🍀) (E-Loan)"
