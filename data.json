@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "Chocolate signed for Arab United (B)!",
+            "badge": "SIGNING",
+            "timestamp": "21:27 - Aug 10"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Baraa plays vrfs signed for Arab United (B)!",
             "badge": "SIGNING",
             "timestamp": "21:20 - Aug 10"
@@ -109,12 +115,6 @@
             "content": "Vamp. joined Al Kuwait on a E-Loan! (loan)",
             "badge": "LOAN",
             "timestamp": "21:02 - Aug 08"
-        },
-        {
-            "title": "PLAYER TRANSFER",
-            "content": "izx signed for Al Kuwait!",
-            "badge": "SIGNING",
-            "timestamp": "15:02 - Aug 05"
         }
     ],
     "matches": [
@@ -191,7 +191,8 @@
         ],
         "Arab United (B)": [
             "Manuel Neuer",
-            "Baraa plays vrfs"
+            "Baraa plays vrfs",
+            "Chocolate"
         ],
         "Crystal Palace": [
             "79 wesly (100000000000000x🍀) (E-Loan)"
