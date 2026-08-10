@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "E-LOAN ARRIVAL",
+            "content": "T.Arnold joined TestTeam on a E-Loan! (n)",
+            "badge": "LOAN",
+            "timestamp": "19:22 - Aug 10"
+        },
+        {
             "title": "PLAYER TRANSFER",
             "content": "arx signed for Arab United!",
             "badge": "SIGNING",
@@ -109,12 +115,6 @@
             "content": "The official Team of the Week lineup has been updated!",
             "badge": "TOTW",
             "timestamp": "00:11 - Aug 05"
-        },
-        {
-            "title": "MAN OF THE MATCH",
-            "content": "𝓝 awarded Man of the Match! (Scored 5 goals & 2 assists)",
-            "badge": "MOTM",
-            "timestamp": "00:02 - Aug 05"
         }
     ],
     "matches": [
@@ -150,7 +150,8 @@
             "Qtr.",
             "Raymedo",
             "Cosmic",
-            "Cas"
+            "Cas",
+            "T.Arnold (E-Loan)"
         ],
         "Al Kuwait": [
             "Emperor hadi",
