@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "Nawaf signed for Crystal Palace!",
+            "badge": "SIGNING",
+            "timestamp": "21:10 - Aug 11"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Chocolate signed for Arab United (B)!",
             "badge": "SIGNING",
             "timestamp": "21:27 - Aug 10"
@@ -109,12 +115,6 @@
             "content": "Regent Roidey. has been released from Al Kuwait.",
             "badge": "RELEASE",
             "timestamp": "22:42 - Aug 08"
-        },
-        {
-            "title": "E-LOAN ARRIVAL",
-            "content": "Vamp. joined Al Kuwait on a E-Loan! (loan)",
-            "badge": "LOAN",
-            "timestamp": "21:02 - Aug 08"
         }
     ],
     "matches": [
@@ -187,11 +187,12 @@
             "arx"
         ],
         "Real Barca": [
-         "Nryc"
+            "Nryc"
         ],
         "Crystal Palace": [
             "Litro",
-            "79 wesly (E-Loan)"
+            "79 wesly (E-Loan)",
+            "Nawaf"
         ]
     },
     "last_fixtures": [
