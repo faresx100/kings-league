@@ -70,6 +70,12 @@
     "news": [
         {
             "title": "PLAYER TRANSFER",
+            "content": "eagle signed for Real Barca!",
+            "badge": "SIGNING",
+            "timestamp": "21:13 - Aug 11"
+        },
+        {
+            "title": "PLAYER TRANSFER",
             "content": "Nawaf signed for Crystal Palace!",
             "badge": "SIGNING",
             "timestamp": "21:10 - Aug 11"
@@ -109,12 +115,6 @@
             "content": "79 wesly (100000000000000x🍀) joined Crystal Palace on a E-Loan! (20)",
             "badge": "LOAN",
             "timestamp": "02:53 - Aug 10"
-        },
-        {
-            "title": "PLAYER RELEASED",
-            "content": "Regent Roidey. has been released from Al Kuwait.",
-            "badge": "RELEASE",
-            "timestamp": "22:42 - Aug 08"
         }
     ],
     "matches": [
@@ -187,7 +187,8 @@
             "arx"
         ],
         "Real Barca": [
-            "Nryc"
+            "Nryc",
+            "eagle"
         ],
         "Crystal Palace": [
             "Litro",
