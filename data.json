@@ -69,6 +69,12 @@
     ],
     "news": [
         {
+            "title": "LOAN ARRIVAL",
+            "content": "Kyilan Mbappé joined Real Barca on a Loan! (nawafaldo)",
+            "badge": "LOAN",
+            "timestamp": "21:15 - Aug 11"
+        },
+        {
             "title": "PLAYER TRANSFER",
             "content": "eagle signed for Real Barca!",
             "badge": "SIGNING",
@@ -109,12 +115,6 @@
             "content": "nawaf signed for Arab United!",
             "badge": "SIGNING",
             "timestamp": "18:51 - Aug 10"
-        },
-        {
-            "title": "E-LOAN ARRIVAL",
-            "content": "79 wesly (100000000000000x🍀) joined Crystal Palace on a E-Loan! (20)",
-            "badge": "LOAN",
-            "timestamp": "02:53 - Aug 10"
         }
     ],
     "matches": [
@@ -188,7 +188,8 @@
         ],
         "Real Barca": [
             "Nryc",
-            "eagle"
+            "eagle",
+            "Kyilan Mbappé (Loan)"
         ],
         "Crystal Palace": [
             "Litro",
