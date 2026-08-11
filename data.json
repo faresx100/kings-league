@@ -34,9 +34,9 @@
             "ga": 0
         },
         {
-            "name": "Arab United (B)",
-            "abbr": "AUB",
-            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
+            "name": "Real Barca",
+            "abbr": "RBFC",
+            "logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/RBFC.png",
             "pts": 0,
             "mp": 1,
             "w": 0,
@@ -186,22 +186,18 @@
             "nawaf",
             "arx"
         ],
-        "CRY FC": [
-            "Litro"
-        ],
-        "Arab United (B)": [
-            "Manuel Neuer",
-            "Baraa plays vrfs",
-            "Chocolate"
+        "Real Barca": [
+         "Nryc"
         ],
         "Crystal Palace": [
-            "79 wesly (100000000000000x🍀) (E-Loan)"
+            "Litro",
+            "79 wesly (E-Loan)"
         ]
     },
     "last_fixtures": [
         [
             "CRY FC",
-            "Arab United (B)"
+            "Real Barca"
         ],
         [
             "Arab United",
@@ -255,18 +251,18 @@
         "Newcastle United": 1532684502105591851,
         "Arab United": 1532787553999126660,
         "CRY FC": 1532834508955717653,
-        "Arab United (B)": 1532856545220628523,
+        "Real Barca": 1532856545220628523,
         "Crystal Palace": 1536160483504296019
     },
     "results": [
         {
-            "header": "TestTeam vs Arab United (B)",
+            "header": "TestTeam vs Real Barca",
             "t1_full": "TestTeam",
-            "t2_full": "Arab United (B)",
+            "t2_full": "Real Barca",
             "t1_name": "TTM",
             "t1_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/TTM.png",
             "t2_name": "AUB",
-            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/AUB.png",
+            "t2_logo": "https://raw.githubusercontent.com/faresx100/kings-league/main/logos/RBFC.png",
             "score1": 3,
             "score2": 0,
             "team1_scorers": [],
